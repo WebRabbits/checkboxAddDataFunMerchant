@@ -11,7 +11,7 @@ const trIdBody = document.querySelectorAll('tbody>tr');
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-//// Render logic11
+//// Render logic
 const thColumn = document.createElement('th');
 thColumn.innerText = 'Select a request';
 document.querySelector('thead>tr').prepend(thColumn);
