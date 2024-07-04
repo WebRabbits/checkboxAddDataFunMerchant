@@ -1,9 +1,2748 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body></body>
+<html>
+  <body class="fixed-nav browser-chrome pace-done">
+    <div class="pace pace-inactive">
+      <div
+        class="pace-progress"
+        data-progress-text="100%"
+        data-progress="99"
+        style="transform: translate3d(100%, 0px, 0px)"
+      >
+        <div class="pace-progress-inner"></div>
+      </div>
+      <div class="pace-activity"></div>
+    </div>
+    <div id="Loading" style="left: 925px; top: 468px">
+      <img
+        src="https://test.fundist.org/static20240701.2791/funtheme_inspinia//images/loader.gif"
+      />
+    </div>
+    <div id="CopyTextPopup" class="copy-text">
+      <i class="fa fa-clipboard"></i>
+      <span>Текст скопирован</span>
+    </div>
+    <div id="wrapper">
+      <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="fundist-logo">
+          <a href="https://test.fundist.org/ru/Dashboard"> </a>
+        </div>
+        <div class="fundist-logo-mini-container">
+          <a href="https://test.fundist.org">
+            <img
+              class="animated rotateIn fundist-logo-mini"
+              src="https://test.fundist.org/static20240701.2791/funtheme_inspinia//images/logos/arrow.svg"
+            />
+          </a>
+        </div>
+        <div
+          class="slimScrollDiv"
+          style="position: relative; overflow: hidden; width: auto; height: 95%"
+        >
+          <div
+            class="sidebar-collapse"
+            style="overflow: hidden; width: auto; height: 95%"
+          >
+            <div id="sidemenu-scrollable-wrapper">
+              <ul class="nav metismenu first-level-nav" id="side-menu">
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Dashboard"
+                    id="SideMenu-Dashboard"
+                    title="Админ панель"
+                  >
+                    <i class="fa fa-th-large"></i
+                    ><span class="nav-label">Админ панель</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Users"
+                    aria-expanded="true"
+                    id="SideMenu-Users"
+                    title="Управление пользователями"
+                  >
+                    <i class="fa fa-group"></i
+                    ><span class="nav-label">Управление пользователями</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Users-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users"
+                        id="SideMenu-Users-Management"
+                        title="Пользователи"
+                      >
+                        <i class="fa fa-edit"></i
+                        ><span class="nav-label">Пользователи</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/Unconfirmed"
+                        id="SideMenu-Users-Unconfirmed"
+                        title="Неподтверждённые пользователи"
+                      >
+                        <i class="fa fa-user-secret"></i
+                        ><span class="nav-label"
+                          >Неподтверждённые пользователи</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/Documents"
+                        id="SideMenu-Users-Documents"
+                        title="Документы"
+                      >
+                        <i class="fa fa-briefcase"></i
+                        ><span class="nav-label">Документы</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Freerounds"
+                        id="SideMenu-Freerounds"
+                        title="Фрираунды"
+                      >
+                        <i class="fa fa-coffee"></i
+                        ><span class="nav-label">Фрираунды</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/Categories"
+                        id="SideMenu-Users-Categories"
+                        title="Категории пользователей"
+                      >
+                        <i class="fa fa-user"></i
+                        ><span class="nav-label">Категории пользователей</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/AutoCategories"
+                        id="SideMenu-Users-AutoCategories"
+                        title="Правила автокатегоризации"
+                      >
+                        <i class="fa fa-user"></i
+                        ><span class="nav-label"
+                          >Правила автокатегоризации</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Stalls"
+                    aria-expanded="true"
+                    id="SideMenu-Stalls"
+                    title="Сайты"
+                  >
+                    <i class="fa fa-building"></i
+                    ><span class="nav-label">Сайты</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Stalls-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Stalls"
+                        id="SideMenu-Stalls-Stalls"
+                        title="Сайты"
+                      >
+                        <i class="fa fa-building"></i
+                        ><span class="nav-label">Сайты</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Stalls/CriticalBalances"
+                        id="SideMenu-StallsCriticalBalances"
+                        title="Критические балансы"
+                      >
+                        <i class="fa fa fa-exclamation-triangle"></i
+                        ><span class="nav-label">Критические балансы</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Nets"
+                    id="SideMenu-Nets"
+                    title="Сети"
+                  >
+                    <i class="fa fa-university"></i
+                    ><span class="nav-label">Сети</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Api"
+                    aria-expanded="true"
+                    id="SideMenu-Api"
+                    title="API"
+                  >
+                    <i class="fa fa-rocket"></i
+                    ><span class="nav-label">API</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Api-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api"
+                        id="SideMenu-Api-Api"
+                        title="API"
+                      >
+                        <i class="fa fa-rocket"></i
+                        ><span class="nav-label">API</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/EvoSiteID"
+                        id="SideMenu-Api-EvoSiteID"
+                        title="Evo Site ID"
+                      >
+                        <i class="fa fa-area-chart"></i
+                        ><span class="nav-label">Evo Site ID</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/Licenses"
+                        id="SideMenu-Api-Licenses"
+                        title="Лицензии"
+                      >
+                        <i class="fa fa-plane"></i
+                        ><span class="nav-label">Лицензии</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/MerchantsSettings"
+                        id="SideMenu-Api-MerchantsSettings"
+                        title="Настройки провайдеров"
+                      >
+                        <i class="fa fa-cogs"></i
+                        ><span class="nav-label">Настройки провайдеров</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/RequestViewer"
+                        id="SideMenu-Api-RequestViewer"
+                        title="Просмотр запросов"
+                      >
+                        <i class="fa fa-search"></i
+                        ><span class="nav-label">Просмотр запросов</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/DomainBlocking"
+                        id="SideMenu-Api-DomainBlocking"
+                        title="Блокировка доменов"
+                      >
+                        <i class="fa fa-lock"></i
+                        ><span class="nav-label">Блокировка доменов</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/AutoLobby"
+                        id="SideMenu-Api-AutoLobby"
+                        title="Автоматическое лобби"
+                      >
+                        <i class="fa fa-desktop"></i
+                        ><span class="nav-label">Автоматическое лобби</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Reports/Turnover"
+                    aria-expanded="true"
+                    id="SideMenu-Reports"
+                    title="Отчёты"
+                  >
+                    <i class="fa fa-bar-chart-o"></i
+                    ><span class="nav-label">Отчёты</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Reports-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/Turnover"
+                        id="SideMenu-Reports-FinancialReports"
+                        title="Финансовые отчёты"
+                      >
+                        <i class="fa fa-line-chart"></i
+                        ><span class="nav-label">Финансовые отчёты</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/PlayerIntelligence"
+                        id="SideMenu-Reports-AnalyticalReports"
+                        title="Аналитические отчеты"
+                      >
+                        <i class="fa fa-share-alt"></i
+                        ><span class="nav-label">Аналитические отчеты</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/Games"
+                        id="SideMenu-Reports-GameActivity"
+                        title="Игровая активность"
+                      >
+                        <i class="fa fa-cubes"></i
+                        ><span class="nav-label">Игровая активность</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/BetsHistory"
+                        id="SideMenu-Reports-UserReports"
+                        title="Отчёты по пользователю"
+                      >
+                        <i class="fa fa-user"></i
+                        ><span class="nav-label">Отчёты по пользователю</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/BonusTurnovers"
+                        id="SideMenu-Reports-BonusesAndLoyalty"
+                        title="Бонусы и лояльность"
+                      >
+                        <i class="fa fa-gift"></i
+                        ><span class="nav-label">Бонусы и лояльность</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/MajorWins"
+                        id="SideMenu-Reports-RiskManagement"
+                        title="Риск-менеджмент"
+                      >
+                        <i class="fa fa-tachometer"></i
+                        ><span class="nav-label">Риск-менеджмент</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/BetRadarBetting"
+                        id="SideMenu-Reports-BetRadarReports"
+                        title="Отчёты BetRadar"
+                      >
+                        <i class="fa fa-th-list"></i
+                        ><span class="nav-label">Отчёты BetRadar</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Payments/Config"
+                    aria-expanded="true"
+                    id="SideMenu-Payments"
+                    title="Платежи"
+                  >
+                    <i class="fa fa-money"></i
+                    ><span class="nav-label">Платежи</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Payments-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Payments/Config"
+                        id="SideMenu-Payments-Config"
+                        title="Настройки платежей"
+                      >
+                        <i class="fa fa-cogs"></i
+                        ><span class="nav-label">Настройки платежей</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Payments/Systems"
+                        id="SideMenu-Payments-Systems"
+                        title="Системы"
+                      >
+                        <i class="fa fa-credit-card"></i
+                        ><span class="nav-label">Системы</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Payments/Pays/Summary"
+                        id="SideMenu-Payments-Pays"
+                        title="История транзакций"
+                      >
+                        <i class="fa fa-credit-card"></i
+                        ><span class="nav-label">История транзакций</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Payments/IncompleteDeposits"
+                        id="SideMenu-Payments-Deposits"
+                        title="Незавершённые депозиты"
+                      >
+                        <i class="fa fa-money"></i
+                        ><span class="nav-label">Незавершённые депозиты</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Payments/Cashback"
+                        id="SideMenu-Payments-Cashback"
+                        title="Cashback"
+                      >
+                        <i class="fa fa-refresh"></i
+                        ><span class="nav-label">Cashback</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Banking"
+                    id="SideMenu-Banking"
+                    title="Банковский учёт"
+                  >
+                    <i class="fa fa-bar-chart-o"></i
+                    ><span class="nav-label">Банковский учёт</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Merchants/MerchantManager"
+                    aria-expanded="true"
+                    id="SideMenu-Merchants"
+                    title="Игры"
+                  >
+                    <i class="fa fa-cubes"></i
+                    ><span class="nav-label">Игры</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Merchants-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/MerchantManager"
+                        id="SideMenu-Merchants-MerchantManager"
+                        title="Управление провайдерами"
+                      >
+                        <i class="fa fa-cubes"></i
+                        ><span class="nav-label">Управление провайдерами</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Games/BettingLimits"
+                        id="SideMenu-Merchants-BetsLimits"
+                        title="Лимиты ставок"
+                      >
+                        <i class="fa fa-area-chart"></i
+                        ><span class="nav-label">Лимиты ставок</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/Games"
+                        id="SideMenu-Merchants-Games"
+                        title="Игры"
+                      >
+                        <i class="fa fa-cubes"></i
+                        ><span class="nav-label">Игры</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Games/Categories"
+                        id="SideMenu-Games-Categories"
+                        title="Категории"
+                      >
+                        <i class="fa fa-cubes"></i
+                        ><span class="nav-label">Категории</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/Sorting"
+                        id="SideMenu-Merchants-Sorting"
+                        title="Сортировки"
+                      >
+                        <i class="fa fa-trophy"></i
+                        ><span class="nav-label">Сортировки</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/Tables/Regular"
+                        id="SideMenu-Merchants-Tables"
+                        title="Столы"
+                      >
+                        <i class="fa fa-cubes"></i
+                        ><span class="nav-label">Столы</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/Countries"
+                        id="SideMenu-Merchants-Countries"
+                        title="Страны"
+                      >
+                        <i class="fa fa-globe"></i
+                        ><span class="nav-label">Страны</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/Currencies"
+                        id="SideMenu-Merchants-Currencies"
+                        title="Валюты"
+                      >
+                        <i class="fa fa-money"></i
+                        ><span class="nav-label">Валюты</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/Games/Permissions"
+                        id="SideMenu-Merchants-Games-Permissions"
+                        title="Разрешения"
+                      >
+                        <i class="fa fa-cogs"></i
+                        ><span class="nav-label">Разрешения</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/RefundReports"
+                        id="SideMenu-Merchants-Refunds"
+                        title="Рефанды"
+                      >
+                        <i class="fa fa-cogs"></i
+                        ><span class="nav-label">Рефанды</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Games/RtpExclusions"
+                        id="SideMenu-Merchants-RtpExclusions"
+                        title="RTP исключения"
+                      >
+                        <i class="fa fa-server"></i
+                        ><span class="nav-label">RTP исключения</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Sportsbook"
+                    id="SideMenu-Sportsbook"
+                    title="Спортбук"
+                  >
+                    <i class="fa fa-futbol-o"></i
+                    ><span class="nav-label">Спортбук</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Loyalty/Levels"
+                    id="SideMenu-Loyalty"
+                    title="Лояльность и бонусы"
+                  >
+                    <i class="fa fa-coffee"></i
+                    ><span class="nav-label">Лояльность и бонусы</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Crm/Contacts"
+                    id="SideMenu-Crm"
+                    title="CRM"
+                  >
+                    <i class="fa fa-calendar"></i
+                    ><span class="nav-label">CRM</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Banners"
+                    aria-expanded="true"
+                    id="SideMenu-Marketing"
+                    title="Продвижение"
+                  >
+                    <i class="fa fa-envelope"></i
+                    ><span class="nav-label">Продвижение</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Marketing-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Banners"
+                        id="SideMenu-Banners"
+                        title="Баннеры"
+                      >
+                        <i class="fa fa-picture-o"></i
+                        ><span class="nav-label">Баннеры</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/Lists/Mailing"
+                        id="SideMenu-Users-Lists"
+                        title="Настройки для рассылок"
+                      >
+                        <i class="fa fa-envelope"></i
+                        ><span class="nav-label">Настройки для рассылок</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/Lists/Templates"
+                        id="SideMenu-Users-Lists-Templates"
+                        title="Шаблоны"
+                      >
+                        <i class="fa fa-folder-open"></i
+                        ><span class="nav-label">Шаблоны</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/Lists/StallTemplatesEvents"
+                        id="SideMenu-Users-Lists-StallTemplatesEvents"
+                        title="Cобытия шаблонов"
+                      >
+                        <i class="fa fa-calendar-o"></i
+                        ><span class="nav-label">Cобытия шаблонов</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Affiliates"
+                    aria-expanded="true"
+                    id="SideMenu-AffiliatePrograms"
+                    title="Партнерки"
+                  >
+                    <i class="fa fa-users"></i
+                    ><span class="nav-label">Партнерки</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-AffiliatePrograms-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Affiliates"
+                        id="SideMenu-Affiliates"
+                        title="Управление партнерами"
+                      >
+                        <i class="fa fa-edit"></i
+                        ><span class="nav-label">Управление партнерами</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Affiliates/Settings"
+                        id="SideMenu-Affiliates-Settings"
+                        title="Настройки"
+                      >
+                        <i class="fa fa-cogs"></i
+                        ><span class="nav-label">Настройки</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Affiliates/Commissions"
+                        id="SideMenu-Affiliates-Commissions"
+                        title="Комиссии"
+                      >
+                        <i class="fa fa-usd"></i
+                        ><span class="nav-label">Комиссии</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Affiliates/Referrals"
+                        id="SideMenu-Affiliates-Referrals"
+                        title="Рефералы"
+                      >
+                        <i class="fa fa-share-alt"></i
+                        ><span class="nav-label">Рефералы</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Affiliates/Reports"
+                        id="SideMenu-Affiliates-Reports"
+                        title="Отчёты"
+                      >
+                        <i class="fa fa-bar-chart-o"></i
+                        ><span class="nav-label">Отчёты</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/ClientArea/ProvidersInfo"
+                    aria-expanded="true"
+                    id="SideMenu-ClientArea"
+                    title="Клиентам"
+                  >
+                    <i class="fa fa-exclamation-circle"></i
+                    ><span class="nav-label">Клиентам</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-ClientArea-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/ClientArea/ProvidersInfo"
+                        id="SideMenu-ClientArea-ProvidersInfo"
+                        title="Клиентам"
+                      >
+                        <i class="fa fa-exclamation-circle"></i
+                        ><span class="nav-label">Клиентам</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/ClientArea/ReleaseNotes"
+                        id="SideMenu-ClientArea-ReleaseNotes"
+                        title="Release notes"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label">Release notes</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="mm-active">
+                  <a
+                    href="https://test.fundist.org/ru/Logs"
+                    aria-expanded="true"
+                    id="SideMenu-Logs"
+                    title="Логирование"
+                  >
+                    <i class="fa fa-database"></i
+                    ><span class="nav-label">Логирование</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Logs-second-level"
+                    class="nav nav-second-level mm-collapse mm-show"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Logs"
+                        id="SideMenu-AuditLog"
+                        title="Аудит-лог"
+                      >
+                        <i class="fa fa-database"></i
+                        ><span class="nav-label">Аудит-лог</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/Logs"
+                        id="SideMenu-ApiLog"
+                        title="Лог запросов"
+                      >
+                        <i class="fa fa-database"></i
+                        ><span class="nav-label">Лог запросов</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/Requests"
+                        id="SideMenu-Requests"
+                        title="API Запросы"
+                      >
+                        <i class="fa fa-database"></i
+                        ><span class="nav-label">API Запросы</span>
+                      </a>
+                    </li>
+                    <li class="mm-active">
+                      <a
+                        href="https://test.fundist.org/ru/Support/MerchantRequests"
+                        id="SideMenu-Support-MerchantRequests"
+                        title="Анализ запросов"
+                        aria-expanded="true"
+                      >
+                        <i class="fa fa-laptop"></i
+                        ><span class="nav-label">Анализ запросов</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Support/PaymentRequests"
+                        id="SideMenu-Support-PaymentRequests"
+                        title="Платежные запросы"
+                      >
+                        <i class="fa fa-credit-card"></i
+                        ><span class="nav-label">Платежные запросы</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Logs/ApiErrors"
+                        id="SideMenu-ApiErrors"
+                        title="Ошибки API"
+                      >
+                        <i class="fa fa-database"></i
+                        ><span class="nav-label">Ошибки API</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Countries"
+                    aria-expanded="true"
+                    id="SideMenu-Settings"
+                    title="Настройки"
+                  >
+                    <i class="fa fa-cog"></i
+                    ><span class="nav-label">Настройки</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Settings-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Countries"
+                        id="SideMenu-Countries"
+                        title="Страны"
+                      >
+                        <i class="fa fa-globe"></i
+                        ><span class="nav-label">Страны</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Currencies"
+                        id="SideMenu-Currencies"
+                        title="Валюты"
+                      >
+                        <i class="fa fa-money"></i
+                        ><span class="nav-label">Валюты</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Languages"
+                        id="SideMenu-Languages"
+                        title="Языки"
+                      >
+                        <i class="fa fa-language"></i
+                        ><span class="nav-label">Языки</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/DocumentTypes"
+                        id="SideMenu-DocumentTypes"
+                        title="Типы документов"
+                      >
+                        <i class="fa fa-briefcase"></i
+                        ><span class="nav-label">Типы документов</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/PassChange"
+                        id="SideMenu-PassChange"
+                        title="Сменить пароль"
+                      >
+                        <i class="fa fa-laptop"></i
+                        ><span class="nav-label">Сменить пароль</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/News"
+                        id="SideMenu-News"
+                        title="Новости"
+                      >
+                        <i class="fa fa-newspaper-o"></i
+                        ><span class="nav-label">Новости</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/IPBlocks"
+                        id="SideMenu-IPBlocks"
+                        title="IP Блок"
+                      >
+                        <i class="fa fa-shield"></i
+                        ><span class="nav-label">IP Блок</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Acl"
+                        id=""
+                        title="Права доступа"
+                      >
+                        <i class="fa fa-key"></i
+                        ><span class="nav-label">Права доступа</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/APCMonitor"
+                        id="SideMenu-APCMonitor"
+                        title="APC монитор"
+                      >
+                        <i class="fa fa-cogs"></i
+                        ><span class="nav-label">APC монитор</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/GeoipPatch"
+                        id="SideMenu-GeoipPatch"
+                        title="Geoip исключения"
+                      >
+                        <i class="fa fa-map-marker"></i
+                        ><span class="nav-label">Geoip исключения</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Licenses"
+                        id="SideMenu-Licenses"
+                        title="Лицензии"
+                      >
+                        <i class="fa fa-certificate"></i
+                        ><span class="nav-label">Лицензии</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/RegistrationRestrictions"
+                        id="SideMenu-RegistrationRestrictions"
+                        title="Ограничения регистраций"
+                      >
+                        <i class="fa fa-map-signs"></i
+                        ><span class="nav-label">Ограничения регистраций</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Chat/Moderation"
+                        id="SideMenu-Settings-ChatModeration"
+                        title="Модерация чата"
+                      >
+                        <i class="fa fa-comments-o"></i
+                        ><span class="nav-label">Модерация чата</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/ClientsProviders/Providers"
+                    aria-expanded="true"
+                    id="SideMenu-Other"
+                    title="Другое"
+                  >
+                    <i class="fa fa-cog"></i
+                    ><span class="nav-label">Другое</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Other-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/ClientsProviders/Providers"
+                        id="SideMenu-ClientsProviders/Providers"
+                        title="ClientsProviders/Providers"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label"
+                          >ClientsProviders/Providers</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/ManualWithdrawalVerification"
+                        id="SideMenu-Users/ManualWithdrawalVerification"
+                        title="Users/ManualWithdrawalVerification"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label"
+                          >Users/ManualWithdrawalVerification</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Jackpots/JackpotList"
+                        id="SideMenu-Jackpots/JackpotList"
+                        title="Jackpots/JackpotList"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label">Jackpots/JackpotList</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Jackpots/JackpotList/JackpotBettingStatistics"
+                        id="SideMenu-Jackpots/JackpotList/JackpotBettingStatistics"
+                        title="Jackpots/JackpotList/JackpotBettingStatistics"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label"
+                          >Jackpots/JackpotList/JackpotBettingStatistics</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/RestrictedNicknames"
+                        id="SideMenu-RestrictedNicknames"
+                        title="Список запрещённых ников"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label">Список запрещённых ников</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Games/RtpExclusions"
+                        id="SideMenu-Games/RtpExclusions"
+                        title="Games/RtpExclusions"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label">Games/RtpExclusions</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="slimScrollBar"
+            style="
+              background: rgb(0, 0, 0);
+              width: 7px;
+              position: absolute;
+              top: 0px;
+              opacity: 0.4;
+              display: block;
+              border-radius: 7px;
+              z-index: 99;
+              right: 1px;
+              height: 769.543px;
+            "
+          ></div>
+          <div
+            class="slimScrollRail"
+            style="
+              width: 7px;
+              height: 100%;
+              position: absolute;
+              top: 0px;
+              display: none;
+              border-radius: 7px;
+              background: rgb(51, 51, 51);
+              opacity: 0.2;
+              z-index: 90;
+              right: 1px;
+            "
+          ></div>
+        </div>
+      </nav>
+      <div id="page-wrapper" class="gray-bg" style="min-height: 876px">
+        <div class="navbar-container-sticky">
+          <nav
+            style=""
+            id="WelcomeNav"
+            class="navbar navbar-fixed-top fun-navbar"
+            role="navigation"
+          >
+            <div>
+              <button
+                class="fun-btn-burger"
+                id="NavBarBtn"
+                onclick="javascript:setNavBarCockie()"
+                title="Скрыть меню"
+              ></button>
+            </div>
+            <div class="nav nav-buttons">
+              <div class="nav-buttons__left">
+                <div class="fun-nav-today">
+                  <span id="WelcomeDateLabel">Сегодня:</span>
+                  <span id="WelcomeDate" class="text-highlight"
+                    >1 июля 2024 г.</span
+                  >
+                </div>
+                <div class="fun-nav-fundisttime">
+                  <span id="WelcomeTimeLabel">&nbsp;Время UTC:</span>
+                  <span id="WelcomeTime" class="text-highlight">17:53:22</span>
+                </div>
+              </div>
+              <div class="nav-buttons__right">
+                <div class="fun-nav-username">
+                  <span id="WelcomeLevel" class="hidden-xs"
+                    >Администратор:</span
+                  >
+                  <span id="CurrentLogin" class="text-highlight"
+                    >roman_admin</span
+                  >
+                </div>
+                <div class="balance fun-nav-balance">
+                  <span id="WelcomeBalanceLabel">баланс:</span>
+                  <span class="text-highlight"
+                    ><span id="WelcomeBalance">1000000.00</span> EUR</span
+                  >
+                </div>
+                <div class="nav-buttons-lang">
+                  <div class="fun-lang-select">
+                    <select
+                      id="lang_select"
+                      class="form-control select2-hidden-accessible"
+                      tabindex="-1"
+                      aria-hidden="true"
+                    >
+                      <option value="en">English</option>
+                      <option value="ru" selected="">Русский</option>
+                      <option value="tr">Türkçe</option>
+                      <option value="de">Deutsch</option>
+                      <option value="cn">简体中文</option>
+                      <option value="ko">한국어</option>
+                      <option value="ja">日本語</option>
+                      <option value="pt-br" [:pt-bractive:]="">
+                        Português do Brasil
+                      </option></select
+                    ><span
+                      class="select2 select2-container select2-container--default"
+                      dir="ltr"
+                      style="width: 100%"
+                      ><span class="selection"
+                        ><span
+                          class="select2-selection select2-selection--single"
+                          role="combobox"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                          tabindex="0"
+                          aria-labelledby="select2-lang_select-container"
+                          ><span
+                            class="select2-selection__rendered"
+                            id="select2-lang_select-container"
+                            title="Русский"
+                            >Русский</span
+                          ><span
+                            class="select2-selection__arrow"
+                            role="presentation"
+                            ><b role="presentation"></b></span></span></span
+                      ><span class="dropdown-wrapper" aria-hidden="true"></span
+                    ></span>
+                  </div>
+                  <div class="fun-nav-logout">
+                    <button
+                      id="LogoutButton"
+                      class="btn btn-default btn-default-nav"
+                      title="Выход"
+                      onclick="window.location.href='https://test.fundist.org/ru/Logout';"
+                    >
+                      <i class="fa fa-lg fa-sign-out"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <style type="text/css">
+          tr.error {
+            color: red;
+          }
+
+          .state-ok {
+            color: green;
+          }
+
+          .state-error {
+            color: red;
+          }
+
+          .row-table-col-id {
+            display: flex !important;
+          }
+
+          .row-table-col-id .inline-checkbox {
+            margin-right: 8px;
+          }
+
+          .row-table-col-id .inline-checkbox input[type='checkbox'] {
+            width: 18px;
+            height: 18px;
+            top: 0;
+          }
+
+          .ibox-footer {
+            display: flex;
+            padding: 18px 20px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+          }
+
+          .ibox-footer .btn-copy {
+            border-radius: 3px;
+            display: flex;
+            padding: 7px 30px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px; /* 142.857% */
+            white-space: normal;
+            word-wrap: break-word;
+          }
+
+          @media (max-width: 768px) {
+            .ibox-footer .btn-copy {
+              padding: 7px 7px;
+            }
+          }
+
+          td[name='col-ID'],
+          td[name='col-Data'],
+          td[name='col-Datetime'],
+          td[name='col-Response'],
+          td[name='col-Comment'] {
+            vertical-align: top !important;
+          }
+
+          .data-no-opacity {
+            display: none;
+            opacity: 0;
+          }
+        </style>
+        <div class="fun-page-header fun-page-header--default">
+          <h2 class="fun-page-header__title" id="PageTitle">Журнал запросов</h2>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+          <div class="row">
+            <form
+              id="FilterForm"
+              action="https://test.fundist.org/ru/Support/MerchantRequests/Find"
+              onsubmit="return MRCheck(this)"
+            >
+              <div class="row m-b-sm" id="Filter" style="margin: 0">
+                <div
+                  class="col-md-2 padding-right-0 padding-left-10"
+                  style="padding-left: 0"
+                >
+                  <select
+                    class="form-control select2-hidden-accessible"
+                    id="reqSystemId"
+                    name="reqSystemId"
+                    tabindex="-1"
+                    aria-hidden="true"
+                  >
+                    <option value="300">300 BGC</option>
+                    <option value="924">924 3 Oaks Gaming</option>
+                    <option value="843">843 7777Gaming</option>
+                    <option value="863">863 AESexyBaccarat</option>
+                    <option value="845">845 AGTSoftware</option>
+                    <option value="928">928 Ainsworth</option>
+                    <option value="905">905 AirDice</option>
+                    <option value="908">908 Altenar</option>
+                    <option value="975">975 Amatic</option>
+                    <option value="989">989 Amatic</option>
+                    <option value="954">954 Amusnet</option>
+                    <option value="950">950 Apollo</option>
+                    <option value="967">967 AsiaGaming</option>
+                    <option value="855">855 AsiaGamingSlots</option>
+                    <option value="966">966 AsiaLiveTech</option>
+                    <option value="906">906 Atmosfera</option>
+                    <option value="971">971 AuthenticGaming</option>
+                    <option value="901">901 BGaming</option>
+                    <option value="962">962 BTI</option>
+                    <option value="914">914 BeeFee</option>
+                    <option value="956">956 Belatra</option>
+                    <option value="993">993 BetConstructSpring</option>
+                    <option value="883">883 BetFair</option>
+                    <option value="990">990 BetGames.tv</option>
+                    <option value="958">958 BetRadar</option>
+                    <option value="991">991 BetSoft</option>
+                    <option value="882">882 BetSolutions</option>
+                    <option value="854">854 Betconstruct CasinoGames</option>
+                    <option value="865">865 BeterLive</option>
+                    <option value="952">952 BetradarVS</option>
+                    <option value="888">888 Big Time Gaming</option>
+                    <option value="977">977 BoomingGames</option>
+                    <option value="923">923 CQ9</option>
+                    <option value="885">885 CT Interactive</option>
+                    <option value="929">929 ConceptGaming</option>
+                    <option value="875">875 Dare</option>
+                    <option value="972">972 Digitain</option>
+                    <option value="829">829 DigitainCG</option>
+                    <option value="833">833 EGTDigital</option>
+                    <option value="925">925 ELKStudios</option>
+                    <option value="948">948 Edict</option>
+                    <option value="973">973 Endorphina</option>
+                    <option value="856">856 EspressoGames</option>
+                    <option value="864">864 EurasianGaming</option>
+                    <option value="965">965 EvenBet Poker</option>
+                    <option value="859">859 EvenbetNetworkPoker</option>
+                    <option value="892">892 EvoOSS</option>
+                    <option value="836">836 EvoOSSAsia</option>
+                    <option value="998">998 Evolution</option>
+                    <option value="940">940 Evoplay</option>
+                    <option value="983">983 Ezugi</option>
+                    <option value="827">827 Fa Chai</option>
+                    <option value="927">927 Fugaso</option>
+                    <option value="821">821 Gabsys</option>
+                    <option value="955">955 GameArt</option>
+                    <option value="824">824 GameBeat</option>
+                    <option value="997">997 Games Global</option>
+                    <option value="848">848 GamingCorps</option>
+                    <option value="879">879 Gamzix</option>
+                    <option value="932">932 Ganapati</option>
+                    <option value="868">868 GenericMerchant</option>
+                    <option value="930">930 Genii</option>
+                    <option value="985">985 GoldenRace</option>
+                    <option value="873">873 Greentube</option>
+                    <option value="976">976 Habanero</option>
+                    <option value="850">850 HacksawGaming</option>
+                    <option value="904">904 HoGaming</option>
+                    <option value="871">871 HollywoodTV</option>
+                    <option value="876">876 IGTech</option>
+                    <option value="963">963 ISoftBet</option>
+                    <option value="926">926 Igrosoft</option>
+                    <option value="834">834 JDB</option>
+                    <option value="884">884 JetGames</option>
+                    <option value="878">878 Jinn</option>
+                    <option value="881">881 JustPlay</option>
+                    <option value="898">898 Kaga</option>
+                    <option value="874">874 Kalamba</option>
+                    <option value="974">974 Kiron</option>
+                    <option value="957">957 Lady Luck Games</option>
+                    <option value="931">931 Leander CasinoGames</option>
+                    <option value="936">936 LiveG24</option>
+                    <option value="934">934 LiveGames</option>
+                    <option value="831">831 LiveSpins</option>
+                    <option value="980">980 LuckyStreak</option>
+                    <option value="853">853 MancalaGaming</option>
+                    <option value="899">899 Mascot Gaming</option>
+                    <option value="891">891 Mega888</option>
+                    <option value="870">870 Microgaming</option>
+                    <option value="890">890 MiniGame</option>
+                    <option value="877">877 MiniGameSW</option>
+                    <option value="840">840 N2Live</option>
+                    <option value="992">992 NetEnt OLD</option>
+                    <option value="867">867 NetgameEntertainment</option>
+                    <option value="200">200 NetworkMedia</option>
+                    <option value="938">938 Nolimit City</option>
+                    <option value="893">893 Nova</option>
+                    <option value="835">835 Novomatic</option>
+                    <option value="842">842 NucleusGaming</option>
+                    <option value="100">100 OneWallet</option>
+                    <option value="970">970 OneXTwoNetwork</option>
+                    <option value="896">896 Onlyplay</option>
+                    <option value="857">857 OrbitalGaming</option>
+                    <option value="964">964 OrientalGame</option>
+                    <option value="777">777 OriginalGames</option>
+                    <option value="889">889 OryxGaming</option>
+                    <option value="939">939 PGSoft</option>
+                    <option value="841">841 PascalGaming</option>
+                    <option value="937">937 Pinnacle</option>
+                    <option value="922">922 PinnacleSW</option>
+                    <option value="949">949 Platipus</option>
+                    <option value="944">944 Play'n GO</option>
+                    <option value="943">943 Playson</option>
+                    <option value="916">916 Playtech</option>
+                    <option value="828">828 PopiPlay</option>
+                    <option selected="selected" value="960">
+                      960 Pragmatic Play
+                    </option>
+                    <option value="913">913 Pragmatic Play Live</option>
+                    <option value="911">911 Push Gaming</option>
+                    <option value="969">969 Quickspin</option>
+                    <option value="822">822 RSG Slots</option>
+                    <option value="907">907 RealtimeGaming</option>
+                    <option value="933">933 Red Tiger</option>
+                    <option value="910">910 RedRakeGaming</option>
+                    <option value="860">860 Redgenn</option>
+                    <option value="918">918 ReevoGames</option>
+                    <option value="887">887 ReevoISB</option>
+                    <option value="935">935 Relax Gaming</option>
+                    <option value="902">902 RevolverGaming</option>
+                    <option value="832">832 RoyalGclub</option>
+                    <option value="968">968 SAGaming</option>
+                    <option value="947">947 SalsaTechnology</option>
+                    <option value="844">844 SimplePlay</option>
+                    <option value="861">861 SlotMatrix</option>
+                    <option value="846">846 Slotmill</option>
+                    <option value="869">869 SmartSoft</option>
+                    <option value="912">912 SolidGaming</option>
+                    <option value="919">919 Spadegaming</option>
+                    <option value="921">921 Spinmatic</option>
+                    <option value="951">951 Spinola</option>
+                    <option value="959">959 Spinomenal</option>
+                    <option value="851">851 Spinthon</option>
+                    <option value="895">895 Spribe</option>
+                    <option value="917">917 Stakelogic</option>
+                    <option value="847">847 Swintt</option>
+                    <option value="838">838 SynotGames</option>
+                    <option value="903">903 TGLab</option>
+                    <option value="900">900 TVBet</option>
+                    <option value="826">826 TaDa Gaming</option>
+                    <option value="701">701 TestCallbackMerchant</option>
+                    <option value="700">700 TestMerchant</option>
+                    <option value="920">920 Thunderkick</option>
+                    <option value="987">987 Tom Horn</option>
+                    <option value="849">849 TurboGames</option>
+                    <option value="862">862 TwainSport</option>
+                    <option value="872">872 Upgaming</option>
+                    <option value="886">886 Vir2alGames</option>
+                    <option value="945">945 VivoGaming</option>
+                    <option value="866">866 WMCasino</option>
+                    <option value="941">941 Wazdan</option>
+                    <option value="978">978 WizardGames</option>
+                    <option value="979">979 WorldMatch</option>
+                    <option value="942">942 XProGaming</option>
+                    <option value="953">953 Yggdrasil</option>
+                    <option value="820">820 ZeusPlay</option></select
+                  ><span
+                    class="select2 select2-container select2-container--default"
+                    dir="ltr"
+                    style="width: 100%"
+                    ><span class="selection"
+                      ><span
+                        class="select2-selection select2-selection--single"
+                        role="combobox"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        tabindex="0"
+                        aria-labelledby="select2-reqSystemId-container"
+                        ><span
+                          class="select2-selection__rendered"
+                          id="select2-reqSystemId-container"
+                          title="960 Pragmatic Play"
+                          >960 Pragmatic Play</span
+                        ><span
+                          class="select2-selection__arrow"
+                          role="presentation"
+                          ><b role="presentation"></b></span></span></span
+                    ><span class="dropdown-wrapper" aria-hidden="true"></span
+                  ></span>
+                </div>
+                <div class="col-md-2 padding-right-0 padding-left-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="reqDateTime"
+                    id="reqDateTime"
+                    value="2024-07-01 17:52:01"
+                    placeholder="Дата и время"
+                  />
+                </div>
+                <div class="col-md-1 padding-right-0 padding-left-5">
+                  <button
+                    id="BtnCurrentDate"
+                    type="button"
+                    class="margin-left-0 btn btn-white width-100 max-width-100 text-overflow"
+                    onclick="return fillNow()"
+                    title="Сейчас"
+                  >
+                    Сейчас
+                  </button>
+                </div>
+                <div class="col-md-1 padding-right-0 padding-left-5">
+                  <select
+                    class="form-control select2-hidden-accessible"
+                    name="reqTZ"
+                    id="reqTZ"
+                    tabindex="-1"
+                    aria-hidden="true"
+                  >
+                    <option value="Etc/GMT+12">UTC-12:00</option>
+                    <option value="Etc/GMT+11">UTC-11:00</option>
+                    <option value="Etc/GMT+10">UTC-10:00</option>
+                    <option value="Etc/GMT+9">UTC-9:00</option>
+                    <option value="Etc/GMT+8">UTC-8:00</option>
+                    <option value="Etc/GMT+7">UTC-7:00</option>
+                    <option value="Etc/GMT+6">UTC-6:00</option>
+                    <option value="Etc/GMT+5">UTC-5:00</option>
+                    <option value="Etc/GMT+4">UTC-4:00</option>
+                    <option value="Etc/GMT+3">UTC-3:00</option>
+                    <option value="Etc/GMT+2">UTC-2:00</option>
+                    <option value="Etc/GMT+1">UTC-1:00</option>
+                    <option selected="selected" value="UTC">UTC</option>
+                    <option value="Etc/GMT-1">UTC+1:00</option>
+                    <option value="Etc/GMT-2">UTC+2:00</option>
+                    <option value="Etc/GMT-3">UTC+3:00</option>
+                    <option value="Etc/GMT-4">UTC+4:00</option>
+                    <option value="Etc/GMT-5">UTC+5:00</option>
+                    <option value="Etc/GMT-6">UTC+6:00</option>
+                    <option value="Etc/GMT-7">UTC+7:00</option>
+                    <option value="Etc/GMT-8">UTC+8:00</option>
+                    <option value="Etc/GMT-9">UTC+9:00</option>
+                    <option value="Etc/GMT-10">UTC+10:00</option>
+                    <option value="Etc/GMT-11">UTC+11:00</option>
+                    <option value="Etc/GMT-12">UTC+12:00</option>
+                    <option value="Etc/GMT-13">UTC+13:00</option>
+                    <option value="Etc/GMT-14">UTC+14:00</option></select
+                  ><span
+                    class="select2 select2-container select2-container--default"
+                    dir="ltr"
+                    style="width: 100%"
+                    ><span class="selection"
+                      ><span
+                        class="select2-selection select2-selection--single"
+                        role="combobox"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        tabindex="0"
+                        aria-labelledby="select2-reqTZ-container"
+                        ><span
+                          class="select2-selection__rendered"
+                          id="select2-reqTZ-container"
+                          title="UTC"
+                          >UTC</span
+                        ><span
+                          class="select2-selection__arrow"
+                          role="presentation"
+                          ><b role="presentation"></b></span></span></span
+                    ><span class="dropdown-wrapper" aria-hidden="true"></span
+                  ></span>
+                </div>
+                <div class="col-md-1 padding-right-0 padding-left-5">
+                  <select
+                    class="form-control select2-hidden-accessible"
+                    name="reqTimeDelta"
+                    id="reqTimeDelta"
+                    tabindex="-1"
+                    aria-hidden="true"
+                  >
+                    <option value="5s">± 5s</option>
+                    <option value="10s">± 10s</option>
+                    <option value="2">± 2 mins</option>
+                    <option selected="selected" value="5">± 5 mins</option>
+                    <option value="p2">.. 2 mins</option>
+                    <option value="p5">.. 5 mins</option>
+                    <option value="p10">.. 10 mins</option></select
+                  ><span
+                    class="select2 select2-container select2-container--default"
+                    dir="ltr"
+                    style="width: 100%"
+                    ><span class="selection"
+                      ><span
+                        class="select2-selection select2-selection--single"
+                        role="combobox"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        tabindex="0"
+                        aria-labelledby="select2-reqTimeDelta-container"
+                        ><span
+                          class="select2-selection__rendered"
+                          id="select2-reqTimeDelta-container"
+                          title="± 5 mins"
+                          >± 5 mins</span
+                        ><span
+                          class="select2-selection__arrow"
+                          role="presentation"
+                          ><b role="presentation"></b></span></span></span
+                    ><span class="dropdown-wrapper" aria-hidden="true"></span
+                  ></span>
+                </div>
+                <div class="col-md-2 padding-right-0 padding-left-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="reqLogin"
+                    id="reqLogin"
+                    value="PragmaticPlay"
+                    placeholder="Логин пользователя"
+                  />
+                </div>
+                <div class="col-md-1 padding-right-0 padding-left-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="reqTransactionID"
+                    value=""
+                    placeholder="ID транзакции"
+                  />
+                </div>
+                <div class="col-md-1 padding-right-0 padding-left-5">
+                  <select
+                    class="form-control select2-hidden-accessible"
+                    name="reqIn"
+                    id="reqIn"
+                    tabindex="-1"
+                    aria-hidden="true"
+                  >
+                    <option value="req">В запросе</option>
+                    <option value="res">В ответе</option>
+                    <option selected="selected" value="reqres">
+                      В запросе/ответе
+                    </option></select
+                  ><span
+                    class="select2 select2-container select2-container--default"
+                    dir="ltr"
+                    style="width: 100%"
+                    ><span class="selection"
+                      ><span
+                        class="select2-selection select2-selection--single"
+                        role="combobox"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        tabindex="0"
+                        aria-labelledby="select2-reqIn-container"
+                        ><span
+                          class="select2-selection__rendered"
+                          id="select2-reqIn-container"
+                          title="В запросе/ответе"
+                          >В запросе/ответе</span
+                        ><span
+                          class="select2-selection__arrow"
+                          role="presentation"
+                          ><b role="presentation"></b></span></span></span
+                    ><span class="dropdown-wrapper" aria-hidden="true"></span
+                  ></span>
+                </div>
+                <div
+                  class="col-md-1 buttons pull-right padding-left-5"
+                  style="padding-right: 0"
+                >
+                  <button
+                    id="ButtonFilter"
+                    type="submit"
+                    class="btn btn-default pull-right"
+                  >
+                    Найти
+                  </button>
+                </div>
+              </div>
+              <div class="row m-b-sm" style="margin: 0">
+                <div class="col-md-1 padding-left-10" style="padding-left: 0">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="requestID"
+                    id="requestID"
+                    value=""
+                    placeholder="ID Запроса"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="row">
+            <div class="ibox-content">
+              <button
+                id="ShowSQLButton"
+                type="button"
+                class="hide-sql btn btn-white"
+                onclick="return showSQL(true)"
+              >
+                Показать SQL оператор
+              </button>
+              <button
+                id="HideSQLButton"
+                type="button"
+                class="show-sql btn btn-white m-b-sm"
+                onclick="return showSQL(false)"
+              >
+                Скрыть SQL оператор
+              </button>
+              <div id="SQLText" class="show-sql">
+                <code>
+                  SELECT sql_calc_found_rows r.* FROM `MerchantRequestsNew` AS
+                  `r` WHERE (r.req_datetime between '2024-07-01 17:47:01' and
+                  '2024-07-01 17:57:01') AND ((r.req_data like
+                  '%PragmaticPlay%') or (r.req_response like '%PragmaticPlay%'))
+                  AND (r.req_system_id in (960,100)) LIMIT 200
+                </code>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="ibox-content">
+              <button
+                id="ShowMRTableButton"
+                type="button"
+                class="hide-mrtable btn btn-white"
+                onclick="return mrTable(true)"
+                style="display: none"
+              >
+                Показать таблицу запросов
+              </button>
+              <button
+                id="HideMRTableButton"
+                type="button"
+                class="show-mrtable btn btn-white m-b-sm"
+                onclick="return mrTable(false)"
+                style="display: inline-block"
+              >
+                Скрыть таблицу запросов
+              </button>
+              <table
+                class="table table-bordered table-condensed table-striped show-mrtable table-merchants-requests"
+                id="mrTable"
+                style="display: table"
+              >
+                <thead>
+                  <tr>
+                    <th name="col-ID" class="mrTable-col-id">
+                      <div class="row-table-col-id">
+                        <b>
+                          ID запроса<br />
+                          Откуда -&gt; Куда<br />
+                          Статус
+                        </b>
+                      </div>
+                    </th>
+                    <th name="col-Datetime" style="vertical-align: middle">
+                      <div>Дата запроса</div>
+                      <div>Дата ответа</div>
+                      <div>Время обработки</div>
+                    </th>
+                    <th name="col-Data">Данные запроса</th>
+                    <th name="col-Response">Результат запроса</th>
+                    <th name="col-Comment">Комментарий</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="" id="RequestID-168386792">
+                    <td name="col-ID">
+                      <div class="row-table-col-id">
+                        <div>
+                          <a
+                            href="https://test.fundist.org/ru/Support/MerchantRequests/Find?reqSystemId=960&amp;reqDateTime=2024-07-01 17:52:01&amp;reqTZ=UTC&amp;reqTimeDelta=5&amp;reqIn=reqres&amp;requestID=168386792"
+                            target="_blank"
+                            >168386792</a
+                          ><br />
+                          —<br />
+                          Pragmatic Play <b>-&gt;</b> eGamings<br />
+                          Статус: 200
+                        </div>
+                      </div>
+                    </td>
+                    <td name="col-Datetime">
+                      <div>2024-07-01 17:51:37</div>
+                      <div>2024-07-01 17:51:37</div>
+                      <div id="RawClientResponseTimeID-168386792">
+                        0.0539341
+                      </div>
+                    </td>
+                    <td name="col-Data" class="word-break">
+                      site2-deac-qa-1:33408:1719856297.386:ac9193519e55c41f0b3d4c52a213f3a1
+                      funcore1
+                      /System/Merchants/PragmaticPlay/Callback/authenticate.htmldata:
+                      hash=984a0f373f4420b9fd85a6006e150663&amp;providerId=PragmaticPlay&amp;token=961569-a497b8cf9a521f2e07d8e45c8fd7e16b
+                    </td>
+                    <td name="col-Response" class="word-break">
+                      {"error":0, "description":"Success",
+                      "token":"961569-a497b8cf9a521f2e07d8e45c8fd7e16b",
+                      "userId":"1740_10", "cash":433.19, "bonus":0,
+                      "country":"ru", "currency":"EUR"}
+                    </td>
+                    <td name="col-Comment" class="word-break">
+                      Some comment this query
+                    </td>
+                  </tr>
+                  <tr class="" id="RequestID-168386840">
+                    <td name="col-ID">
+                      <div class="row-table-col-id">
+                        <div>
+                          <a
+                            href="https://test.fundist.org/ru/Support/MerchantRequests/Find?reqSystemId=960&amp;reqDateTime=2024-07-01 17:52:01&amp;reqTZ=UTC&amp;reqTimeDelta=5&amp;reqIn=reqres&amp;requestID=168386840"
+                            target="_blank"
+                            >168386840</a
+                          ><br />
+                          —<br />
+                          Pragmatic Play <b>-&gt;</b> eGamings<br />
+                          Статус: 200
+                        </div>
+                      </div>
+                    </td>
+                    <td name="col-Datetime">
+                      <div>2024-07-01 17:51:48</div>
+                      <div>2024-07-01 17:51:48</div>
+                      <div id="RawClientResponseTimeID-168386840">0.100277</div>
+                    </td>
+                    <td name="col-Data" class="word-break">
+                      site2-deac-qa-1:33408:1719856307.921:40ad0f1ab1123542f7a0677d43295020
+                      funcore1
+                      /System/Merchants/PragmaticPlay/Callback/bet.htmldata:
+                      amount=0.2&amp;gameId=vs20heartcleo&amp;hash=abc6a0e87cea10463b54386fb29ed363&amp;providerId=PragmaticPlay&amp;reference=6682ecb38da32a0191f30b90&amp;roundDetails=spin&amp;roundId=640194054000&amp;timestamp=1719856307743&amp;token=961569-a497b8cf9a521f2e07d8e45c8fd7e16b&amp;userId=1740_10
+                    </td>
+                    <td name="col-Response" class="word-break">
+                      {"error":0, "description":"Success",
+                      "token":"961569-a497b8cf9a521f2e07d8e45c8fd7e16b",
+                      "transactionId":"54408563", "currency":"EUR",
+                      "cash":432.99, "bonus":0, "usedPromo":0}
+                    </td>
+                    <td name="col-Comment" class="word-break"></td>
+                  </tr>
+                  <tr class="" id="RequestID-168386846">
+                    <td name="col-ID">
+                      <div class="row-table-col-id">
+                        <div>
+                          <a
+                            href="https://test.fundist.org/ru/Support/MerchantRequests/Find?reqSystemId=960&amp;reqDateTime=2024-07-01 17:52:01&amp;reqTZ=UTC&amp;reqTimeDelta=5&amp;reqIn=reqres&amp;requestID=168386846"
+                            target="_blank"
+                            >168386846</a
+                          ><br />
+                          —<br />
+                          Pragmatic Play <b>-&gt;</b> eGamings<br />
+                          Статус: 200
+                        </div>
+                      </div>
+                    </td>
+                    <td name="col-Datetime">
+                      <div>2024-07-01 17:51:51</div>
+                      <div>2024-07-01 17:51:51</div>
+                      <div id="RawClientResponseTimeID-168386846">0.07531</div>
+                    </td>
+                    <td name="col-Data" class="word-break">
+                      site2-deac-qa-1:33408:1719856310.903:7c6721b006f9d134471c0cca3ecb0025
+                      funcore1
+                      /System/Merchants/PragmaticPlay/Callback/result.htmldata:
+                      amount=0.25&amp;gameId=vs20heartcleo&amp;hash=5e8443822b0ecbdacbf2d509a281a8f6&amp;providerId=PragmaticPlay&amp;reference=6682ecb68da32a0191f30bab&amp;roundDetails=spin&amp;roundId=640194054000&amp;timestamp=1719856310880&amp;token=961569-a497b8cf9a521f2e07d8e45c8fd7e16b&amp;userId=1740_10
+                    </td>
+                    <td name="col-Response" class="word-break">
+                      {"error":0, "description":"Success",
+                      "token":"961569-a497b8cf9a521f2e07d8e45c8fd7e16b",
+                      "transactionId":"54408566", "currency":"EUR",
+                      "cash":433.24, "bonus":0, "usedPromo":0}
+                    </td>
+                    <td name="col-Comment" class="word-break"></td>
+                  </tr>
+                  <tr class="" id="RequestID-168386873">
+                    <td name="col-ID">
+                      <div class="row-table-col-id">
+                        <div>
+                          <a
+                            href="https://test.fundist.org/ru/Support/MerchantRequests/Find?reqSystemId=960&amp;reqDateTime=2024-07-01 17:52:01&amp;reqTZ=UTC&amp;reqTimeDelta=5&amp;reqIn=reqres&amp;requestID=168386873"
+                            target="_blank"
+                            >168386873</a
+                          ><br />
+                          —<br />
+                          Pragmatic Play <b>-&gt;</b> eGamings<br />
+                          Статус: 200
+                        </div>
+                      </div>
+                    </td>
+                    <td name="col-Datetime">
+                      <div>2024-07-01 17:51:52</div>
+                      <div>2024-07-01 17:51:52</div>
+                      <div id="RawClientResponseTimeID-168386873">
+                        0.0599101
+                      </div>
+                    </td>
+                    <td name="col-Data" class="word-break">
+                      site2-deac-qa-1:33408:1719856311.658:0fa7ea8cb664b97d1080ee4ce722cf0c
+                      funcore1
+                      /System/Merchants/PragmaticPlay/Callback/endRound.htmldata:
+                      gameId=vs20heartcleo&amp;hash=fc2750992f300250d248742238f5ac86&amp;providerId=PragmaticPlay&amp;roundId=640194054000&amp;token=961569-a497b8cf9a521f2e07d8e45c8fd7e16b&amp;userId=1740_10
+                    </td>
+                    <td name="col-Response" class="word-break">
+                      {"error":0, "description":"Success",
+                      "token":"961569-a497b8cf9a521f2e07d8e45c8fd7e16b",
+                      "cash":433.24, "bonus":0}
+                    </td>
+                    <td name="col-Comment" class="word-break"></td>
+                  </tr>
+                  <tr class="" id="RequestID-168386876">
+                    <td name="col-ID">
+                      <div class="row-table-col-id">
+                        <div>
+                          <a
+                            href="https://test.fundist.org/ru/Support/MerchantRequests/Find?reqSystemId=960&amp;reqDateTime=2024-07-01 17:52:01&amp;reqTZ=UTC&amp;reqTimeDelta=5&amp;reqIn=reqres&amp;requestID=168386876"
+                            target="_blank"
+                            >168386876</a
+                          ><br />
+                          —<br />
+                          Pragmatic Play <b>-&gt;</b> eGamings<br />
+                          Статус: 200
+                        </div>
+                      </div>
+                    </td>
+                    <td name="col-Datetime">
+                      <div>2024-07-01 17:51:54</div>
+                      <div>2024-07-01 17:51:54</div>
+                      <div id="RawClientResponseTimeID-168386876">0.087244</div>
+                    </td>
+                    <td name="col-Data" class="word-break">
+                      site2-deac-qa-1:33408:1719856313.719:2490f9afcfb1c5b9c1dd68866d90e300
+                      funcore1
+                      /System/Merchants/PragmaticPlay/Callback/bet.htmldata:
+                      amount=0.4&amp;gameId=vs20heartcleo&amp;hash=b888cecfc1545b5b743260b53e6c39f5&amp;providerId=PragmaticPlay&amp;reference=6682ecb98da32a0191f30bcc&amp;roundDetails=spin&amp;roundId=640194178000&amp;timestamp=1719856313701&amp;token=961569-a497b8cf9a521f2e07d8e45c8fd7e16b&amp;userId=1740_10
+                    </td>
+                    <td name="col-Response" class="word-break">
+                      {"error":0, "description":"Success",
+                      "token":"961569-a497b8cf9a521f2e07d8e45c8fd7e16b",
+                      "transactionId":"54408569", "currency":"EUR",
+                      "cash":432.84, "bonus":0, "usedPromo":0}
+                    </td>
+                    <td name="col-Comment" class="word-break"></td>
+                  </tr>
+                  <tr class="" id="RequestID-168386879">
+                    <td name="col-ID">
+                      <div class="row-table-col-id">
+                        <div>
+                          <a
+                            href="https://test.fundist.org/ru/Support/MerchantRequests/Find?reqSystemId=960&amp;reqDateTime=2024-07-01 17:52:01&amp;reqTZ=UTC&amp;reqTimeDelta=5&amp;reqIn=reqres&amp;requestID=168386879"
+                            target="_blank"
+                            >168386879</a
+                          ><br />
+                          —<br />
+                          Pragmatic Play <b>-&gt;</b> eGamings<br />
+                          Статус: 200
+                        </div>
+                      </div>
+                    </td>
+                    <td name="col-Datetime">
+                      <div>2024-07-01 17:51:55</div>
+                      <div>2024-07-01 17:51:55</div>
+                      <div id="RawClientResponseTimeID-168386879">0.069427</div>
+                    </td>
+                    <td name="col-Data" class="word-break">
+                      site2-deac-qa-1:33408:1719856315.085:ada9aa93373710e0cfe4bddee7b3f945
+                      funcore1
+                      /System/Merchants/PragmaticPlay/Callback/endRound.htmldata:
+                      gameId=vs20heartcleo&amp;hash=2f3f08403a4f9d2ab180c215bd4ad577&amp;providerId=PragmaticPlay&amp;roundId=640194178000&amp;token=961569-a497b8cf9a521f2e07d8e45c8fd7e16b&amp;userId=1740_10
+                    </td>
+                    <td name="col-Response" class="word-break">
+                      {"error":0, "description":"Success",
+                      "token":"961569-a497b8cf9a521f2e07d8e45c8fd7e16b",
+                      "cash":432.84, "bonus":0}
+                    </td>
+                    <td name="col-Comment" class="word-break"></td>
+                  </tr>
+                  <tr class="" id="RequestID-168386882">
+                    <td name="col-ID">
+                      <div class="row-table-col-id">
+                        <div>
+                          <a
+                            href="https://test.fundist.org/ru/Support/MerchantRequests/Find?reqSystemId=960&amp;reqDateTime=2024-07-01 17:52:01&amp;reqTZ=UTC&amp;reqTimeDelta=5&amp;reqIn=reqres&amp;requestID=168386882"
+                            target="_blank"
+                            >168386882</a
+                          ><br />
+                          —<br />
+                          Pragmatic Play <b>-&gt;</b> eGamings<br />
+                          Статус: 200
+                        </div>
+                      </div>
+                    </td>
+                    <td name="col-Datetime">
+                      <div>2024-07-01 17:51:55</div>
+                      <div>2024-07-01 17:51:55</div>
+                      <div id="RawClientResponseTimeID-168386882">
+                        0.0822818
+                      </div>
+                    </td>
+                    <td name="col-Data" class="word-break">
+                      site2-deac-qa-1:33408:1719856315.246:eaf314edd67aa251da63505223061715
+                      funcore1
+                      /System/Merchants/PragmaticPlay/Callback/bet.htmldata:
+                      amount=0.4&amp;gameId=vs20heartcleo&amp;hash=49903f1a50d63e6567556a81e7b4d757&amp;providerId=PragmaticPlay&amp;reference=6682ecbb8da32a0191f30bd6&amp;roundDetails=spin&amp;roundId=640194210000&amp;timestamp=1719856315228&amp;token=961569-a497b8cf9a521f2e07d8e45c8fd7e16b&amp;userId=1740_10
+                    </td>
+                    <td name="col-Response" class="word-break">
+                      {"error":0, "description":"Success",
+                      "token":"961569-a497b8cf9a521f2e07d8e45c8fd7e16b",
+                      "transactionId":"54408572", "currency":"EUR",
+                      "cash":432.44, "bonus":0, "usedPromo":0}
+                    </td>
+                    <td name="col-Comment" class="word-break"></td>
+                  </tr>
+                  <tr class="" id="RequestID-168386885">
+                    <td name="col-ID">
+                      <div class="row-table-col-id">
+                        <div>
+                          <a
+                            href="https://test.fundist.org/ru/Support/MerchantRequests/Find?reqSystemId=960&amp;reqDateTime=2024-07-01 17:52:01&amp;reqTZ=UTC&amp;reqTimeDelta=5&amp;reqIn=reqres&amp;requestID=168386885"
+                            target="_blank"
+                            >168386885</a
+                          ><br />
+                          —<br />
+                          Pragmatic Play <b>-&gt;</b> eGamings<br />
+                          Статус: 200
+                        </div>
+                      </div>
+                    </td>
+                    <td name="col-Datetime">
+                      <div>2024-07-01 17:51:56</div>
+                      <div>2024-07-01 17:51:56</div>
+                      <div id="RawClientResponseTimeID-168386885">
+                        0.0683451
+                      </div>
+                    </td>
+                    <td name="col-Data" class="word-break">
+                      site2-deac-qa-1:33408:1719856316.188:95c106afbe1114139a87a1860e01053f
+                      funcore1
+                      /System/Merchants/PragmaticPlay/Callback/endRound.htmldata:
+                      gameId=vs20heartcleo&amp;hash=65d95d8e7b4bd9fc568fc4d554b92a53&amp;providerId=PragmaticPlay&amp;roundId=640194210000&amp;token=961569-a497b8cf9a521f2e07d8e45c8fd7e16b&amp;userId=1740_10
+                    </td>
+                    <td name="col-Response" class="word-break">
+                      {"error":0, "description":"Success",
+                      "token":"961569-a497b8cf9a521f2e07d8e45c8fd7e16b",
+                      "cash":432.44, "bonus":0}
+                    </td>
+                    <td name="col-Comment" class="word-break"></td>
+                  </tr>
+                  <tr class="" id="RequestID-168386888">
+                    <td name="col-ID">
+                      <div class="row-table-col-id">
+                        <div>
+                          <a
+                            href="https://test.fundist.org/ru/Support/MerchantRequests/Find?reqSystemId=960&amp;reqDateTime=2024-07-01 17:52:01&amp;reqTZ=UTC&amp;reqTimeDelta=5&amp;reqIn=reqres&amp;requestID=168386888"
+                            target="_blank"
+                            >168386888</a
+                          ><br />
+                          —<br />
+                          Pragmatic Play <b>-&gt;</b> eGamings<br />
+                          Статус: 200
+                        </div>
+                      </div>
+                    </td>
+                    <td name="col-Datetime">
+                      <div>2024-07-01 17:51:57</div>
+                      <div>2024-07-01 17:51:57</div>
+                      <div id="RawClientResponseTimeID-168386888">0.155823</div>
+                    </td>
+                    <td name="col-Data" class="word-break">
+                      site2-deac-qa-1:33408:1719856316.839:9a68abc21f4c887019d4a335022c6c69
+                      funcore1
+                      /System/Merchants/PragmaticPlay/Callback/bet.htmldata:
+                      amount=0.4&amp;gameId=vs20heartcleo&amp;hash=20f0dee2fbb800000417046e3d4ed69e&amp;providerId=PragmaticPlay&amp;reference=6682ecbc8da32a0191f30be1&amp;roundDetails=spin&amp;roundId=640194240000&amp;timestamp=1719856316820&amp;token=961569-a497b8cf9a521f2e07d8e45c8fd7e16b&amp;userId=1740_10
+                    </td>
+                    <td name="col-Response" class="word-break">
+                      {"error":0, "description":"Success",
+                      "token":"961569-a497b8cf9a521f2e07d8e45c8fd7e16b",
+                      "transactionId":"54408575", "currency":"EUR",
+                      "cash":432.04, "bonus":0, "usedPromo":0}
+                    </td>
+                    <td name="col-Comment" class="word-break"></td>
+                  </tr>
+                  <tr class="" id="RequestID-168386894">
+                    <td name="col-ID">
+                      <div class="row-table-col-id">
+                        <div>
+                          <a
+                            href="https://test.fundist.org/ru/Support/MerchantRequests/Find?reqSystemId=960&amp;reqDateTime=2024-07-01 17:52:01&amp;reqTZ=UTC&amp;reqTimeDelta=5&amp;reqIn=reqres&amp;requestID=168386894"
+                            target="_blank"
+                            >168386894</a
+                          ><br />
+                          —<br />
+                          Pragmatic Play <b>-&gt;</b> eGamings<br />
+                          Статус: 200
+                        </div>
+                      </div>
+                    </td>
+                    <td name="col-Datetime">
+                      <div>2024-07-01 17:51:58</div>
+                      <div>2024-07-01 17:51:58</div>
+                      <div id="RawClientResponseTimeID-168386894">0.106126</div>
+                    </td>
+                    <td name="col-Data" class="word-break">
+                      site2-deac-qa-1:33408:1719856317.490:3efff27f3a9a3845776bbbc76d79d29b
+                      funcore1
+                      /System/Merchants/PragmaticPlay/Callback/endRound.htmldata:
+                      gameId=vs20heartcleo&amp;hash=a0a3c87d3e24e86d04a145e9edf398f6&amp;providerId=PragmaticPlay&amp;roundId=640194240000&amp;token=961569-a497b8cf9a521f2e07d8e45c8fd7e16b&amp;userId=1740_10
+                    </td>
+                    <td name="col-Response" class="word-break">
+                      {"error":0, "description":"Success",
+                      "token":"961569-a497b8cf9a521f2e07d8e45c8fd7e16b",
+                      "cash":432.04, "bonus":0}
+                    </td>
+                    <td name="col-Comment" class="word-break"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- content -->
+        <script language="javascript" type="text/javascript">
+          function mrTable(f) {
+            if (f) {
+              $('.hide-mrtable').hide();
+              $('.show-mrtable').show();
+            } else {
+              $('.hide-mrtable').show();
+              $('.show-mrtable').hide();
+              $('#CheckBox-global').prop('checked', false);
+              $('.checkbox-req-id').prop('checked', false);
+              setMRCheck();
+            }
+          }
+
+          function showSQL(f) {
+            if (f) {
+              $('.hide-sql').hide();
+              $('.show-sql').show();
+            } else {
+              $('.hide-sql').show();
+              $('.show-sql').hide();
+            }
+          }
+
+          function showMIO(f) {
+            if (f) {
+              $('.hide-mio').hide();
+              $('.show-mio').show();
+            } else {
+              $('.hide-mio').show();
+              $('.show-mio').hide();
+            }
+          }
+
+          function MRCheck(f) {
+            var s;
+            s = $('#reqDateTime').val();
+            if (!s.length) {
+              alert('Please fill in date/time field');
+              return false;
+            }
+
+            return true;
+          }
+
+          function fillNow() {
+            var now = new Date();
+            var now_s = now.toISOString();
+            now_s = now_s.slice(0, 19);
+            now_s = now_s.replace('T', ' ');
+
+            $('#reqDateTime').val(now_s);
+
+            return false;
+          }
+
+          function setMRCheckGlobal(el) {
+            if (el.checked) {
+              $('.checkbox-req-id').prop('checked', true);
+              $('.ibox-footer').show();
+            } else {
+              $('.checkbox-req-id').prop('checked', false);
+              $('.ibox-footer').hide();
+            }
+          }
+
+          function setMRCheck() {
+            let selector = $('.checkbox-req-id:checkbox:checked');
+            let checked = selector.length;
+            let all = $('.checkbox-req-id').length;
+            if (checked > 0) {
+              $('.ibox-footer').show();
+            } else {
+              $('.ibox-footer').hide();
+            }
+
+            $('#CheckBox-global').prop('checked', checked === all);
+          }
+
+          $('.btn-copy').on('click', function (event) {
+            event.preventDefault();
+            let str = $(this).attr('data-copy-type');
+            let selector = $('.checkbox-req-id:checkbox:checked');
+            let tmp = $('#TmpCopyArea');
+            switch (str) {
+              case 'copy-simple':
+                selector.each(function (i, el) {
+                  tmp.text(
+                    tmp.text() +
+                      (i > 0 ? '\n---\n' : '') +
+                      $('#RawSimpleRequestID-' + el.value)
+                        .text()
+                        .replace(/\s\s+/g, ' ')
+                  );
+                });
+                break;
+              case 'copy-client':
+                selector.each(function (i, el) {
+                  let text = $('#RawClientRequestID-' + el.value)
+                    .text()
+                    .replace(/\s\s+/g, ' ');
+                  if ($('#RawTableSystemId-' + el.value).val() === '100') {
+                    let t = 0;
+                    let isBadResponse =
+                      parseInt(
+                        $('#RawTableRequestStatus-' + el.value).text()
+                      ) !== 200;
+                    let isError = $('#CheckBox-' + el.value)
+                      .parents()
+                      .eq(3)
+                      .hasClass('error');
+                    let isTimedOut =
+                      parseFloat(
+                        $('#RawClientResponseTimeID-' + el.value).text()
+                      ) >= 2.0;
+
+                    if (isBadResponse || (!isTimedOut && isError)) {
+                      text = text.replace(/color:none/g, (match) =>
+                        ++t === 2 ? 'color:red' : match
+                      );
+                    }
+                    t = 0;
+                    if (isTimedOut) {
+                      text = text.replace(/color:none/g, (match) =>
+                        ++t === 1 ? 'color:red' : match
+                      );
+                    }
+                  }
+                  tmp.text(tmp.text() + (i > 0 ? '\n---\n' : '') + text);
+                });
+                break;
+              case 'copy-table':
+                tmp.text(
+                  $('<div />').html('&#123;&#123;collapse(Expand)\n').text()
+                );
+                tmp.text(tmp.text() + $('#RawTableRequestID-Global').text());
+                selector.each(function (i, el) {
+                  tmp.text(
+                    tmp.text() +
+                      '\n' +
+                      $('#RawTableRequestID-' + el.value)
+                        .text()
+                        .replace(/\s\s+/g, ' ')
+                  );
+                });
+                tmp.text(
+                  tmp.text() + $('<div />').html('\n&#125;&#125;').text()
+                );
+                break;
+              default:
+                return alert('No way to use function like that!');
+            }
+            navigator.clipboard.writeText(tmp.text());
+            tmp.text('');
+            $(this).trigger('blur');
+            return false;
+          });
+        </script>
+        <div class="footer fixed footer-desktop">
+          <small>Fundist ver.: test-20240701.4</small>,
+          <small>Funcore ver.: test-20240701.3</small>,
+          <small>Loyalty ver.: test-20240627.1</small><br />
+          <div id="ReleaseNotes">
+            <a
+              target="_blank"
+              class="text-link"
+              href="https://test.fundist.org/ru/ClientArea/ReleaseNotes"
+              >Release Notes</a
+            >
+          </div>
+          Copyright BROMSTON ASSOCIATES LTD © 2008–2024 Все права защищены
+        </div>
+        <div class="footer fixed footer-mobile" id="footer">
+          <div class="footer-arrow" id="fun-footer-arrow">
+            <img
+              src="/images/icons/arrow-down.svg"
+              alt=""
+              style="width: 15px; height: auto; margin: 0 auto"
+            />
+          </div>
+          <div id="footer-main" class="collapse">
+            <small>Fundist ver.: test-20240701.4</small>,
+            <small>Funcore ver.: test-20240701.3</small>,
+            <small>Loyalty ver.: test-20240627.1</small><br />
+            <div id="ReleaseNotes">
+              <a
+                target="_blank"
+                class="text-link"
+                href="https://test.fundist.org/ru/ClientArea/ReleaseNotes"
+                >Release Notes</a
+              >
+            </div>
+            Copyright BROMSTON ASSOCIATES LTD © 2008–2024 Все права защищены
+          </div>
+        </div>
+      </div>
+      <script>
+        const footer = document.getElementById('footer');
+        const arrowBtn = document.getElementById('fun-footer-arrow');
+        const footerMain = document.getElementById('footer-main');
+        const iframeBlock = document.querySelector(
+          '.iframe-content-wrapper iframe'
+        );
+
+        footer.addEventListener('click', () => {
+          footerMain.classList.toggle('collapse');
+          arrowBtn.classList.toggle('opened');
+          openCloseFooter();
+        });
+        $(function () {
+          openCloseFooter();
+        });
+        $(window).resize(function () {
+          openCloseFooter();
+        });
+
+        function openCloseFooter() {
+          let heightNavbar = parseInt(
+            $('.navbar-container-sticky').css('height')
+          );
+          let heightFooter;
+          if ($(window).width() >= 900) {
+            heightFooter = parseInt($('.footer-desktop').css('height'));
+          } else {
+            heightFooter = parseInt($('#footer').css('height'));
+          }
+          let sumHeight =
+            parseInt($(window).height()) - (heightNavbar + heightFooter);
+          if ($('.navbar-static-top').length) {
+            let heightNavbarTop = parseInt(
+              $('.navbar-static-top').css('height')
+            );
+            sumHeight -= heightNavbarTop;
+          }
+          $('.iframe-content-wrapper iframe').css('height', sumHeight + 'px');
+        }
+      </script>
+    </div>
+    <script type="text/javascript">
+      function showExpirationModal() {
+        $('#SessionExpirationModal').modal('show');
+      }
+
+      $(document).ready(function () {
+        // init datetime in header
+        updateWelcomeDatetime();
+
+        // global FilterForm UI fix
+
+        // auto width dropdown
+        //$('#FilterForm select').select2({dropdownAutoWidth: 'true'});
+
+        // tooltip for ID-like
+        $('#FilterForm input[name~=ID]').change(function () {
+          var title = $(this).val();
+          $(this).tooltip({ trigger: 'focus', title: title });
+        });
+
+        // custom
+
+        // use class "green-checkbox" for custom green checkboxes
+        // http://icheck.fronteed.com/#methods
+        // $('...').iCheck('update') for apply input changes, which were done outside the iCheck plugin
+        $('input.green-checkbox').iCheck({
+          checkboxClass: 'icheckbox_square-green',
+        });
+
+        // always show col Actions
+        $('#DataList .col-Actions').show();
+        $('#DataList a[href="#edit"]').closest('td').show();
+
+        // in IDNet, IDMerchant match only words that start with search term #6245
+        function matchStart(term, text) {
+          if ($.trim(text).toUpperCase().indexOf(term.toUpperCase()) == 0) {
+            return true;
+          }
+          return false;
+        }
+        $.fn.select2.amd.require(
+          ['select2/compat/matcher'],
+          function (oldMatcher) {
+            $('select#IDMerchant, #FilterForm select[name=IDNet]').select2({
+              matcher: oldMatcher(matchStart),
+              width: '100%',
+              dropdownAutoWidth: true,
+              minimumResultsForSearch: 10,
+            });
+          }
+        );
+
+        // multiple modals scroll fix
+        $(document).on('hidden.bs.modal', '.modal', function () {
+          $('.modal:visible').length && $(document.body).addClass('modal-open');
+        });
+
+        // #7308
+        var date_pairs = [
+          ['#dateFrom', '#dateTill'],
+          ['#dateFrom', '#dateTo'],
+          ['#DateFrom', '#DateTo'],
+          ['#lastCreditDateFrom', '#lastCreditDateTill'],
+          ['#regDateFrom', '#regDateTill'],
+          ['#repDateFrom', '#repDateTill'],
+        ];
+        $.each(date_pairs, function (k, v) {
+          if ($(v[0]).length && $(v[1]).length) {
+            $(v[0] + ',' + v[1]).focusout(function () {
+              var from = $(v[0]).val();
+              var till = $(v[1]).val();
+              if (!from.length || !till.length) return;
+
+              var from_date = toDate(from);
+              var till_date = toDate(till);
+              var today_date = new Date();
+
+              if (from_date > till_date) {
+                $(v[1]).val(from);
+                let alertModal = bootbox.alert({
+                  message:
+                    'Дата &quot;От&quot; должна быть раньше даты &quot;До&quot;',
+                  title: 'Fundist',
+                });
+                setBootboxIds(alertModal, 'DateValidationAlert');
+              }
+            });
+          }
+        });
+
+        // extend jquery validator messages
+        $.extend($.validator.messages, {
+          step: 'Пожалуйста, введите число, кратное {0}.',
+        });
+
+        $('#SessionExpirationWarningModal').on('hidden.bs.modal', () => {
+          sessChecker();
+          resetCountdown();
+        });
+
+        $('#SessionExpirationModal').on('hidden.bs.modal', () => {
+          sessChecker(true);
+          window.location.reload();
+        });
+
+        $('#SessionExpirationModal').on('shown.bs.modal', () => {
+          sessChecker(true);
+        });
+
+        setTimeout(() => {
+          $('#SessionExpirationWarningModal').on('shown.bs.modal', () => {
+            initCountDown();
+          });
+        }, 0);
+      });
+
+      // make Enter key on an FilterForm form submit
+      $('#FilterForm input').keypress(function (e) {
+        if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+          $(e.currentTarget).trigger('change');
+          $('#FilterForm button[type=submit]').click();
+          return false;
+        } else {
+          return true;
+        }
+      });
+
+      // slimscroll
+      $('.full-height-scroll').slimscroll({
+        height: '100%',
+        alwaysVisible: true,
+        railVisible: true,
+        railOpacity: 0.1,
+        size: '10px',
+        color: '#00f',
+      });
+
+      // disable click outside of bootstrap model area to close modal
+      $.fn.modal.prototype.constructor.Constructor.DEFAULTS.backdrop = 'static';
+
+      var processHidden = function () {
+        if (
+          $(this).width() < 1260 ||
+          navigator.userAgent.match(/(iPod|iPhone|iPad)/)
+        ) {
+          $('ul.nav .hidden-xs').hide();
+        } else {
+          $('ul.nav .hidden-xs').show();
+        }
+        if (
+          ($(this).width() < 1390 && $('#WelcomeNav').text().length > 150) ||
+          ($(this).width() < 1600 && $('#WelcomeNav').text().length > 350)
+        ) {
+          $('ul.nav .hidden-md').hide();
+        }
+        if (
+          /(android)/i.test(navigator.userAgent) ||
+          window.screen.width < 660
+        ) {
+          $('ul.nav .hidden-xs').hide();
+          $('#WelcomeDate, #WelcomeTime').hide();
+          $('#NavBarBtn').css('margin-left', '5px');
+        }
+      };
+      $(window).on('resize', function () {
+        processHidden();
+      });
+      processHidden();
+
+      // highlight item in side menu
+      var href = document.location.href.split('#')[0];
+      href_parts = href.replace(/\/\s*$/, '').split('/');
+      href_parts = href_parts.filter(function (v) {
+        return v !== '';
+      });
+      href_parts.shift();
+      var href_fixed = href_parts;
+      var lang = href_fixed[1];
+      var $side_menu = $('#side-menu');
+      var prev = '';
+      var $item = false;
+
+      switch (href_parts[3]) {
+        case 'Lists':
+          if (
+            ['Templates', 'StallTemplatesEvents'].indexOf(href_fixed[4]) == -1
+          ) {
+            href_fixed[4] = 'Mailing';
+          }
+
+          break;
+        case 'Withdraws':
+          href_fixed[4] = 'Request';
+          break;
+        case 'Pays':
+          href_fixed[4] =
+            SESSION_LEVEL == 50 || SESSION_LEVEL == 80 || SESSION_LEVEL >= 90
+              ? 'Summary'
+              : 'Credit';
+          break;
+        case 'Tables':
+          href_fixed[4] = 'Regular';
+          break;
+      }
+
+      $.each(href_fixed, function (i, val) {
+        if (i > 1) {
+          var cur = prev + '/' + val;
+          var $i = $side_menu.find('a[href$="' + lang + cur + '"]');
+          if ($i.length) {
+            $item = $i;
+          }
+          prev = cur;
+        }
+      });
+      if ($item) {
+        $item.parent().addClass('mm-active');
+      }
+      /**
+       * For some pages user must confirm changes #11628
+       * function is here because of safari scope issue
+       *
+       * @return {bool}
+       */
+      function showConfirmSave() {
+        return false;
+      }
+
+      function rememberFormInitialData() {
+        return false;
+      }
+
+      function accountantLogs(ObjectType, ObjectID) {
+        Loading(0, 1);
+        const success = function (answ) {
+          Loading(0, 0);
+          answ = JSON.parse(answ);
+          if (parseInt(answ[0]) !== 1 || !answ['Message']) {
+            return false;
+          }
+          var dialog = bootbox.dialog({
+            title: answ['Title'],
+            message: answ['Message'],
+            size: 'lg',
+            className: 'accountant-logs-modal',
+            closeButton: true,
+            onEscape: true,
+            buttons: {
+              cancel: {
+                label: 'Закрыть',
+                className: 'btn btn-w-m btn-default pull-right',
+              },
+            },
+          });
+          setBootboxIds(dialog, 'AccountantLogsModal');
+        };
+        Loading(0, 1);
+        $.post(
+          URL_ROOT + '/AccountantLogs/Get',
+          { ObjectType: ObjectType, ObjectID: ObjectID },
+          success
+        );
+      }
+
+      $('#lang_select').on('change', function () {
+        const domain = 'https://test.fundist.org/';
+        const urlWithoutDomain = window.location.href.replace(domain, '');
+        const currentLanguage = urlWithoutDomain.split('/')[0];
+        window.location.href =
+          domain + urlWithoutDomain.replace(currentLanguage, $(this).val());
+      });
+    </script>
+    <script
+      type="text/javascript"
+      src="https://test.fundist.org/static20240701.2791/funtheme_inspinia//js/fundist/fun-bundle.js"
+    ></script>
+    <div
+      class="modal inmodal animated fadeIn"
+      id="MessageWindow"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header p-w-sm">
+            <button
+              id="CloseMessageWindowButton"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+            >
+              <span aria-hidden="true">×</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <h5 class="modal-title m-t-n pull-left" id="MessageTitle"></h5>
+          </div>
+          <div class="modal-body">
+            <span id="MessageBody"></span>
+            <div id="MessageDescription"></div>
+          </div>
+          <div class="text-center p-sm">
+            <button
+              id="MessageWindowCloseButton"
+              type="button"
+              class="btn btn-default"
+              data-dismiss="modal"
+            >
+              Закрыть
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal inmodal animated fadeIn"
+      id="SessionExpirationWarningModal"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header p-w-sm">
+            <button
+              id="CloseSessionExpirationWarningButton"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+            >
+              <span aria-hidden="true">×</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <h5 class="modal-title m-t-n pull-left" id="MessageTitle">
+              Время сессии истекает
+            </h5>
+          </div>
+          <div class="modal-body">
+            <span id="MessageBody">
+              <b id="CountDown">05:00</b>
+              <span>Время сессии истекает.</span>
+              <span>Нажмите "Продлить", чтобы не завершать сеанс</span>
+            </span>
+            <div id="MessageDescription"></div>
+          </div>
+          <div class="text-center p-sm modal-footer">
+            <button
+              id="SessionExpirationWarningCloseButton"
+              type="button"
+              class="btn btn-primary"
+              data-dismiss="modal"
+            >
+              Продлить
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal inmodal animated fadeIn"
+      id="SessionExpirationModal"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header p-w-sm">
+            <button
+              id="CloseSessionExpirationButton"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+            >
+              <span aria-hidden="true">×</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <h5 class="modal-title m-t-n pull-left" id="MessageTitle">
+              Время сессии истекло
+            </h5>
+          </div>
+          <div class="modal-body">
+            <span id="MessageBody"> Время сессии истекло </span>
+            <div id="MessageDescription"></div>
+          </div>
+          <div class="text-center p-sm modal-footer">
+            <button
+              id="SessionExpirationCloseButton"
+              type="button"
+              class="btn btn-default"
+              data-dismiss="modal"
+            >
+              Начать новую
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style></style>
+    <script src="app.js"></script>
+  </body>
 </html>
