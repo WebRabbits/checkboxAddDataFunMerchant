@@ -1,0 +1,58 @@
+.container-textarea-result-data-query {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.div-block-button .btn-copy-query {
+  display: inline-block;
+  width: 107px;
+  height: auto;
+  margin-left: 15px;
+  font-size: 14px;
+  vertical-align: middle;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(1, 169, 182);
+  border-image: initial;
+  padding: 6px 14px;
+  background: none;
+  white-space: nowrap;
+  border-radius: 3px;
+  transition: all 0.5s ease 0s;
+}
+
+.div-block-button .btn-copy-query:hover {
+  border: 1px solid #1fd8d3;
+}
+
+.div-block-notify {
+  width: 135px;
+  height: auto;
+  margin-left: 15px;
+  text-align: center;
+  padding: 3px;
+  border-radius: 3px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.div-block-notify .notify-text {
+  font-size: 14px;
+  color: #fff;
+}
+
+.element-active-empty {
+  background-color: #ff4e4e;
+  box-shadow: 0 0 0 1px red;
+  border-color: red;
+  transition: 0.5s;
+}
+
+.element-active-done {
+  background-color: #88d370;
+  box-shadow: 0 0 0 1px rgb(42, 175, 64);
+  border-color: rgb(42, 175, 64);
+  transition: 0.5s;
+}

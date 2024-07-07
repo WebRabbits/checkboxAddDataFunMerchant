@@ -39,6 +39,20 @@ textareaResultDataQuery.style.height = '250px';
 textareaResultDataQuery.style.fontSize = '14px';
 textareaResultDataQuery.style.padding = '10px';
 textareaResultDataQuery.style.marginBottom = '20px';
+textareaResultDataQuery.style.outline = 'none';
+
+const divBlockButton = document.createElement('div');
+divBlockButton.className = 'div-block-button';
+
+const copyBtnQuery = document.createElement('button');
+copyBtnQuery.className = 'btn-copy-query';
+copyBtnQuery.textContent = 'Copy Result';
+
+const divBlockNotify = document.createElement('div');
+divBlockNotify.className = 'div-block-notify';
+
+const notifyText = document.createElement('span');
+notifyText.className = 'notify-text';
 
 document
   .querySelector(
@@ -46,6 +60,10 @@ document
   )
   .prepend(divTextarea);
 divTextarea.prepend(textareaResultDataQuery);
+divTextarea.append(divBlockButton);
+divTextarea.append(divBlockNotify);
+divBlockButton.prepend(copyBtnQuery);
+divBlockNotify.prepend(notifyText);
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -130,11 +148,15 @@ console.log(dataQuery);
 
 //// Event lodic
 
+//Запускаем обработчик события клика по чекбоксу у блока с конкретным запросом из списка (событие отрабатывает индивидуально каждый раз при клике по каждому чекбоксу в отдельности)
 Array.from(checkMerchant).forEach((elementCheck) => {
   elementCheck.addEventListener('click', () =>
     workCheched(elementCheck, renderDataQueryCheck)
   );
 });
+
+//Запускаем обработчик события клика по кнопке "Copy Result"
+copyBtnQuery.addEventListener('click', copyDataQuery);
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -188,4 +210,52 @@ function renderDataQueryCheck(itemDataQuery) {
       .concat('Comment: ' + itemDataQuery.comment + '\n');
 
   return (textareaResultDataQuery.innerHTML += queryStringData);
+}
+
+//Функция копирования результата добавленных блоков запросов из textarea
+function copyDataQuery() {
+  const textareaVal = textareaResultDataQuery.value.trim();
+  if (textareaVal !== '') {
+    navigator.clipboard
+      .writeText(textareaVal)
+      .then((resultCopy) => {
+        if (resultCopy == undefined) {
+          copyBtnQuery.textContent = 'Copied!';
+          setTimeout(() => {
+            copyBtnQuery.textContent = 'Copy Result';
+          }, 1000);
+        }
+      })
+      .catch((error) => {
+        console.log(`Error>>> ${error}`);
+      });
+  }
+  validCopyData(textareaVal);
+}
+
+//Функция валидации копирования данных из textarea
+function validCopyData(isCopy) {
+  if (!isCopy) {
+    notifyText.textContent = 'Отметьте блоки с запрсоами для копирования';
+    textareaResultDataQuery.style.boxShadow = '0 0 0 1px red';
+    textareaResultDataQuery.style.borderColor = 'red';
+    divBlockNotify.classList.add('element-active-empty');
+    if (divBlockNotify.classList.contains('element-active-done')) {
+      divBlockNotify.classList.remove('element-active-done');
+      divBlockNotify.classList.add('element-active-empty');
+    }
+  } else {
+    notifyText.textContent = 'Данные успешно скопированы!';
+    textareaResultDataQuery.style.boxShadow = '0 0 0 1px #2AAF40';
+    textareaResultDataQuery.style.borderColor = '#2AAF40';
+    divBlockNotify.classList.add('element-active-done');
+    if (divBlockNotify.classList.contains('element-active-empty')) {
+      divBlockNotify.classList.remove('element-active-empty');
+      divBlockNotify.classList.add('element-active-done');
+    }
+  }
+  divBlockNotify.style.opacity = '1';
+  setTimeout(() => {
+    divBlockNotify.style.opacity = '0';
+  }, 2500);
 }
