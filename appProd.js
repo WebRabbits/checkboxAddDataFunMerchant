@@ -34,12 +34,12 @@ divTextarea.className = 'container-textarea-result-data-query';
 
 const textareaResultDataQuery = document.createElement('textarea');
 textareaResultDataQuery.className = 'textarea-result-data-query';
-// textareaResultDataQuery.style.width = '940px';
-textareaResultDataQuery.style.width = '540px';
+textareaResultDataQuery.style.width = '940px';
+// textareaResultDataQuery.style.width = '540px';
 textareaResultDataQuery.style.height = '250px';
 textareaResultDataQuery.style.fontSize = '14px';
 textareaResultDataQuery.style.padding = '10px';
-textareaResultDataQuery.style.marginBottom = '20px';
+textareaResultDataQuery.style.margin = '20px 0px 20px 0px';
 textareaResultDataQuery.style.outline = 'none';
 
 const divBlockButton = document.createElement('div');
@@ -47,7 +47,7 @@ divBlockButton.className = 'div-block-button';
 
 const copyBtnQuery = document.createElement('button');
 copyBtnQuery.className = 'btn-copy-query';
-copyBtnQuery.textContent = 'Copy Result';
+copyBtnQuery.textContent = 'Copy Result!';
 
 const divBlockNotify = document.createElement('div');
 divBlockNotify.className = 'div-block-notify';
@@ -72,7 +72,7 @@ divBlockNotify.prepend(notifyText);
 
 //Получаем все чекбоксы с страницы в виде HTMLCollection
 const checkMerchant = document.getElementsByClassName('inputCheck');
-console.log(checkMerchant);
+// console.log(checkMerchant);
 
 //Добавляем в input.value значение идетификатора из тега <tr> по каждому блоку запросов
 Array.from(checkMerchant).forEach((itemCheck, indexCheck) => {
@@ -91,7 +91,7 @@ console.log(checkMerchantAllHTMLCollection);
 
 //Получаем массив, в который маппим все значения, которые содержаться отдельные массивы всех элементов из HTMLCollection с страницы из таблицы
 const arrayPreDataQuery = checkMerchantAllHTMLCollection.map((el) => {
-  return [...el].map((elThisElem) => elThisElem.innerText);
+  return [...el].map((elThisElem) => elThisElem.textContent);
 });
 console.log(arrayPreDataQuery);
 
@@ -104,7 +104,7 @@ for (const item of arrayPreDataQuery) {
   item[5] !== '' ? item[5] : (item[5] = 'NULL');
   arrayDataQuery.push(item);
 }
-console.log(arrayDataQuery);
+// console.log(arrayDataQuery);
 
 //Деструтуризаия полученного массива в arrayDataQuery. Преобразования полученных данных в объекты и добавления их в общий массив данных dataQuery
 let dataQuery = new Array();
@@ -117,16 +117,16 @@ for (const [
   col_Comment,
 ] of arrayDataQuery) {
   // Преобразование данных их массивов с данными в массиве arrayDataQuery (ДЛЯ БУДУЩЕГО ПРОБРАЗОВАНИЯ В ОТДЕЛЬНЫЕ СТРОКИ ВЫВОДА КАК В БД (по надобности))
-  const id = col_ID.split('\n').splice(0, 1).toString();
-  const direction = col_ID.split('\n').splice(2, 1).toString();
+  const id = col_ID.split('\n').splice(2, 1).toString();
+  const direction = col_ID.split('\n').splice(4, 1).toString();
   const status = col_ID
     .split('\n')
-    .splice(3, 1)
+    .splice(5, 1)
     .toString()
     .replace('Статус: ', '');
-  const dateReq = col_Datetime.split('\n').splice(0, 1).toString();
-  const dateRes = col_Datetime.split('\n').splice(1, 1).toString();
-  const timeQuery = col_Datetime.split('\n').splice(2, 1).toString();
+  const dateReq = col_Datetime.substring(0, 19).toString();
+  const dateRes = col_Datetime.substring(19, 38).toString();
+  const timeQuery = col_Datetime.substring(38).toString();
 
   const objectQuery = {
     flag: flag,
