@@ -204,9 +204,12 @@ function renderDataQueryCheck(itemDataQuery) {
       .concat('Direction: ' + itemDataQuery.direction + '\n')
       .concat('DateRequest: ' + itemDataQuery.dateReq + '\n')
       .concat('DateResponse: ' + itemDataQuery.dateRes + '\n')
+      .concat('—'.repeat(17) + '\n')
       .concat('Request: ' + itemDataQuery.request + '\n')
+      .concat('—'.repeat(17) + '\n')
       .concat('Response: ' + itemDataQuery.response + '\n')
-      .concat('Status: ' + itemDataQuery.status + '\n')
+      .concat('—'.repeat(17) + '\n')
+      .concat('StatusQuery: ' + itemDataQuery.status + '\n')
       .concat('TimeQuery: ' + itemDataQuery.timeQuery + '\n')
       .concat('Comment: ' + itemDataQuery.comment + '\n');
 
