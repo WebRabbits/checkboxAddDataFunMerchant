@@ -15,7 +15,16 @@ const trIdBody = document.querySelectorAll('tbody>tr');
 const thColumn = document.createElement('th');
 thColumn.innerText = 'Select a request';
 thColumn.style.width = '50px';
+
+const inputCheckAll = document.createElement('input');
+inputCheckAll.className = 'inputCheckAll';
+inputCheckAll.type = 'checkbox';
+inputCheckAll.value = '';
+inputCheckAll.title = 'Отметить/Удалить все запросы';
+inputCheckAll.style.cursor = 'pointer';
+
 document.querySelector('thead>tr').prepend(thColumn);
+thColumn.append(inputCheckAll);
 
 for (const resultElemTr of trIdBody) {
   //   console.log(resultElemTr);
@@ -156,12 +165,37 @@ Array.from(checkMerchant).forEach((elementCheck) => {
   );
 });
 
+//Запускаем обработчик события клика по чекбоксу из ячейки "Select a request" для для добавления/удаления всех запросов в блок <textarea>. Чекбоксы в списке запросов просталяются/снимаются автоматически
+inputCheckAll.addEventListener('click', () =>
+  checkedAllQuery(renderDataQueryCheck)
+);
+
 //Запускаем обработчик события клика по кнопке "Copy Result"
 copyBtnQuery.addEventListener('click', copyDataQuery);
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 //// Main logic
+
+//Производим добавление/удаление ВСЕХ блоков запросов по определённому формату в блок <textarea> при проставлении чекбокса в ячейке "Select a request"
+function checkedAllQuery(renderDataQueryCheck) {
+  if (inputCheckAll.checked === true) {
+    checkMerchantAllHTMLCollection.forEach((el) => {
+      el[0].checked = inputCheckAll.checked;
+      console.log(el[0].checked);
+    });
+    dataQuery.forEach((item) => {
+      item.flag = true;
+      renderDataQueryCheck(item);
+    });
+  } else {
+    checkMerchantAllHTMLCollection.forEach((el) => (el[0].checked = false));
+    dataQuery.forEach((item) => {
+      item.flag = false;
+      textareaResultDataQuery.innerHTML = '';
+    });
+  }
+}
 
 //Производим изменение значения ключа "flag" в заивисмости от checked/unchecked чекбоса
 function workCheched(check, renderDataQueryCheck) {

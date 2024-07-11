@@ -9,13 +9,24 @@ const tableQuery = document.querySelector(
 const trIdBody = document.querySelectorAll('tbody>tr');
 // console.log(trIdBody);
 
+const sqlText = document.querySelector('#SQLText>code').innerText.split('\n');
+
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 //// Render logic
 const thColumn = document.createElement('th');
 thColumn.innerText = 'Select a request';
 thColumn.style.width = '50px';
+
+const inputCheckAll = document.createElement('input');
+inputCheckAll.className = 'inputCheckAll';
+inputCheckAll.type = 'checkbox';
+inputCheckAll.value = '';
+inputCheckAll.title = 'Отметить/Удалить все запросы';
+inputCheckAll.style.cursor = 'pointer';
+
 document.querySelector('thead>tr').prepend(thColumn);
+thColumn.append(inputCheckAll);
 
 for (const resultElemTr of trIdBody) {
   //   console.log(resultElemTr);
@@ -49,6 +60,10 @@ const copyBtnQuery = document.createElement('button');
 copyBtnQuery.className = 'btn-copy-query';
 copyBtnQuery.textContent = 'Copy Result!';
 
+const copyBtnSQLRequest = document.createElement('button');
+copyBtnSQLRequest.className = 'btn-copy-query';
+copyBtnSQLRequest.textContent = 'Copy SQL Query';
+
 const divBlockNotify = document.createElement('div');
 divBlockNotify.className = 'div-block-notify';
 
@@ -64,6 +79,7 @@ divTextarea.prepend(textareaResultDataQuery);
 divTextarea.append(divBlockButton);
 divTextarea.append(divBlockNotify);
 divBlockButton.prepend(copyBtnQuery);
+divBlockButton.append(copyBtnSQLRequest);
 divBlockNotify.prepend(notifyText);
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -149,6 +165,26 @@ console.log(dataQuery);
 
 //// Event lodic
 
+//Производим добавление/удаление ВСЕХ блоков запросов по определённому формату в блок <textarea> при проставлении чекбокса в ячейке "Select a request"
+function checkedAllQuery(renderDataQueryCheck) {
+  if (inputCheckAll.checked === true) {
+    checkMerchantAllHTMLCollection.forEach((el) => {
+      el[0].checked = inputCheckAll.checked;
+      console.log(el[0].checked);
+    });
+    dataQuery.forEach((item) => {
+      item.flag = true;
+      renderDataQueryCheck(item);
+    });
+  } else {
+    checkMerchantAllHTMLCollection.forEach((el) => (el[0].checked = false));
+    dataQuery.forEach((item) => {
+      item.flag = false;
+      textareaResultDataQuery.innerHTML = '';
+    });
+  }
+}
+
 //Запускаем обработчик события клика по чекбоксу у блока с конкретным запросом из списка (событие отрабатывает индивидуально каждый раз при клике по каждому чекбоксу в отдельности)
 Array.from(checkMerchant).forEach((elementCheck) => {
   elementCheck.addEventListener('click', () =>
@@ -156,8 +192,18 @@ Array.from(checkMerchant).forEach((elementCheck) => {
   );
 });
 
+//Запускаем обработчик события клика по чекбоксу из ячейки "Select a request" для для добавления/удаления всех запросов в блок <textarea>. Чекбоксы в списке запросов просталяются/снимаются автоматически
+inputCheckAll.addEventListener('click', () =>
+  checkedAllQuery(renderDataQueryCheck)
+);
+
 //Запускаем обработчик события клика по кнопке "Copy Result"
 copyBtnQuery.addEventListener('click', copyDataQuery);
+
+//Запускаекм обработчик события клика по кнопке "Copy SQL Query"
+copyBtnSQLRequest.addEventListener('click', () =>
+  copyDataSQLQuery(sqlFotmater())
+);
 
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -259,4 +305,43 @@ function validCopyData(isCopy) {
   setTimeout(() => {
     divBlockNotify.style.opacity = '0';
   }, 2500);
+}
+
+//Форнматируем полученный массив строк из SQL. Подготовливаем строку для копирования данных
+function sqlFotmater() {
+  const newArraySQLData = sqlText.filter((el) => el !== '');
+  let newStringSQLData;
+  for (const item of newArraySQLData) {
+    newStringSQLData += item.trimStart() + ' ';
+  }
+
+  const resultSQLDataString = newStringSQLData
+    .replace('undefined', '')
+    .replace('LIMIT 200', '\\G;')
+    .trim();
+
+  return resultSQLDataString;
+}
+
+//Функция копирования полученной строки SQL-запроса в формате вставки для прямого запроса в БД
+function copyDataSQLQuery(sqlFotmater) {
+  try {
+    if (sqlFotmater) {
+      navigator.clipboard
+        .writeText(sqlFotmater)
+        .then((copySQL) => {
+          if (copySQL == undefined) {
+            copyBtnSQLRequest.textContent = 'Copied!';
+            copyBtnSQLRequest.style.borderColor = '##04e85a';
+            setTimeout(() => {
+              copyBtnSQLRequest.textContent = 'Copy SQL Query';
+              copyBtnSQLRequest.style.borderColor = '#01a9b6';
+            }, 1000);
+          }
+        })
+        .catch((error) => console.log(`Error>>> ${error}`));
+    }
+  } catch (error) {
+    console.log(`Error>>> ${error}`);
+  }
 }

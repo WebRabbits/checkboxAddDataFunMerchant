@@ -1,0 +1,2984 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>Анализ запросов</title>
+    <link
+      rel="icon"
+      href="https://test.fundist.org/ru/Logo/Icon"
+      type="image/svg+xml"
+    />
+    <link
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/inspinia/animate.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/inspinia/style.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/select2/select2.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/datapicker/datepicker3.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/bootstrap-clockpicker/bootstrap-clockpicker.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/layout_user.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/bootstrap-select.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/bootstrap-datatables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/query-builder.default.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/bootstrap3-wysiwyg/bootstrap3-wysihtml5.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/icheck/skins/square/green.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/bootstrap-footable/footable.bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://test.fundist.org/static20240708.2804/css/fundist/fundist.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://test.fundist.org/static20240708.2804/css/fundist/LayoutUserTpl.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/thirdParty/toggle-switch.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://test.fundist.org/static20240708.2804/funtheme_inspinia//css/metisMenu.min.css"
+    />
+    <!-- Mainly scripts -->
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/jquery-2.1.1.js"></script>
+    <script
+      type="text/javascript"
+      src="chrome-extension://mdnleldcmiljblolnjhpnblkcekpdkpa/libs/customElements.js"
+      class="__REQUESTLY__SCRIPT"
+    ></script>
+    <script
+      type="text/javascript"
+      src="chrome-extension://mdnleldcmiljblolnjhpnblkcekpdkpa/libs/requestly-web-sdk.js"
+      class="__REQUESTLY__SCRIPT"
+    ></script>
+    <script type="text/javascript" class="__REQUESTLY__SCRIPT">
+      ((namespace) => {
+        window[namespace] = window[namespace] || {};
+
+        const sendMessageToExtension = (action, payload) => {
+          window.postMessage(
+            { source: 'requestly:client', action, payload },
+            window.location.href
+          );
+        };
+
+        const sendResponseToExtension = (action, payload) => {
+          window.postMessage(
+            { source: 'requestly:client', response: true, action, payload },
+            window.location.href
+          );
+        };
+
+        window.addEventListener('message', function (event) {
+          // We only accept messages from ourselves
+          if (
+            event.source !== window ||
+            event.data.source !== 'requestly:extension'
+          ) {
+            return;
+          }
+
+          if (event.data.action === 'startRecording') {
+            window[namespace]?.sessionRecorder?.stop?.();
+            window[namespace].sessionRecorder = new Requestly.SessionRecorder(
+              event.data.payload
+            );
+            window[namespace].sessionRecorder.start();
+            sendMessageToExtension('sessionRecordingStarted');
+          } else if (event.data.action === 'stopRecording') {
+            window[namespace].sessionRecorder.stop();
+            sendMessageToExtension('sessionRecordingStopped');
+          } else if (event.data.action === 'getSessionData') {
+            try {
+              sendResponseToExtension(
+                event.data.action,
+                window[namespace].sessionRecorder.getSession()
+              );
+            } catch (err) {
+              const error = err instanceof Error ? err.message : String(err);
+              sendResponseToExtension(event.data.action, error);
+              throw err;
+            }
+          }
+        });
+      })('__REQUESTLY__');
+    </script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/bootstrap.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/moment-with-locales.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/metismenu.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/datapicker/bootstrap-datepicker.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/luxon.js"></script>
+    <script>
+      window.luxon = luxon;
+    </script>
+    <!--<script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/datapicker/bootstrap-datepicker.ru.min.js"></script> <script type="text/javascript">
+        $(document).ready(function() {
+            $.fn.datepicker.defaults.keyboardNavigation = false;
+            $.fn.datepicker.defaults.language = 'ru';
+        });
+    </script>-->
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/luxon.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/inspinia/inspinia.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/pace/pace.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/select2/select2.full.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/select2/ru.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/bootstrap-clockpicker/bootstrap-clockpicker.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/jquery.inputmask/inputmask.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/jquery.inputmask/inputmask.numeric.extensions.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/jquery.inputmask/jquery.inputmask.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/bootbox/bootbox.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/jquery.inputmask/inputmask.regex.extensions.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/jquery.cookie/jquery.cookie.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/sprintf.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/validate/jquery.validate.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/validate/localization/messages_ru.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/icheck/icheck.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/jquery-ui-custom/jquery-ui.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/prettyprint/prettyprint.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/bootstrap-footable/footable.min.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/raven-js/raven.min.js"></script>
+    <script>
+      Raven.config(
+        'https://1c472952d1d34ba1b35d59d7ba9deadb@sentry.egamings.com/10'
+      ).install();
+    </script>
+    <!-- Helpers -->
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/helpers.js"></script>
+    <!-- Server App Variables -->
+    <script type="text/javascript">
+      var MSG_CONFIRM_DEL = 'Действительно удалить?';
+      var USER_CONFIRM_DEL =
+        'Восстановление пользователя будет невозможным. Вы уверены, что хотите удалить пользователя?';
+      var USER_ADD_SUCCESS = 'Данные пользователя успешно добавлены/изменены!';
+      var USER_EDIT = 'Изменение данных пользователя';
+      var EDIT = 'Редактировать';
+      var LOGINANDPASSWORD = 'Логин и пароль';
+      var URLobj = URL_ROOT;
+      var MERCHANTS = 'Провайдеры';
+      var TYPE = 'Тип';
+      var ENVIRONMENT = 'Среда';
+      var URL_ROOT = 'https://test.fundist.org/ru';
+      var BASE_URL = 'https://test.fundist.org/ru';
+      var ROOT = 'https://test.fundist.org';
+      var STATIC_PREFIX = '/static20240708.2804';
+      var LANG = 'ru';
+      var LOCALE = 'ru-RU';
+      var SESSION_CHECK_INTERVAL = 30;
+      var DisableReason = 'Укажите причину отключения';
+      var ReactivationReason = 'Причина реактивации';
+      var ChangePasswordReason = 'Причина смены пароля';
+      var ReactivateTitle = 'Реактивировать';
+      var ConfirmEnable = 'Подтвердите включение';
+      var ConfirmDisable = 'Подтвердите отключение';
+      var DisabledNewGamesList = 'Новые неактивированные игры';
+      var ConfirmEnableAndProvideReason =
+        'Подтвердите включение и укажите причину';
+      var ConfirmRecoveryReason = 'Причины восстановления';
+      var Months = [
+        'Январь',
+        'Февраль',
+        'Март',
+        'Апрель',
+        'Май',
+        'Июнь',
+        'Июль',
+        'Август',
+        'Сентябрь',
+        'Октябрь',
+        'Ноябрь',
+        'Декабрь',
+      ];
+      var Week = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+      var FillOneOrMoreFields = 'Заполните хотя бы одно поле';
+      var FillNameField = 'Заполните название';
+      var FillRequiredFields = 'Заполните обязательные поля';
+      var IsARequiredField = ' является обязательным полем';
+      var FillOneOrMoreCurrencyFields = 'Необходимо добавить валюту';
+      var BalanceAlertIsEmptyError =
+        'Минимальный баланс для оповещения не должен быть пустым.';
+      var RequiredField = 'Поле обязательно для заполнения';
+      var AddDynamicList = 'Новая рассылка';
+      var EditDynamicList = 'Изменение настроек рассылки';
+      var NoGameDetails = 'Нет информации об игре';
+      var CANCEL = 'Отменить';
+      var OK = 'ОК';
+      var DisableBtn = 'Отключить';
+      var EnableBtn = 'Включить';
+      var RecoveryBtn = 'Восстановить';
+      var PleaseSelect = 'Выберите опцию';
+      var CONFIRM = 'Подтвеждение';
+      var CONFIRMIT = 'Подтвердить';
+      var CONFIRMED = 'Подтверждено';
+      var ERROR = 'Ошибка';
+      var ERROR_OCCURRED = 'Произошла ошибка!';
+      var SAVE_FAIL = 'Не удалось сохранить';
+      var SAVED = 'Сохранено';
+      var PROCESS = 'Обработать';
+      var REJECTION = 'Отклонить';
+      var REJECTED = 'Отказано';
+      var ConfirmPayParamsEdit =
+        'Действительно ли вы хотите внести изменения в ключи платёжных систем?';
+      var CHANGE = 'Изменить';
+      var SESSION_LEVEL = 90;
+      var SESSION_ALLOWACTIVATEBONUS = 1;
+      var SESSION_ALLOWPLAYERINTELLIGENCERESTRICTED = 0;
+      var SESSION_ALLOWAFFILIATECHANGE = 1;
+      var SESSION_ALLOWAFFILIATEIDCHANGE = 0;
+      var SESSION_ALLOWGAMESREPORT = 1;
+      var SESSION_ALLOWCREATENEWCONTACTS = 1;
+      var NO_RESULTS = 'По данному запросу информации не найдено';
+      var NO_TOURNAMENTS = 'По данному запросу информации не найдено';
+      var IS_MOBILE = '0';
+      var CONFIRM_CHANGES = 'Подтвердите изменения';
+      var DATEPICKER_TODAY = 'Перейти на сегодня';
+      var DATEPICKER_CLEAR = 'Очистить выбор';
+      var DATEPICKER_CLOSE = 'Закрыть';
+      var DATEPICKER_SELECT_MONTH = 'Выбрать месяц';
+      var DATEPICKER_PREV_MONTH = 'Предыдущий месяц';
+      var DATEPICKER_NEXT_MONTH = 'Следующий месяц';
+      var DATEPICKER_SELECT_YEAR = 'Выбрать год';
+      var DATEPICKER_PREV_YEAR = 'Предыдущий год';
+      var DATEPICKER_NEXT_YEAR = 'Следующий год';
+      var DATEPICKER_SELECT_DECADE = 'Выбрать десятилетие';
+      var DATEPICKER_PREV_DECADE = 'Предыдущее десятилетие';
+      var DATEPICKER_NEXT_DECADE = 'Следующее десятилетие';
+      var DATEPICKER_PREV_CENTURY = 'Предыдущий век';
+      var DATEPICKER_NEXT_CENTURY = 'Следующий век';
+      var DATEPICKER_SELECT_TIME = 'Выбрать время';
+      var DATEPICKER_INCREMENT_HOUR = 'Увеличить часы';
+      var DATEPICKER_DECREMENT_HOUR = 'Уменьшить часы';
+      var DATEPICKER_PICK_HOUR = 'Выбрать часы';
+      var DATEPICKER_INCREMENT_MINUTE = 'Увеличить минуты';
+      var DATEPICKER_DECREMENT_MINUTE = 'Уменьшить минуты';
+      var DATEPICKER_PICK_MINUTE = 'Выбрать минуты';
+      var FUN_BTN_ENABLE = 'Включить';
+      var FUN_BTN_DISABLE = 'Отключить';
+      const IS_ENTITY_CREATION_FORBIDDEN = 0;
+      const IS_SLAVE_NODE = 0;
+      const ENTITY_CREATION_FORBIDDEN_MESSAGE =
+        'Создание объектов запрещено на данной ноде';
+      const LOGGED_BY_TOKEN = '';
+      var CONFIRM_ZERO =
+        'Вы действительно хотите сохранить комиссионный план с процентной ставкой 0%?';
+      var EMPTY_COMMISSION =
+        'Партнеру не назначен комиссионный план, статистика не будет учитываться';
+      const session = { user: { id: 557867, level: 90 } };
+      var NotEnoughtMoney = 'Недостаточно денег на счёте';
+      var EUR_ID = '0';
+      var PAY_CONFIG_COPY_MODAL = 'Скопировать настройки платежей?';
+      var US_AllowAccessToWlcMenuView = 'Доступ к разделам меню WLC (просмотр)';
+      var US_AllowAccessToWlcMenu =
+        'Доступ к разделам меню WLC (редактирование)';
+      var SESSION_FORBIDEDITUSERSMAILPASSWORD = 0;
+      var CURRENCY_LIST_WAS_SAVED = 'Список был успешно сохранен';
+      var WarningLastCommission =
+        '<strong>Действительно сделать план недоступным при регистрации?</strong><br /><br /> <strong>Партнер не сможет получить</strong> комиссионный план сразу при регистрации, так как <strong>доступных к выбору планов не будет</strong>.<br /><br /> Для учета статистики и начисления комиссии необходимо будет вручную назначить партнеру комиссионный план.';
+      var WarningArchiveLastCommission =
+        '<strong>Действительно архивировать последний доступный при регистрации план?</strong><br /><br /> Партнер не сможет получить комиссионный план сразу при регистрации.<br /><br /> Для таких партнеров не будет учитываться статистика и начисляться комиссия до тех пор, пока оператор вручную не назначит им комиссионный план.';
+      var ConfirmLastCommission = 'Подтверждение';
+      var CLASS_URL = 'Support/MerchantRequests/Find';
+    </script>
+    <!-- Layout App -->
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/users/layout.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/users/users.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/users/edit.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/users/filters.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/users/add.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/users/delete.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/users/form-validator.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/modules/module_widget.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/modules/module_timeline.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/main.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/settings.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/layout/animations.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/layout/fun-input.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/layout/fun-table.js"></script>
+    <script src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/layout/sidemenu.js"></script>
+    <script
+      type="text/javascript"
+      src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/bootstrap-select.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/bootstrap-datatables.min.js"
+    ></script>
+    <!-- https://datatables.net/download/ -->
+    <script
+      type="text/javascript"
+      src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/query-builder.standalone.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/query-builder.ru.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/bootstrap3-wysiwyg/bootstrap3-wysihtml5.all.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/bootstrap3-wysiwyg/locales/bootstrap-wysihtml5.ru-RU.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/tableheadfixer/tableHeadFixer.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/parse_str.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/thirdParty/jquery.objectdiff.js"
+    ></script>
+    <script type="text/javascript">
+      $.ajaxSetup({
+        headers: {
+          'X-CSRF-TOKEN':
+            'e6db2a14d63584990635cf52414e04bf:ad65a1adeb8419bff0edfd84626b0441aa753fd40cec2ad3663bef17f32e0cfa',
+        },
+      });
+      $(document).ajaxSuccess(function (event, xhr, settings) {
+        var newToken = xhr.getResponseHeader('X-New-CSRF-Token');
+        $.ajaxSetup({
+          headers: { 'X-CSRF-TOKEN': newToken },
+        });
+        var formToken = $('input[name="CSRF_TOKEN"]');
+        if (formToken.length) {
+          formToken.val(newToken);
+        }
+      });
+    </script></head
+  ><rq-implicit-test-rule-widget
+    class="rq-element"
+    style="display: none"
+    draggable="true"
+  ></rq-implicit-test-rule-widget>
+  <body class="fixed-nav browser-chrome pace-done">
+    <div class="pace pace-inactive">
+      <div
+        class="pace-progress"
+        data-progress-text="100%"
+        data-progress="99"
+        style="transform: translate3d(100%, 0px, 0px)"
+      >
+        <div class="pace-progress-inner"></div>
+      </div>
+      <div class="pace-activity"></div>
+    </div>
+    <div id="Loading" style="left: 726px; top: 417px">
+      <img
+        src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//images/loader.gif"
+      />
+    </div>
+    <div id="CopyTextPopup" class="copy-text">
+      <i class="fa fa-clipboard"></i>
+      <span>Текст скопирован</span>
+    </div>
+    <div id="wrapper">
+      <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="fundist-logo">
+          <a href="https://test.fundist.org/ru/Dashboard">
+            <svg
+              id="logo-fundist-svg-container"
+              viewBox="0 0 135 55"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                id="logo-fundist-svg"
+                d="M25.9224 40.3876C25.8866 40.6382 25.824 40.7994 25.7344 40.871C25.6449 40.9247 25.4838 40.9515 25.2511 40.9515H23.774C23.5771 40.9515 23.4249 40.9247 23.3175 40.871C23.228 40.7994 23.2011 40.6382 23.2369 40.3876L25.1436 26.8795C25.2331 26.2528 25.3585 25.6531 25.5196 25.0802C25.6986 24.5073 25.9672 24.006 26.3253 23.5763C26.6833 23.1287 27.1578 22.7796 27.7486 22.5289C28.3394 22.2604 29.1003 22.1261 30.0313 22.1261H37.2553C37.5059 22.1261 37.6581 22.1798 37.7118 22.2872C37.7655 22.3947 37.7745 22.5468 37.7387 22.7438L37.5507 24.006C37.5149 24.2387 37.4612 24.3998 37.3896 24.4894C37.3179 24.5789 37.1568 24.6236 36.9062 24.6236H30.0044C29.342 24.6236 28.8407 24.7669 28.5005 25.0533C28.1783 25.3398 27.9724 25.8053 27.8829 26.4498L27.3995 29.9947H35.4828C35.7156 29.9947 35.8588 30.0394 35.9125 30.1289C35.9662 30.2185 35.9752 30.3796 35.9394 30.6123L35.7782 31.7671C35.7424 31.964 35.6798 32.1162 35.5903 32.2236C35.5187 32.3311 35.3665 32.3848 35.1337 32.3848H27.0503L25.9224 40.3876ZM39.9536 27.2554C39.9894 27.0585 40.0431 26.9421 40.1147 26.9063C40.1863 26.8526 40.3117 26.8258 40.4907 26.8258H42.102C42.2452 26.8258 42.3526 26.8526 42.4243 26.9063C42.5138 26.9421 42.5406 27.0585 42.5048 27.2554L41.5112 34.3452C41.3859 35.1866 41.3232 35.8938 41.3232 36.4667C41.3411 37.0396 41.4575 37.5051 41.6723 37.8632C41.8872 38.2213 42.2273 38.4809 42.6928 38.642C43.1583 38.8031 43.7939 38.8837 44.5995 38.8837C44.7965 38.8837 45.0919 38.8747 45.4857 38.8568C45.8975 38.8389 46.3809 38.7852 46.9359 38.6957L48.5472 27.2554C48.583 27.0585 48.6367 26.9421 48.7083 26.9063C48.78 26.8526 48.9053 26.8258 49.0843 26.8258H50.6956C50.8389 26.8258 50.9463 26.8526 51.0179 26.9063C51.1074 26.9421 51.1343 27.0585 51.0985 27.2554L49.4871 38.7494C49.3081 40.0385 48.592 40.7904 47.3387 41.0052C47.0881 41.0411 46.8106 41.0679 46.5062 41.0858C46.2198 41.1216 45.9244 41.1485 45.62 41.1664C45.3336 41.1843 45.0561 41.1932 44.7875 41.1932C44.519 41.2111 44.2773 41.2201 44.0624 41.2201C42.8987 41.2201 41.9409 41.0948 41.1889 40.8441C40.4549 40.5935 39.8909 40.1996 39.4971 39.6625C39.1032 39.1075 38.8704 38.4003 38.7988 37.5409C38.7272 36.6816 38.7809 35.6432 38.9599 34.4257L39.9536 27.2554ZM64.043 40.5219C64.0072 40.7188 63.9535 40.8441 63.8819 40.8978C63.8103 40.9336 63.685 40.9515 63.5059 40.9515H61.8946C61.7514 40.9515 61.635 40.9336 61.5455 40.8978C61.4739 40.8441 61.456 40.7188 61.4918 40.5219L62.4854 33.4321C62.5929 32.6623 62.6287 31.9998 62.5929 31.4448C62.557 30.8719 62.4138 30.3975 62.1632 30.0215C61.9125 29.6455 61.5276 29.368 61.0084 29.189C60.5071 28.9921 59.8268 28.8936 58.9674 28.8936C58.7705 28.8936 58.493 28.9026 58.1349 28.9205C57.7947 28.9384 57.3472 28.9921 56.7922 29.0816L55.1808 40.5219C55.145 40.7188 55.0913 40.8441 55.0197 40.8978C54.9481 40.9336 54.8317 40.9515 54.6706 40.9515H53.0593C52.8982 40.9515 52.7728 40.9336 52.6833 40.8978C52.6117 40.8441 52.5938 40.7188 52.6296 40.5219L54.2409 29.0279C54.4379 27.703 55.154 26.9511 56.3893 26.772C56.5684 26.7541 56.7922 26.7362 57.0607 26.7183C57.3293 26.6825 57.6068 26.6557 57.8932 26.6378C58.1797 26.602 58.4572 26.5841 58.7257 26.5841C59.0122 26.5662 59.2628 26.5572 59.4777 26.5572C60.6056 26.5572 61.5545 26.6825 62.3243 26.9332C63.1121 27.1838 63.7297 27.5867 64.1773 28.1417C64.6428 28.6788 64.9471 29.377 65.0904 30.2364C65.2336 31.0957 65.2157 32.1341 65.0367 33.3515L64.043 40.5219ZM78.8075 21.7501C78.8433 21.5532 78.897 21.4368 78.9686 21.401C79.0402 21.3473 79.1566 21.3205 79.3177 21.3205H80.9827C81.1259 21.3205 81.2334 21.3473 81.305 21.401C81.3945 21.4368 81.4214 21.5532 81.3855 21.7501L78.8612 39.7431C78.8254 39.8863 78.7806 39.9937 78.7269 40.0653C78.6732 40.1369 78.5747 40.1996 78.4315 40.2533C77.4647 40.6651 76.489 40.9336 75.5043 41.059C74.5196 41.1843 73.6513 41.2469 72.8993 41.2469C71.9505 41.2469 71.1448 41.1037 70.4824 40.8173C69.82 40.5308 69.2828 40.1369 68.8711 39.6356C68.4593 39.1164 68.1639 38.5167 67.9849 37.8363C67.8058 37.1381 67.7163 36.3772 67.7163 35.5537C67.7163 34.3541 67.8685 33.2083 68.1728 32.1162C68.4772 31.0241 68.9427 30.0663 69.5693 29.2427C70.1959 28.4192 70.9747 27.7657 71.9057 27.2823C72.8367 26.7989 73.9377 26.5572 75.2089 26.5572C75.5669 26.5572 75.9966 26.5841 76.4979 26.6378C77.0171 26.6736 77.5453 26.7631 78.0824 26.9063L78.8075 21.7501ZM77.7601 29.2159C77.1872 29.0547 76.6949 28.9563 76.2831 28.9205C75.8892 28.8667 75.4864 28.8399 75.0746 28.8399C74.5017 28.8399 73.9288 28.9563 73.3559 29.189C72.8009 29.4038 72.2996 29.7709 71.852 30.2901C71.4223 30.8093 71.0732 31.4985 70.8046 32.3579C70.5361 33.1994 70.4018 34.2467 70.4018 35.5C70.4018 36.7353 70.6704 37.6305 71.2075 38.1855C71.7446 38.7226 72.5502 38.9911 73.6244 38.9911C73.8393 38.9911 74.072 38.9822 74.3227 38.9643C74.5733 38.9464 74.8239 38.9195 75.0746 38.8837C75.3431 38.83 75.5938 38.7763 75.8265 38.7226C76.0772 38.6689 76.2831 38.6062 76.4442 38.5346L77.7601 29.2159ZM86.6452 21.4279C87.0748 21.4279 87.424 21.5711 87.6925 21.8576C87.979 22.144 88.1222 22.4931 88.1222 22.9049C88.1222 23.1735 88.0595 23.4331 87.9342 23.6837C87.8268 23.9165 87.6746 24.1313 87.4777 24.3282C87.2986 24.5073 87.0927 24.6505 86.86 24.7579C86.6273 24.8653 86.3856 24.919 86.1349 24.919C85.7231 24.919 85.374 24.7848 85.0876 24.5162C84.819 24.2298 84.6847 23.8806 84.6847 23.4689C84.6847 23.2003 84.7384 22.9407 84.8459 22.6901C84.9533 22.4394 85.0965 22.2246 85.2755 22.0455C85.4546 21.8486 85.6605 21.6964 85.8932 21.589C86.126 21.4816 86.3766 21.4279 86.6452 21.4279ZM85.2218 40.5219C85.186 40.7188 85.1323 40.8441 85.0607 40.8978C84.9891 40.9336 84.8638 40.9515 84.6847 40.9515H83.0734C82.9123 40.9515 82.787 40.9336 82.6975 40.8978C82.6258 40.8441 82.6079 40.7188 82.6437 40.5219L84.4967 27.2823C84.5326 27.0854 84.5863 26.969 84.6579 26.9332C84.7474 26.8795 84.8727 26.8526 85.0338 26.8526H86.6452C86.8242 26.8526 86.9495 26.8795 87.0211 26.9332C87.0927 26.969 87.1106 27.0854 87.0748 27.2823L85.2218 40.5219ZM93.8885 41.2469C93.0649 41.2469 92.1877 41.1664 91.2567 41.0052C90.3436 40.8441 89.5559 40.5577 88.8934 40.1459C88.6786 40.0385 88.6428 39.8326 88.786 39.5282L89.3231 38.266C89.4126 38.1228 89.5021 38.0333 89.5917 37.9975C89.6812 37.9438 89.8155 37.9617 89.9945 38.0512C90.6211 38.3734 91.2925 38.6151 92.0086 38.7763C92.7427 38.9374 93.414 39.018 94.0228 39.018C94.8821 39.018 95.5535 38.8389 96.0369 38.4809C96.5382 38.1228 96.7888 37.6215 96.7888 36.977C96.7888 36.4578 96.5382 36.0281 96.0369 35.6879C95.5535 35.3478 94.8821 35.0076 94.0228 34.6674C92.8411 34.202 91.9281 33.6738 91.2835 33.083C90.6569 32.4743 90.3436 31.6955 90.3436 30.7466C90.3436 29.4038 90.7912 28.3744 91.6864 27.6583C92.5994 26.9242 93.8706 26.5572 95.4998 26.5572C96.198 26.5572 96.8783 26.6199 97.5408 26.7452C98.2032 26.8526 98.8567 27.0496 99.5012 27.336C99.6086 27.3897 99.6713 27.4703 99.6892 27.5777C99.7071 27.6851 99.6981 27.7925 99.6623 27.9L99.0984 29.3233C99.0088 29.5202 98.8656 29.565 98.6687 29.4576C97.9884 29.189 97.4065 29.01 96.9231 28.9205C96.4397 28.8309 95.9026 28.7862 95.3118 28.7862C94.4703 28.7862 93.8527 28.9742 93.4588 29.3501C93.0828 29.7261 92.8948 30.1468 92.8948 30.6123C92.8948 31.0778 93.1007 31.4538 93.5125 31.7402C93.9422 32.0267 94.6225 32.3579 95.5535 32.7339C96.019 32.9308 96.4755 33.1457 96.9231 33.3784C97.3886 33.6111 97.8004 33.8976 98.1584 34.2378C98.5165 34.56 98.803 34.9449 99.0178 35.3925C99.2505 35.8222 99.3669 36.3325 99.3669 36.9233C99.3669 37.711 99.2058 38.3824 98.8835 38.9374C98.5792 39.4745 98.1674 39.9131 97.6482 40.2533C97.1469 40.5935 96.565 40.8441 95.9026 41.0052C95.2581 41.1664 94.5867 41.2469 93.8885 41.2469ZM102.213 28.9473C102.016 28.9473 101.9 28.9115 101.864 28.8399C101.846 28.7504 101.855 28.643 101.891 28.5176L101.998 27.6314C102.034 27.4882 102.07 27.3808 102.106 27.3091C102.159 27.2196 102.285 27.157 102.482 27.1212L104.55 26.6915L105.382 24.194C105.454 23.997 105.525 23.8627 105.597 23.7911C105.668 23.7016 105.803 23.621 106 23.5494L107.02 23.1735C107.146 23.1377 107.244 23.1466 107.316 23.2003C107.405 23.2361 107.432 23.3525 107.396 23.5494L106.913 26.8526H110.001C110.18 26.8526 110.288 26.8974 110.323 26.9869C110.359 27.0585 110.368 27.157 110.35 27.2823L110.189 28.5176C110.153 28.6609 110.109 28.7683 110.055 28.8399C110.001 28.9115 109.885 28.9473 109.706 28.9473H106.617L105.436 37.3261C105.346 37.9169 105.418 38.3376 105.651 38.5883C105.883 38.821 106.277 38.9374 106.832 38.9374C107.065 38.9374 107.387 38.9195 107.799 38.8837C108.211 38.83 108.551 38.7852 108.819 38.7494C108.981 38.7136 109.079 38.7315 109.115 38.8031C109.169 38.8568 109.204 38.9374 109.222 39.0448L109.437 40.3876C109.437 40.495 109.428 40.5935 109.41 40.683C109.392 40.7546 109.303 40.8173 109.142 40.871C108.873 40.9605 108.578 41.0232 108.256 41.059C107.951 41.1127 107.656 41.1485 107.369 41.1664C107.101 41.2022 106.85 41.2201 106.617 41.2201C106.385 41.238 106.206 41.2469 106.08 41.2469C104.702 41.2469 103.771 40.9426 103.287 40.3339C102.822 39.7252 102.688 38.7763 102.885 37.4872L104.066 28.9473H102.213Z"
+                fill="white"
+              ></path>
+              <rect
+                id="logo-fundist-bar"
+                class="logo-fundist-bar__uat"
+                x="22.5919"
+                y="48.9807"
+                rx="0.802833"
+              ></rect>
+              <path
+                id="logo-env-svg"
+                clip-path="url(#env-cut-mask)"
+                d="M83.1789 46.5406H81.3241C81.2505 46.5406 81.2071 46.5272 81.1937 46.5005C81.187 46.4737 81.187 46.4303 81.1937 46.3701L81.2739 45.8087C81.2873 45.7485 81.3007 45.7051 81.314 45.6783C81.3341 45.6449 81.3809 45.6282 81.4544 45.6282H86.247C86.3205 45.6282 86.364 45.6449 86.3773 45.6783C86.3907 45.7051 86.3907 45.7485 86.3773 45.8087L86.2971 46.3701C86.2904 46.4303 86.2771 46.4737 86.257 46.5005C86.237 46.5272 86.1902 46.5406 86.1166 46.5406H84.2116L83.3795 52.4361C83.3661 52.5296 83.3427 52.5898 83.3093 52.6165C83.2759 52.6366 83.219 52.6466 83.1388 52.6466H82.5573C82.4838 52.6466 82.427 52.6366 82.3869 52.6165C82.3468 52.5898 82.3334 52.5296 82.3468 52.4361L83.1789 46.5406ZM90.9803 52.416C90.9669 52.4895 90.9469 52.5463 90.9201 52.5864C90.8934 52.6266 90.8332 52.6466 90.7396 52.6466H87.9924C87.6515 52.6466 87.3775 52.5998 87.1703 52.5062C86.9631 52.406 86.806 52.2756 86.699 52.1152C86.5988 51.9548 86.5386 51.7676 86.5186 51.5537C86.4985 51.3398 86.5052 51.1159 86.5386 50.882L87.0299 47.3928C87.0633 47.1589 87.1135 46.9349 87.1803 46.7211C87.2471 46.5072 87.3474 46.32 87.4811 46.1596C87.6148 45.9925 87.7886 45.8621 88.0025 45.7686C88.2164 45.6683 88.4871 45.6182 88.8146 45.6182H91.5317C91.6253 45.6182 91.6821 45.6382 91.7022 45.6783C91.7222 45.7184 91.7256 45.7752 91.7122 45.8488L91.642 46.33C91.6286 46.4169 91.6086 46.4771 91.5819 46.5105C91.5551 46.5372 91.495 46.5506 91.4014 46.5506H88.8447C88.5974 46.5506 88.4102 46.6074 88.2832 46.7211C88.1629 46.828 88.086 47.0018 88.0526 47.2424L87.8821 48.4757H90.9101C90.997 48.4757 91.0505 48.4924 91.0705 48.5258C91.0906 48.5592 91.0939 48.6194 91.0805 48.7063L91.0204 49.1274C91.007 49.2009 90.987 49.2577 90.9602 49.2978C90.9335 49.3379 90.8767 49.358 90.7898 49.358H87.7618L87.5212 51.0223C87.4945 51.2229 87.5245 51.3866 87.6114 51.5136C87.6983 51.6406 87.8688 51.7041 88.1228 51.7041H90.87C90.9636 51.7041 91.017 51.7208 91.0304 51.7543C91.0505 51.7877 91.0538 51.8478 91.0404 51.9347L90.9803 52.416ZM94.8435 46.4503C94.4158 46.4503 94.1083 46.5439 93.9211 46.7311C93.734 46.9182 93.6404 47.1388 93.6404 47.3928C93.6404 47.6134 93.7674 47.8139 94.0214 47.9944C94.2754 48.1749 94.6597 48.3821 95.1744 48.616C95.395 48.7163 95.6122 48.8266 95.8261 48.9469C96.0467 49.0672 96.2405 49.2076 96.4076 49.368C96.5814 49.5217 96.7185 49.7022 96.8187 49.9094C96.9257 50.1166 96.9791 50.3639 96.9791 50.6514C96.9791 51.0324 96.9056 51.3566 96.7586 51.6239C96.6115 51.8846 96.4177 52.1018 96.177 52.2756C95.9364 52.4427 95.659 52.5664 95.3449 52.6466C95.0307 52.7201 94.7065 52.7569 94.3723 52.7569C93.9713 52.7569 93.5468 52.7201 93.099 52.6466C92.6511 52.5798 92.2467 52.4461 91.8858 52.2456C91.8122 52.2121 91.8056 52.1419 91.8657 52.035L92.1565 51.4234C92.1899 51.3432 92.2501 51.3198 92.337 51.3532C92.6578 51.5069 92.9853 51.6239 93.3195 51.7041C93.6538 51.7843 93.9679 51.8244 94.262 51.8244C94.8302 51.8244 95.2379 51.7275 95.4852 51.5337C95.7392 51.3398 95.8662 51.0658 95.8662 50.7115C95.8662 50.5578 95.8361 50.4241 95.776 50.3105C95.7225 50.1968 95.639 50.0932 95.5253 49.9997C95.4117 49.9061 95.2713 49.8158 95.1042 49.7289C94.9371 49.6421 94.7433 49.5451 94.5227 49.4382C94.1818 49.2711 93.8844 49.114 93.6304 48.9669C93.383 48.8199 93.1758 48.6695 93.0087 48.5158C92.8483 48.3553 92.728 48.1849 92.6478 48.0044C92.5676 47.8239 92.5275 47.6234 92.5275 47.4028C92.5275 46.7879 92.738 46.32 93.1591 45.9992C93.5869 45.6716 94.1751 45.5079 94.9238 45.5079C95.258 45.5079 95.6022 45.5413 95.9565 45.6081C96.3174 45.6683 96.6383 45.7652 96.919 45.8989C96.9524 45.9189 96.9758 45.9423 96.9892 45.9691C97.0025 45.9891 97.0025 46.0259 96.9892 46.0794L96.7786 46.7211C96.7452 46.7745 96.7185 46.8046 96.6984 46.8113C96.6784 46.818 96.6516 46.8146 96.6182 46.8013C96.304 46.6809 95.9932 46.5941 95.6858 46.5406C95.385 46.4804 95.1042 46.4503 94.8435 46.4503ZM99.9025 46.5406H98.0477C97.9741 46.5406 97.9307 46.5272 97.9173 46.5005C97.9106 46.4737 97.9106 46.4303 97.9173 46.3701L97.9975 45.8087C98.0109 45.7485 98.0243 45.7051 98.0376 45.6783C98.0577 45.6449 98.1045 45.6282 98.178 45.6282H102.971C103.044 45.6282 103.088 45.6449 103.101 45.6783C103.114 45.7051 103.114 45.7485 103.101 45.8087L103.021 46.3701C103.014 46.4303 103.001 46.4737 102.981 46.5005C102.961 46.5272 102.914 46.5406 102.84 46.5406H100.935L100.103 52.4361C100.09 52.5296 100.066 52.5898 100.033 52.6165C99.9994 52.6366 99.9426 52.6466 99.8624 52.6466H99.2809C99.2074 52.6466 99.1506 52.6366 99.1104 52.6165C99.0703 52.5898 99.057 52.5296 99.0703 52.4361L99.9025 46.5406ZM109.823 52.4661C109.81 52.533 109.793 52.5798 109.773 52.6065C109.76 52.6332 109.72 52.6466 109.653 52.6466H106.374C106.301 52.6466 106.254 52.6332 106.234 52.6065C106.221 52.5798 106.221 52.533 106.234 52.4661L106.304 51.9448C106.317 51.8779 106.334 51.8311 106.354 51.8044C106.374 51.7777 106.421 51.7643 106.495 51.7643H107.638L108.319 46.8915L107.196 47.072C107.123 47.0853 107.076 47.082 107.056 47.0619C107.043 47.0352 107.039 46.9951 107.046 46.9416L107.116 46.4704C107.13 46.4102 107.146 46.3634 107.166 46.33C107.193 46.2966 107.243 46.2699 107.317 46.2498L108.841 45.8087C108.994 45.7619 109.128 45.7619 109.242 45.8087C109.355 45.8488 109.399 45.949 109.372 46.1094L108.58 51.7643H109.773C109.84 51.7643 109.88 51.7777 109.894 51.8044C109.907 51.8311 109.907 51.8779 109.894 51.9448L109.823 52.4661Z
+"
+                fill="white"
+              ></path>
+              <!-- don't ask about why this path is encapsulated in a group, long story, won't work without it-->
+              <g class="logo-roll" id="logo-arrow-group">
+                <path
+                  class="svg-fade-in"
+                  d="M9.90725 1.43197C16.2864 -0.318581 22.9023 3.40945 24.761 9.7559L27.223 9.41824L24.472 15.3647L19.3255 10.769L21.7774 10.4341C20.3158 5.79463 15.4309 3.09293 10.718 4.38623C5.89317 5.71023 3.04987 10.7269 4.37863 15.569C5.70737 20.411 10.7129 23.2738 15.5377 21.9498C17.7421 21.3449 19.6214 19.9419 20.8283 17.9979L23.4186 19.6231C21.8054 22.2198 19.2936 24.094 16.3479 24.9023C9.90152 26.6713 3.21251 22.8471 1.43681 16.3764C-0.338954 9.90531 3.46084 3.20098 9.90725 1.43197Z"
+                  fill="white"
+                ></path>
+              </g>
+              <defs>
+                <clipPath id="env-cut-mask">
+                  <rect class="logo-fundist-env-mask__uat" x="0" y="0"></rect>
+                </clipPath>
+              </defs>
+            </svg>
+          </a>
+        </div>
+        <div class="fundist-logo-mini-container">
+          <a href="https://test.fundist.org">
+            <img
+              class="animated rotateIn fundist-logo-mini"
+              src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//images/logos/arrow.svg"
+            />
+          </a>
+        </div>
+        <div
+          class="slimScrollDiv"
+          style="position: relative; overflow: hidden; width: auto; height: 95%"
+        >
+          <div
+            class="sidebar-collapse"
+            style="overflow: hidden; width: auto; height: 95%"
+          >
+            <div id="sidemenu-scrollable-wrapper">
+              <ul class="nav metismenu first-level-nav" id="side-menu">
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Dashboard"
+                    id="SideMenu-Dashboard"
+                    title="Админ панель"
+                  >
+                    <i class="fa fa-th-large"></i
+                    ><span class="nav-label">Админ панель</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Users"
+                    aria-expanded="true"
+                    id="SideMenu-Users"
+                    title="Управление пользователями"
+                  >
+                    <i class="fa fa-group"></i
+                    ><span class="nav-label">Управление пользователями</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Users-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users"
+                        id="SideMenu-Users-Management"
+                        title="Пользователи"
+                      >
+                        <i class="fa fa-edit"></i
+                        ><span class="nav-label">Пользователи</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/Unconfirmed"
+                        id="SideMenu-Users-Unconfirmed"
+                        title="Неподтверждённые пользователи"
+                      >
+                        <i class="fa fa-user-secret"></i
+                        ><span class="nav-label"
+                          >Неподтверждённые пользователи</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/Documents"
+                        id="SideMenu-Users-Documents"
+                        title="Документы"
+                      >
+                        <i class="fa fa-briefcase"></i
+                        ><span class="nav-label">Документы</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Freerounds"
+                        id="SideMenu-Freerounds"
+                        title="Фрираунды"
+                      >
+                        <i class="fa fa-coffee"></i
+                        ><span class="nav-label">Фрираунды</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/Categories"
+                        id="SideMenu-Users-Categories"
+                        title="Категории пользователей"
+                      >
+                        <i class="fa fa-user"></i
+                        ><span class="nav-label">Категории пользователей</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/AutoCategories"
+                        id="SideMenu-Users-AutoCategories"
+                        title="Правила автокатегоризации"
+                      >
+                        <i class="fa fa-user"></i
+                        ><span class="nav-label"
+                          >Правила автокатегоризации</span
+                        >
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Stalls"
+                    aria-expanded="true"
+                    id="SideMenu-Stalls"
+                    title="Сайты"
+                  >
+                    <i class="fa fa-building"></i
+                    ><span class="nav-label">Сайты</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Stalls-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Stalls"
+                        id="SideMenu-Stalls-Stalls"
+                        title="Сайты"
+                      >
+                        <i class="fa fa-building"></i
+                        ><span class="nav-label">Сайты</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Stalls/CriticalBalances"
+                        id="SideMenu-StallsCriticalBalances"
+                        title="Критические балансы"
+                      >
+                        <i class="fa fa fa-exclamation-triangle"></i
+                        ><span class="nav-label">Критические балансы</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Nets"
+                    id="SideMenu-Nets"
+                    title="Сети"
+                  >
+                    <i class="fa fa-university"></i
+                    ><span class="nav-label">Сети</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Api"
+                    aria-expanded="true"
+                    id="SideMenu-Api"
+                    title="API"
+                  >
+                    <i class="fa fa-rocket"></i
+                    ><span class="nav-label">API</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Api-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api"
+                        id="SideMenu-Api-Api"
+                        title="API"
+                      >
+                        <i class="fa fa-rocket"></i
+                        ><span class="nav-label">API</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/EvoSiteID"
+                        id="SideMenu-Api-EvoSiteID"
+                        title="Evo Site ID"
+                      >
+                        <i class="fa fa-area-chart"></i
+                        ><span class="nav-label">Evo Site ID</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/Licenses"
+                        id="SideMenu-Api-Licenses"
+                        title="Лицензии"
+                      >
+                        <i class="fa fa-plane"></i
+                        ><span class="nav-label">Лицензии</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/MerchantsSettings"
+                        id="SideMenu-Api-MerchantsSettings"
+                        title="Настройки провайдеров"
+                      >
+                        <i class="fa fa-cogs"></i
+                        ><span class="nav-label">Настройки провайдеров</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/RequestViewer"
+                        id="SideMenu-Api-RequestViewer"
+                        title="Просмотр запросов"
+                      >
+                        <i class="fa fa-search"></i
+                        ><span class="nav-label">Просмотр запросов</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/DomainBlocking"
+                        id="SideMenu-Api-DomainBlocking"
+                        title="Блокировка доменов"
+                      >
+                        <i class="fa fa-lock"></i
+                        ><span class="nav-label">Блокировка доменов</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/AutoLobby"
+                        id="SideMenu-Api-AutoLobby"
+                        title="Автоматическое лобби"
+                      >
+                        <i class="fa fa-desktop"></i
+                        ><span class="nav-label">Автоматическое лобби</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Reports/Turnover"
+                    aria-expanded="true"
+                    id="SideMenu-Reports"
+                    title="Отчёты"
+                  >
+                    <i class="fa fa-bar-chart-o"></i
+                    ><span class="nav-label">Отчёты</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Reports-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/Turnover"
+                        id="SideMenu-Reports-FinancialReports"
+                        title="Финансовые отчёты"
+                      >
+                        <i class="fa fa-line-chart"></i
+                        ><span class="nav-label">Финансовые отчёты</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/PlayerIntelligence"
+                        id="SideMenu-Reports-AnalyticalReports"
+                        title="Аналитические отчеты"
+                      >
+                        <i class="fa fa-share-alt"></i
+                        ><span class="nav-label">Аналитические отчеты</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/Games"
+                        id="SideMenu-Reports-GameActivity"
+                        title="Игровая активность"
+                      >
+                        <i class="fa fa-cubes"></i
+                        ><span class="nav-label">Игровая активность</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/BetsHistory"
+                        id="SideMenu-Reports-UserReports"
+                        title="Отчёты по пользователю"
+                      >
+                        <i class="fa fa-user"></i
+                        ><span class="nav-label">Отчёты по пользователю</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/BonusTurnovers"
+                        id="SideMenu-Reports-BonusesAndLoyalty"
+                        title="Бонусы и лояльность"
+                      >
+                        <i class="fa fa-gift"></i
+                        ><span class="nav-label">Бонусы и лояльность</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/MajorWins"
+                        id="SideMenu-Reports-RiskManagement"
+                        title="Риск-менеджмент"
+                      >
+                        <i class="fa fa-tachometer"></i
+                        ><span class="nav-label">Риск-менеджмент</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Reports/BetRadarBetting"
+                        id="SideMenu-Reports-BetRadarReports"
+                        title="Отчёты BetRadar"
+                      >
+                        <i class="fa fa-th-list"></i
+                        ><span class="nav-label">Отчёты BetRadar</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Payments/Config"
+                    aria-expanded="true"
+                    id="SideMenu-Payments"
+                    title="Платежи"
+                  >
+                    <i class="fa fa-money"></i
+                    ><span class="nav-label">Платежи</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Payments-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Payments/Config"
+                        id="SideMenu-Payments-Config"
+                        title="Настройки платежей"
+                      >
+                        <i class="fa fa-cogs"></i
+                        ><span class="nav-label">Настройки платежей</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Payments/Systems"
+                        id="SideMenu-Payments-Systems"
+                        title="Системы"
+                      >
+                        <i class="fa fa-credit-card"></i
+                        ><span class="nav-label">Системы</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Payments/Pays/Summary"
+                        id="SideMenu-Payments-Pays"
+                        title="История транзакций"
+                      >
+                        <i class="fa fa-credit-card"></i
+                        ><span class="nav-label">История транзакций</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Payments/IncompleteDeposits"
+                        id="SideMenu-Payments-Deposits"
+                        title="Незавершённые депозиты"
+                      >
+                        <i class="fa fa-money"></i
+                        ><span class="nav-label">Незавершённые депозиты</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Payments/Cashback"
+                        id="SideMenu-Payments-Cashback"
+                        title="Cashback"
+                      >
+                        <i class="fa fa-refresh"></i
+                        ><span class="nav-label">Cashback</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Banking"
+                    id="SideMenu-Banking"
+                    title="Банковский учёт"
+                  >
+                    <i class="fa fa-bar-chart-o"></i
+                    ><span class="nav-label">Банковский учёт</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Merchants/MerchantManager"
+                    aria-expanded="true"
+                    id="SideMenu-Merchants"
+                    title="Игры"
+                  >
+                    <i class="fa fa-cubes"></i
+                    ><span class="nav-label">Игры</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Merchants-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/MerchantManager"
+                        id="SideMenu-Merchants-MerchantManager"
+                        title="Управление провайдерами"
+                      >
+                        <i class="fa fa-cubes"></i
+                        ><span class="nav-label">Управление провайдерами</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Games/BettingLimits"
+                        id="SideMenu-Merchants-BetsLimits"
+                        title="Лимиты ставок"
+                      >
+                        <i class="fa fa-area-chart"></i
+                        ><span class="nav-label">Лимиты ставок</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/Games"
+                        id="SideMenu-Merchants-Games"
+                        title="Игры"
+                      >
+                        <i class="fa fa-cubes"></i
+                        ><span class="nav-label">Игры</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Games/Categories"
+                        id="SideMenu-Games-Categories"
+                        title="Категории"
+                      >
+                        <i class="fa fa-cubes"></i
+                        ><span class="nav-label">Категории</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/Sorting"
+                        id="SideMenu-Merchants-Sorting"
+                        title="Сортировки"
+                      >
+                        <i class="fa fa-trophy"></i
+                        ><span class="nav-label">Сортировки</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/Tables/Regular"
+                        id="SideMenu-Merchants-Tables"
+                        title="Столы"
+                      >
+                        <i class="fa fa-cubes"></i
+                        ><span class="nav-label">Столы</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/Countries"
+                        id="SideMenu-Merchants-Countries"
+                        title="Страны"
+                      >
+                        <i class="fa fa-globe"></i
+                        ><span class="nav-label">Страны</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/Currencies"
+                        id="SideMenu-Merchants-Currencies"
+                        title="Валюты"
+                      >
+                        <i class="fa fa-money"></i
+                        ><span class="nav-label">Валюты</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/Games/Permissions"
+                        id="SideMenu-Merchants-Games-Permissions"
+                        title="Разрешения"
+                      >
+                        <i class="fa fa-cogs"></i
+                        ><span class="nav-label">Разрешения</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Merchants/RefundReports"
+                        id="SideMenu-Merchants-Refunds"
+                        title="Рефанды"
+                      >
+                        <i class="fa fa-cogs"></i
+                        ><span class="nav-label">Рефанды</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Games/RtpExclusions"
+                        id="SideMenu-Merchants-RtpExclusions"
+                        title="RTP исключения"
+                      >
+                        <i class="fa fa-server"></i
+                        ><span class="nav-label">RTP исключения</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Sportsbook"
+                    id="SideMenu-Sportsbook"
+                    title="Спортбук"
+                  >
+                    <i class="fa fa-futbol-o"></i
+                    ><span class="nav-label">Спортбук</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Loyalty/Levels"
+                    id="SideMenu-Loyalty"
+                    title="Лояльность и бонусы"
+                  >
+                    <i class="fa fa-coffee"></i
+                    ><span class="nav-label">Лояльность и бонусы</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Crm/Contacts"
+                    id="SideMenu-Crm"
+                    title="CRM"
+                  >
+                    <i class="fa fa-calendar"></i
+                    ><span class="nav-label">CRM</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Banners"
+                    aria-expanded="true"
+                    id="SideMenu-Marketing"
+                    title="Продвижение"
+                  >
+                    <i class="fa fa-envelope"></i
+                    ><span class="nav-label">Продвижение</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Marketing-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Banners"
+                        id="SideMenu-Banners"
+                        title="Баннеры"
+                      >
+                        <i class="fa fa-picture-o"></i
+                        ><span class="nav-label">Баннеры</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/Lists/Mailing"
+                        id="SideMenu-Users-Lists"
+                        title="Настройки для рассылок"
+                      >
+                        <i class="fa fa-envelope"></i
+                        ><span class="nav-label">Настройки для рассылок</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/Lists/Templates"
+                        id="SideMenu-Users-Lists-Templates"
+                        title="Шаблоны"
+                      >
+                        <i class="fa fa-folder-open"></i
+                        ><span class="nav-label">Шаблоны</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/Lists/StallTemplatesEvents"
+                        id="SideMenu-Users-Lists-StallTemplatesEvents"
+                        title="Cобытия шаблонов"
+                      >
+                        <i class="fa fa-calendar-o"></i
+                        ><span class="nav-label">Cобытия шаблонов</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Affiliates"
+                    aria-expanded="true"
+                    id="SideMenu-AffiliatePrograms"
+                    title="Партнерки"
+                  >
+                    <i class="fa fa-users"></i
+                    ><span class="nav-label">Партнерки</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-AffiliatePrograms-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Affiliates"
+                        id="SideMenu-Affiliates"
+                        title="Управление партнерами"
+                      >
+                        <i class="fa fa-edit"></i
+                        ><span class="nav-label">Управление партнерами</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Affiliates/Settings"
+                        id="SideMenu-Affiliates-Settings"
+                        title="Настройки"
+                      >
+                        <i class="fa fa-cogs"></i
+                        ><span class="nav-label">Настройки</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Affiliates/Commissions"
+                        id="SideMenu-Affiliates-Commissions"
+                        title="Комиссии"
+                      >
+                        <i class="fa fa-usd"></i
+                        ><span class="nav-label">Комиссии</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Affiliates/Referrals"
+                        id="SideMenu-Affiliates-Referrals"
+                        title="Рефералы"
+                      >
+                        <i class="fa fa-share-alt"></i
+                        ><span class="nav-label">Рефералы</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Affiliates/Reports"
+                        id="SideMenu-Affiliates-Reports"
+                        title="Отчёты"
+                      >
+                        <i class="fa fa-bar-chart-o"></i
+                        ><span class="nav-label">Отчёты</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/ClientArea/ProvidersInfo"
+                    aria-expanded="true"
+                    id="SideMenu-ClientArea"
+                    title="Клиентам"
+                  >
+                    <i class="fa fa-exclamation-circle"></i
+                    ><span class="nav-label">Клиентам</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-ClientArea-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/ClientArea/ProvidersInfo"
+                        id="SideMenu-ClientArea-ProvidersInfo"
+                        title="Клиентам"
+                      >
+                        <i class="fa fa-exclamation-circle"></i
+                        ><span class="nav-label">Клиентам</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/ClientArea/ReleaseNotes"
+                        id="SideMenu-ClientArea-ReleaseNotes"
+                        title="Release notes"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label">Release notes</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="mm-active">
+                  <a
+                    href="https://test.fundist.org/ru/Logs"
+                    aria-expanded="true"
+                    id="SideMenu-Logs"
+                    title="Логирование"
+                  >
+                    <i class="fa fa-database"></i
+                    ><span class="nav-label">Логирование</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Logs-second-level"
+                    class="nav nav-second-level mm-collapse mm-show"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Logs"
+                        id="SideMenu-AuditLog"
+                        title="Аудит-лог"
+                      >
+                        <i class="fa fa-database"></i
+                        ><span class="nav-label">Аудит-лог</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/Logs"
+                        id="SideMenu-ApiLog"
+                        title="Лог запросов"
+                      >
+                        <i class="fa fa-database"></i
+                        ><span class="nav-label">Лог запросов</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Api/Requests"
+                        id="SideMenu-Requests"
+                        title="API Запросы"
+                      >
+                        <i class="fa fa-database"></i
+                        ><span class="nav-label">API Запросы</span>
+                      </a>
+                    </li>
+                    <li class="mm-active">
+                      <a
+                        href="https://test.fundist.org/ru/Support/MerchantRequests"
+                        id="SideMenu-Support-MerchantRequests"
+                        title="Анализ запросов"
+                        aria-expanded="true"
+                      >
+                        <i class="fa fa-laptop"></i
+                        ><span class="nav-label">Анализ запросов</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Support/PaymentRequests"
+                        id="SideMenu-Support-PaymentRequests"
+                        title="Платежные запросы"
+                      >
+                        <i class="fa fa-credit-card"></i
+                        ><span class="nav-label">Платежные запросы</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Logs/ApiErrors"
+                        id="SideMenu-ApiErrors"
+                        title="Ошибки API"
+                      >
+                        <i class="fa fa-database"></i
+                        ><span class="nav-label">Ошибки API</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/Countries"
+                    aria-expanded="true"
+                    id="SideMenu-Settings"
+                    title="Настройки"
+                  >
+                    <i class="fa fa-cog"></i
+                    ><span class="nav-label">Настройки</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Settings-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Countries"
+                        id="SideMenu-Countries"
+                        title="Страны"
+                      >
+                        <i class="fa fa-globe"></i
+                        ><span class="nav-label">Страны</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Currencies"
+                        id="SideMenu-Currencies"
+                        title="Валюты"
+                      >
+                        <i class="fa fa-money"></i
+                        ><span class="nav-label">Валюты</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Languages"
+                        id="SideMenu-Languages"
+                        title="Языки"
+                      >
+                        <i class="fa fa-language"></i
+                        ><span class="nav-label">Языки</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/DocumentTypes"
+                        id="SideMenu-DocumentTypes"
+                        title="Типы документов"
+                      >
+                        <i class="fa fa-briefcase"></i
+                        ><span class="nav-label">Типы документов</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/PassChange"
+                        id="SideMenu-PassChange"
+                        title="Сменить пароль"
+                      >
+                        <i class="fa fa-laptop"></i
+                        ><span class="nav-label">Сменить пароль</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/News"
+                        id="SideMenu-News"
+                        title="Новости"
+                      >
+                        <i class="fa fa-newspaper-o"></i
+                        ><span class="nav-label">Новости</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/IPBlocks"
+                        id="SideMenu-IPBlocks"
+                        title="IP Блок"
+                      >
+                        <i class="fa fa-shield"></i
+                        ><span class="nav-label">IP Блок</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Acl"
+                        id=""
+                        title="Права доступа"
+                      >
+                        <i class="fa fa-key"></i
+                        ><span class="nav-label">Права доступа</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/APCMonitor"
+                        id="SideMenu-APCMonitor"
+                        title="APC монитор"
+                      >
+                        <i class="fa fa-cogs"></i
+                        ><span class="nav-label">APC монитор</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/GeoipPatch"
+                        id="SideMenu-GeoipPatch"
+                        title="Geoip исключения"
+                      >
+                        <i class="fa fa-map-marker"></i
+                        ><span class="nav-label">Geoip исключения</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Licenses"
+                        id="SideMenu-Licenses"
+                        title="Лицензии"
+                      >
+                        <i class="fa fa-certificate"></i
+                        ><span class="nav-label">Лицензии</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/RegistrationRestrictions"
+                        id="SideMenu-RegistrationRestrictions"
+                        title="Ограничения регистраций"
+                      >
+                        <i class="fa fa-map-signs"></i
+                        ><span class="nav-label">Ограничения регистраций</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Chat/Moderation"
+                        id="SideMenu-Settings-ChatModeration"
+                        title="Модерация чата"
+                      >
+                        <i class="fa fa-comments-o"></i
+                        ><span class="nav-label">Модерация чата</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="https://test.fundist.org/ru/ClientsProviders/Providers"
+                    aria-expanded="true"
+                    id="SideMenu-Other"
+                    title="Другое"
+                  >
+                    <i class="fa fa-cog"></i
+                    ><span class="nav-label">Другое</span>
+                    <span class="fa arrow"></span>
+                  </a>
+                  <ul
+                    id="SideMenu-Other-second-level"
+                    class="nav nav-second-level mm-collapse"
+                  >
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/ClientsProviders/Providers"
+                        id="SideMenu-ClientsProviders/Providers"
+                        title="ClientsProviders/Providers"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label"
+                          >ClientsProviders/Providers</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Users/ManualWithdrawalVerification"
+                        id="SideMenu-Users/ManualWithdrawalVerification"
+                        title="Users/ManualWithdrawalVerification"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label"
+                          >Users/ManualWithdrawalVerification</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Jackpots/JackpotList"
+                        id="SideMenu-Jackpots/JackpotList"
+                        title="Jackpots/JackpotList"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label">Jackpots/JackpotList</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Jackpots/JackpotList/JackpotBettingStatistics"
+                        id="SideMenu-Jackpots/JackpotList/JackpotBettingStatistics"
+                        title="Jackpots/JackpotList/JackpotBettingStatistics"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label"
+                          >Jackpots/JackpotList/JackpotBettingStatistics</span
+                        >
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/RestrictedNicknames"
+                        id="SideMenu-RestrictedNicknames"
+                        title="Список запрещённых ников"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label">Список запрещённых ников</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Games/RtpExclusions"
+                        id="SideMenu-Games/RtpExclusions"
+                        title="Games/RtpExclusions"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label">Games/RtpExclusions</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://test.fundist.org/ru/Games/TableGroups"
+                        id="SideMenu-Games/TableGroups"
+                        title="Games/TableGroups"
+                      >
+                        <i class="fa fa-sticky-note-o"></i
+                        ><span class="nav-label">Games/TableGroups</span>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div
+            class="slimScrollBar"
+            style="
+              background: rgb(0, 0, 0);
+              width: 7px;
+              position: absolute;
+              top: 0px;
+              opacity: 0.4;
+              display: block;
+              border-radius: 7px;
+              z-index: 99;
+              right: 1px;
+              height: 489.666px;
+            "
+          ></div>
+          <div
+            class="slimScrollRail"
+            style="
+              width: 7px;
+              height: 100%;
+              position: absolute;
+              top: 0px;
+              display: none;
+              border-radius: 7px;
+              background: rgb(51, 51, 51);
+              opacity: 0.2;
+              z-index: 90;
+              right: 1px;
+            "
+          ></div>
+        </div>
+      </nav>
+      <div id="page-wrapper" class="gray-bg" style="min-height: 876px">
+        <div class="navbar-container-sticky">
+          <nav
+            style=""
+            id="WelcomeNav"
+            class="navbar navbar-fixed-top fun-navbar"
+            role="navigation"
+          >
+            <div>
+              <button
+                class="fun-btn-burger"
+                id="NavBarBtn"
+                onclick="javascript:setNavBarCockie()"
+                title="Скрыть меню"
+              ></button>
+            </div>
+            <div class="nav nav-buttons">
+              <div class="nav-buttons__left">
+                <div class="fun-nav-today">
+                  <span id="WelcomeDateLabel">Сегодня:</span>
+                  <span id="WelcomeDate" class="text-highlight"
+                    >8 июля 2024 г.</span
+                  >
+                </div>
+                <div class="fun-nav-fundisttime">
+                  <span id="WelcomeTimeLabel">&nbsp;Время UTC:</span>
+                  <span id="WelcomeTime" class="text-highlight">19:05:22</span>
+                </div>
+              </div>
+              <div class="nav-buttons__right">
+                <div class="fun-nav-username">
+                  <span id="WelcomeLevel" class="hidden-xs"
+                    >Администратор:</span
+                  >
+                  <span id="CurrentLogin" class="text-highlight"
+                    >roman_admin</span
+                  >
+                </div>
+                <div class="balance fun-nav-balance">
+                  <span id="WelcomeBalanceLabel">баланс:</span>
+                  <span class="text-highlight"
+                    ><span id="WelcomeBalance">1000000.00</span> EUR</span
+                  >
+                </div>
+                <div class="nav-buttons-lang">
+                  <div class="fun-lang-select">
+                    <select
+                      id="lang_select"
+                      class="form-control select2-hidden-accessible"
+                      tabindex="-1"
+                      aria-hidden="true"
+                    >
+                      <option value="en">English</option>
+                      <option value="ru" selected="">Русский</option>
+                      <option value="tr">Türkçe</option>
+                      <option value="de">Deutsch</option>
+                      <option value="cn">简体中文</option>
+                      <option value="ko">한국어</option>
+                      <option value="ja">日本語</option>
+                      <option value="pt-br" [:pt-bractive:]="">
+                        Português do Brasil
+                      </option></select
+                    ><span
+                      class="select2 select2-container select2-container--default"
+                      dir="ltr"
+                      style="width: 100%"
+                      ><span class="selection"
+                        ><span
+                          class="select2-selection select2-selection--single"
+                          role="combobox"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                          tabindex="0"
+                          aria-labelledby="select2-lang_select-container"
+                          ><span
+                            class="select2-selection__rendered"
+                            id="select2-lang_select-container"
+                            title="Русский"
+                            >Русский</span
+                          ><span
+                            class="select2-selection__arrow"
+                            role="presentation"
+                            ><b role="presentation"></b></span></span></span
+                      ><span class="dropdown-wrapper" aria-hidden="true"></span
+                    ></span>
+                  </div>
+                  <div class="fun-nav-logout">
+                    <button
+                      id="LogoutButton"
+                      class="btn btn-default btn-default-nav"
+                      title="Выход"
+                      onclick="window.location.href='https://test.fundist.org/ru/Logout';"
+                    >
+                      <i class="fa fa-lg fa-sign-out"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <style type="text/css">
+          tr.error {
+            color: red;
+          }
+
+          .state-ok {
+            color: green;
+          }
+
+          .state-error {
+            color: red;
+          }
+
+          .row-table-col-id {
+            display: flex !important;
+          }
+
+          .row-table-col-id .inline-checkbox {
+            margin-right: 8px;
+          }
+
+          .row-table-col-id .inline-checkbox input[type='checkbox'] {
+            width: 18px;
+            height: 18px;
+            top: 0;
+          }
+
+          .ibox-footer {
+            display: flex;
+            padding: 18px 20px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+          }
+
+          .ibox-footer .btn-copy {
+            border-radius: 3px;
+            display: flex;
+            padding: 7px 30px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px; /* 142.857% */
+            white-space: normal;
+            word-wrap: break-word;
+          }
+
+          @media (max-width: 768px) {
+            .ibox-footer .btn-copy {
+              padding: 7px 7px;
+            }
+          }
+
+          td[name='col-ID'],
+          td[name='col-Data'],
+          td[name='col-Datetime'],
+          td[name='col-Response'],
+          td[name='col-Comment'] {
+            vertical-align: top !important;
+          }
+
+          .data-no-opacity {
+            display: none;
+            opacity: 0;
+          }
+        </style>
+        <div class="fun-page-header fun-page-header--default">
+          <h2 class="fun-page-header__title" id="PageTitle">Журнал запросов</h2>
+        </div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+          <div class="row">
+            <form
+              id="FilterForm"
+              action="https://test.fundist.org/ru/Support/MerchantRequests/Find"
+              onsubmit="return MRCheck(this)"
+            >
+              <div class="row m-b-sm" id="Filter" style="margin: 0">
+                <div
+                  class="col-md-2 padding-right-0 padding-left-10"
+                  style="padding-left: 0"
+                >
+                  <select
+                    class="form-control select2-hidden-accessible"
+                    id="reqSystemId"
+                    name="reqSystemId"
+                    tabindex="-1"
+                    aria-hidden="true"
+                  >
+                    <option value="300">300 BGC</option>
+                    <option value="924">924 3 Oaks Gaming</option>
+                    <option value="843">843 7777Gaming</option>
+                    <option value="863">863 AESexyBaccarat</option>
+                    <option value="845">845 AGTSoftware</option>
+                    <option value="928">928 Ainsworth</option>
+                    <option value="905">905 AirDice</option>
+                    <option value="908">908 Altenar</option>
+                    <option value="975">975 Amatic</option>
+                    <option value="989">989 Amatic</option>
+                    <option value="954">954 Amusnet</option>
+                    <option value="950">950 Apollo</option>
+                    <option value="967">967 AsiaGaming</option>
+                    <option value="855">855 AsiaGamingSlots</option>
+                    <option value="966">966 AsiaLiveTech</option>
+                    <option value="906">906 Atmosfera</option>
+                    <option value="971">971 AuthenticGaming</option>
+                    <option value="901">901 BGaming</option>
+                    <option value="962">962 BTI</option>
+                    <option value="914">914 BeeFee</option>
+                    <option value="956">956 Belatra</option>
+                    <option value="993">993 BetConstructSpring</option>
+                    <option value="883">883 BetFair</option>
+                    <option value="990">990 BetGames.tv</option>
+                    <option value="958">958 BetRadar</option>
+                    <option value="991">991 BetSoft</option>
+                    <option value="882">882 BetSolutions</option>
+                    <option value="854">854 Betconstruct CasinoGames</option>
+                    <option value="865">865 BeterLive</option>
+                    <option value="952">952 BetradarVS</option>
+                    <option value="888">888 Big Time Gaming</option>
+                    <option value="977">977 BoomingGames</option>
+                    <option value="923">923 CQ9</option>
+                    <option value="885">885 CT Interactive</option>
+                    <option value="929">929 ConceptGaming</option>
+                    <option value="875">875 Dare</option>
+                    <option value="972">972 Digitain</option>
+                    <option value="829">829 DigitainCG</option>
+                    <option value="833">833 EGTDigital</option>
+                    <option value="925">925 ELKStudios</option>
+                    <option value="948">948 Edict</option>
+                    <option value="973">973 Endorphina</option>
+                    <option value="856">856 EspressoGames</option>
+                    <option value="864">864 EurasianGaming</option>
+                    <option value="965">965 EvenBet Poker</option>
+                    <option value="859">859 EvenbetNetworkPoker</option>
+                    <option value="892">892 EvoOSS</option>
+                    <option value="836">836 EvoOSSAsia</option>
+                    <option value="998">998 Evolution</option>
+                    <option value="940">940 Evoplay</option>
+                    <option value="983">983 Ezugi</option>
+                    <option value="827">827 Fa Chai</option>
+                    <option value="927">927 Fugaso</option>
+                    <option value="821">821 Gabsys</option>
+                    <option value="955">955 GameArt</option>
+                    <option value="824">824 GameBeat</option>
+                    <option value="997">997 Games Global</option>
+                    <option value="848">848 GamingCorps</option>
+                    <option value="879">879 Gamzix</option>
+                    <option value="932">932 Ganapati</option>
+                    <option value="868">868 GenericMerchant</option>
+                    <option value="930">930 Genii</option>
+                    <option value="985">985 GoldenRace</option>
+                    <option value="873">873 Greentube</option>
+                    <option value="976">976 Habanero</option>
+                    <option value="850">850 HacksawGaming</option>
+                    <option value="904">904 HoGaming</option>
+                    <option value="871">871 HollywoodTV</option>
+                    <option value="876">876 IGTech</option>
+                    <option selected="selected" value="963">
+                      963 ISoftBet
+                    </option>
+                    <option value="926">926 Igrosoft</option>
+                    <option value="834">834 JDB</option>
+                    <option value="884">884 JetGames</option>
+                    <option value="878">878 Jinn</option>
+                    <option value="881">881 JustPlay</option>
+                    <option value="898">898 Kaga</option>
+                    <option value="874">874 Kalamba</option>
+                    <option value="974">974 Kiron</option>
+                    <option value="957">957 Lady Luck Games</option>
+                    <option value="931">931 Leander CasinoGames</option>
+                    <option value="936">936 LiveG24</option>
+                    <option value="934">934 LiveGames</option>
+                    <option value="831">831 LiveSpins</option>
+                    <option value="980">980 LuckyStreak</option>
+                    <option value="853">853 MancalaGaming</option>
+                    <option value="899">899 Mascot Gaming</option>
+                    <option value="891">891 Mega888</option>
+                    <option value="870">870 Microgaming</option>
+                    <option value="890">890 MiniGame</option>
+                    <option value="877">877 MiniGameSW</option>
+                    <option value="840">840 N2Live</option>
+                    <option value="992">992 NetEnt OLD</option>
+                    <option value="867">867 NetgameEntertainment</option>
+                    <option value="200">200 NetworkMedia</option>
+                    <option value="938">938 Nolimit City</option>
+                    <option value="893">893 Nova</option>
+                    <option value="835">835 Novomatic</option>
+                    <option value="842">842 NucleusGaming</option>
+                    <option value="100">100 OneWallet</option>
+                    <option value="970">970 OneXTwoNetwork</option>
+                    <option value="896">896 Onlyplay</option>
+                    <option value="857">857 OrbitalGaming</option>
+                    <option value="964">964 OrientalGame</option>
+                    <option value="777">777 OriginalGames</option>
+                    <option value="889">889 OryxGaming</option>
+                    <option value="939">939 PGSoft</option>
+                    <option value="841">841 PascalGaming</option>
+                    <option value="937">937 Pinnacle</option>
+                    <option value="922">922 PinnacleSW</option>
+                    <option value="949">949 Platipus</option>
+                    <option value="944">944 Play'n GO</option>
+                    <option value="943">943 Playson</option>
+                    <option value="916">916 Playtech</option>
+                    <option value="828">828 PopiPlay</option>
+                    <option value="960">960 Pragmatic Play</option>
+                    <option value="913">913 Pragmatic Play Live</option>
+                    <option value="911">911 Push Gaming</option>
+                    <option value="969">969 Quickspin</option>
+                    <option value="822">822 RSG Slots</option>
+                    <option value="907">907 RealtimeGaming</option>
+                    <option value="933">933 Red Tiger</option>
+                    <option value="910">910 RedRakeGaming</option>
+                    <option value="860">860 Redgenn</option>
+                    <option value="918">918 ReevoGames</option>
+                    <option value="887">887 ReevoISB</option>
+                    <option value="935">935 Relax Gaming</option>
+                    <option value="902">902 RevolverGaming</option>
+                    <option value="832">832 RoyalGclub</option>
+                    <option value="968">968 SAGaming</option>
+                    <option value="947">947 SalsaTechnology</option>
+                    <option value="844">844 SimplePlay</option>
+                    <option value="861">861 SlotMatrix</option>
+                    <option value="846">846 Slotmill</option>
+                    <option value="869">869 SmartSoft</option>
+                    <option value="912">912 SolidGaming</option>
+                    <option value="919">919 Spadegaming</option>
+                    <option value="921">921 Spinmatic</option>
+                    <option value="951">951 Spinola</option>
+                    <option value="959">959 Spinomenal</option>
+                    <option value="851">851 Spinthon</option>
+                    <option value="895">895 Spribe</option>
+                    <option value="917">917 Stakelogic</option>
+                    <option value="847">847 Swintt</option>
+                    <option value="838">838 SynotGames</option>
+                    <option value="903">903 TGLab</option>
+                    <option value="900">900 TVBet</option>
+                    <option value="826">826 TaDa Gaming</option>
+                    <option value="701">701 TestCallbackMerchant</option>
+                    <option value="700">700 TestMerchant</option>
+                    <option value="920">920 Thunderkick</option>
+                    <option value="987">987 Tom Horn</option>
+                    <option value="849">849 TurboGames</option>
+                    <option value="862">862 TwainSport</option>
+                    <option value="872">872 Upgaming</option>
+                    <option value="886">886 Vir2alGames</option>
+                    <option value="945">945 VivoGaming</option>
+                    <option value="866">866 WMCasino</option>
+                    <option value="941">941 Wazdan</option>
+                    <option value="978">978 WizardGames</option>
+                    <option value="979">979 WorldMatch</option>
+                    <option value="942">942 XProGaming</option>
+                    <option value="953">953 Yggdrasil</option>
+                    <option value="820">820 ZeusPlay</option></select
+                  ><span
+                    class="select2 select2-container select2-container--default"
+                    dir="ltr"
+                    style="width: 100%"
+                    ><span class="selection"
+                      ><span
+                        class="select2-selection select2-selection--single"
+                        role="combobox"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        tabindex="0"
+                        aria-labelledby="select2-reqSystemId-container"
+                        ><span
+                          class="select2-selection__rendered"
+                          id="select2-reqSystemId-container"
+                          title="963 ISoftBet"
+                          >963 ISoftBet</span
+                        ><span
+                          class="select2-selection__arrow"
+                          role="presentation"
+                          ><b role="presentation"></b></span></span></span
+                    ><span class="dropdown-wrapper" aria-hidden="true"></span
+                  ></span>
+                </div>
+                <div class="col-md-2 padding-right-0 padding-left-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="reqDateTime"
+                    id="reqDateTime"
+                    value="2024-07-08 13:49:22"
+                    placeholder="Дата и время"
+                  />
+                </div>
+                <div class="col-md-1 padding-right-0 padding-left-5">
+                  <button
+                    id="BtnCurrentDate"
+                    type="button"
+                    class="margin-left-0 btn btn-white width-100 max-width-100 text-overflow"
+                    onclick="return fillNow()"
+                    title="Сейчас"
+                  >
+                    Сейчас
+                  </button>
+                </div>
+                <div class="col-md-1 padding-right-0 padding-left-5">
+                  <select
+                    class="form-control select2-hidden-accessible"
+                    name="reqTZ"
+                    id="reqTZ"
+                    tabindex="-1"
+                    aria-hidden="true"
+                  >
+                    <option value="Etc/GMT+12">UTC-12:00</option>
+                    <option value="Etc/GMT+11">UTC-11:00</option>
+                    <option value="Etc/GMT+10">UTC-10:00</option>
+                    <option value="Etc/GMT+9">UTC-9:00</option>
+                    <option value="Etc/GMT+8">UTC-8:00</option>
+                    <option value="Etc/GMT+7">UTC-7:00</option>
+                    <option value="Etc/GMT+6">UTC-6:00</option>
+                    <option value="Etc/GMT+5">UTC-5:00</option>
+                    <option value="Etc/GMT+4">UTC-4:00</option>
+                    <option value="Etc/GMT+3">UTC-3:00</option>
+                    <option value="Etc/GMT+2">UTC-2:00</option>
+                    <option value="Etc/GMT+1">UTC-1:00</option>
+                    <option selected="selected" value="UTC">UTC</option>
+                    <option value="Etc/GMT-1">UTC+1:00</option>
+                    <option value="Etc/GMT-2">UTC+2:00</option>
+                    <option value="Etc/GMT-3">UTC+3:00</option>
+                    <option value="Etc/GMT-4">UTC+4:00</option>
+                    <option value="Etc/GMT-5">UTC+5:00</option>
+                    <option value="Etc/GMT-6">UTC+6:00</option>
+                    <option value="Etc/GMT-7">UTC+7:00</option>
+                    <option value="Etc/GMT-8">UTC+8:00</option>
+                    <option value="Etc/GMT-9">UTC+9:00</option>
+                    <option value="Etc/GMT-10">UTC+10:00</option>
+                    <option value="Etc/GMT-11">UTC+11:00</option>
+                    <option value="Etc/GMT-12">UTC+12:00</option>
+                    <option value="Etc/GMT-13">UTC+13:00</option>
+                    <option value="Etc/GMT-14">UTC+14:00</option></select
+                  ><span
+                    class="select2 select2-container select2-container--default"
+                    dir="ltr"
+                    style="width: 100%"
+                    ><span class="selection"
+                      ><span
+                        class="select2-selection select2-selection--single"
+                        role="combobox"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        tabindex="0"
+                        aria-labelledby="select2-reqTZ-container"
+                        ><span
+                          class="select2-selection__rendered"
+                          id="select2-reqTZ-container"
+                          title="UTC"
+                          >UTC</span
+                        ><span
+                          class="select2-selection__arrow"
+                          role="presentation"
+                          ><b role="presentation"></b></span></span></span
+                    ><span class="dropdown-wrapper" aria-hidden="true"></span
+                  ></span>
+                </div>
+                <div class="col-md-1 padding-right-0 padding-left-5">
+                  <select
+                    class="form-control select2-hidden-accessible"
+                    name="reqTimeDelta"
+                    id="reqTimeDelta"
+                    tabindex="-1"
+                    aria-hidden="true"
+                  >
+                    <option value="5s">± 5s</option>
+                    <option value="10s">± 10s</option>
+                    <option value="2">± 2 mins</option>
+                    <option value="5">± 5 mins</option>
+                    <option value="p2">.. 2 mins</option>
+                    <option value="p5">.. 5 mins</option>
+                    <option selected="selected" value="p10">
+                      .. 10 mins
+                    </option></select
+                  ><span
+                    class="select2 select2-container select2-container--default"
+                    dir="ltr"
+                    style="width: 100%"
+                    ><span class="selection"
+                      ><span
+                        class="select2-selection select2-selection--single"
+                        role="combobox"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        tabindex="0"
+                        aria-labelledby="select2-reqTimeDelta-container"
+                        ><span
+                          class="select2-selection__rendered"
+                          id="select2-reqTimeDelta-container"
+                          title=".. 10 mins"
+                          >.. 10 mins</span
+                        ><span
+                          class="select2-selection__arrow"
+                          role="presentation"
+                          ><b role="presentation"></b></span></span></span
+                    ><span class="dropdown-wrapper" aria-hidden="true"></span
+                  ></span>
+                </div>
+                <div class="col-md-2 padding-right-0 padding-left-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="reqLogin"
+                    id="reqLogin"
+                    value=""
+                    placeholder="Логин пользователя"
+                  />
+                </div>
+                <div class="col-md-1 padding-right-0 padding-left-5">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="reqTransactionID"
+                    value=""
+                    placeholder="ID транзакции"
+                  />
+                </div>
+                <div class="col-md-1 padding-right-0 padding-left-5">
+                  <select
+                    class="form-control select2-hidden-accessible"
+                    name="reqIn"
+                    id="reqIn"
+                    tabindex="-1"
+                    aria-hidden="true"
+                  >
+                    <option value="req">В запросе</option>
+                    <option value="res">В ответе</option>
+                    <option selected="selected" value="reqres">
+                      В запросе/ответе
+                    </option></select
+                  ><span
+                    class="select2 select2-container select2-container--default"
+                    dir="ltr"
+                    style="width: 100%"
+                    ><span class="selection"
+                      ><span
+                        class="select2-selection select2-selection--single"
+                        role="combobox"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        tabindex="0"
+                        aria-labelledby="select2-reqIn-container"
+                        ><span
+                          class="select2-selection__rendered"
+                          id="select2-reqIn-container"
+                          title="В запросе/ответе"
+                          >В запросе/ответе</span
+                        ><span
+                          class="select2-selection__arrow"
+                          role="presentation"
+                          ><b role="presentation"></b></span></span></span
+                    ><span class="dropdown-wrapper" aria-hidden="true"></span
+                  ></span>
+                </div>
+                <div
+                  class="col-md-1 buttons pull-right padding-left-5"
+                  style="padding-right: 0"
+                >
+                  <button
+                    id="ButtonFilter"
+                    type="submit"
+                    class="btn btn-default pull-right"
+                  >
+                    Найти
+                  </button>
+                </div>
+              </div>
+              <div class="row m-b-sm" style="margin: 0">
+                <div class="col-md-1 padding-left-10" style="padding-left: 0">
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="requestID"
+                    id="requestID"
+                    value="171598649"
+                    placeholder="ID Запроса"
+                  />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="row">
+            <div class="container-textarea-result-data-query">
+              <textarea
+                class="textarea-result-data-query"
+                style="
+                  width: 940px;
+                  height: 250px;
+                  font-size: 14px;
+                  padding: 10px;
+                  margin: 20px 0px;
+                  outline: none;
+                  box-shadow: rgb(42, 175, 64) 0px 0px 0px 1px;
+                  border-color: rgb(42, 175, 64);
+                "
+              >
+******************************************************
+ID: 171598649
+Direction: eGamings -&gt; OneWallet
+DateRequest: 2024-07-08 13:56:06
+DateResponse: 2024-07-08 13:56:06
+Request: {"i_gameid":"37134725", "i_actionid":"D327290b6-2d29-422c-8bd8-b07469043b50", "i_extparam":"", "i_gamedesc":"421:starburst:starburst0000000", "type":"debit", "tid":"10225427", "userid":"SergeB", "currency":"USD", "amount":"2.00", "hmac":"14fb3ba64e8571b110aa6bb75ad60129a61bc9d68bfd55b75652a3bfabc64a91"}
+Response: The requested URL returned error: 500 Internal Server Error
+Status: 500
+TimeQuery: 0.139182
+Comment: Ошибка от poker8_uat -- ответ: The requested URL returned error: 500 Internal Server Error
+</textarea
+              >
+              <div class="div-block-button">
+                <button class="btn-copy-query">Copy Result</button>
+              </div>
+              <div
+                class="div-block-notify element-active-done"
+                style="opacity: 0"
+              >
+                <span class="notify-text">Данные успешно скопированы!</span>
+              </div>
+            </div>
+            <div class="ibox-content">
+              <div class="alert alert-warning">
+                <p id="LogFollowsTitle">Журнал</p>
+                <textarea
+                  class="only-verical-resize"
+                  id="MessagesText"
+                  rows="10"
+                  cols="30"
+                  style="width: 100%"
+                >
+Ошибка от poker8_uat -- ответ: The requested URL returned error: 500 Internal Server Error
+Запрос [2024-07-08 13:56:06]:
+{"i_gameid":"37134725", "i_actionid":"D327290b6-2d29-422c-8bd8-b07469043b50", "i_extparam":"", "i_gamedesc":"421:starburst:starburst0000000", "type":"debit", "tid":"10225427", "userid":"SergeB", "currency":"USD", "amount":"2.00", "hmac":"14fb3ba64e8571b110aa6bb75ad60129a61bc9d68bfd55b75652a3bfabc64a91"}
+Ответ [0.1392]:
+The requested URL returned error: 500 Internal Server Error
+</textarea
+                >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="ibox-content">
+              <button
+                id="ShowSQLButton"
+                type="button"
+                class="hide-sql btn btn-white"
+                onclick="return showSQL(true)"
+                style="display: inline-block"
+              >
+                Показать SQL оператор
+              </button>
+              <button
+                id="HideSQLButton"
+                type="button"
+                class="show-sql btn btn-white m-b-sm"
+                onclick="return showSQL(false)"
+                style="display: none"
+              >
+                Скрыть SQL оператор
+              </button>
+              <div id="SQLText" class="show-sql" style="display: none">
+                <code>
+                  SELECT sql_calc_found_rows r.* FROM `MerchantRequestsNew` AS
+                  `r` WHERE (r.req_datetime between '2024-07-08 13:49:22' and
+                  '2024-07-08 13:59:22') AND (r.req_system_id in (963,100)) AND
+                  (r.req_id = 171598649) LIMIT 200
+                </code>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="ibox-content">
+              <button
+                id="ShowMRTableButton"
+                type="button"
+                class="hide-mrtable btn btn-white"
+                onclick="return mrTable(true)"
+                style="display: none"
+              >
+                Показать таблицу запросов
+              </button>
+              <button
+                id="HideMRTableButton"
+                type="button"
+                class="show-mrtable btn btn-white m-b-sm"
+                onclick="return mrTable(false)"
+                style="display: inline-block"
+              >
+                Скрыть таблицу запросов
+              </button>
+              <table
+                class="table table-bordered table-condensed table-striped show-mrtable table-merchants-requests"
+                id="mrTable"
+                style="display: table"
+              >
+                <thead>
+                  <tr>
+                    <th style="width: 50px">Select a request</th>
+                    <th name="col-ID" class="mrTable-col-id">
+                      <div class="row-table-col-id">
+                        <b>
+                          ID запроса<br />
+                          Откуда -&gt; Куда<br />
+                          Статус
+                        </b>
+                      </div>
+                    </th>
+                    <th name="col-Datetime" style="vertical-align: middle">
+                      <div>Дата запроса</div>
+                      <div>Дата ответа</div>
+                      <div>Время обработки</div>
+                    </th>
+                    <th name="col-Data">Данные запроса</th>
+                    <th name="col-Response">Результат запроса</th>
+                    <th name="col-Comment">Комментарий</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="error" id="RequestID-171598649">
+                    <input
+                      type="checkbox"
+                      class="inputCheck"
+                      value=""
+                      id="0"
+                      style="cursor: pointer"
+                    />
+                    <td name="col-ID">
+                      <div class="row-table-col-id">
+                        <div>
+                          <a
+                            href="https://test.fundist.org/ru/Support/MerchantRequests/Find?reqSystemId=963&amp;reqDateTime=2024-07-08 13:49:22&amp;reqTZ=UTC&amp;reqTimeDelta=p10&amp;reqIn=reqres&amp;requestID=171598649"
+                            target="_blank"
+                            >171598649</a
+                          ><br />
+                          —<br />
+                          eGamings <b>-&gt;</b> OneWallet<br />
+                          Статус: 500
+                        </div>
+                      </div>
+                    </td>
+                    <td name="col-Datetime">
+                      <div>2024-07-08 13:56:06</div>
+                      <div>2024-07-08 13:56:06</div>
+                      <div id="RawClientResponseTimeID-171598649">0.139182</div>
+                    </td>
+                    <td name="col-Data" class="word-break">
+                      {"i_gameid":"37134725",
+                      "i_actionid":"D327290b6-2d29-422c-8bd8-b07469043b50",
+                      "i_extparam":"",
+                      "i_gamedesc":"421:starburst:starburst0000000",
+                      "type":"debit", "tid":"10225427", "userid":"SergeB",
+                      "currency":"USD", "amount":"2.00",
+                      "hmac":"14fb3ba64e8571b110aa6bb75ad60129a61bc9d68bfd55b75652a3bfabc64a91"}
+                    </td>
+                    <td name="col-Response" class="word-break">
+                      The requested URL returned error: 500 Internal Server
+                      Error
+                    </td>
+                    <td name="col-Comment" class="word-break">
+                      <a
+                        href="https://test.fundist.org/ru/Support/MerchantRequests/Find/?reqSystemId=100&amp;reqDateTime=2024-07-08 13:51:55&amp;reqTZ=UTC&amp;reqTimeDelta=5s&amp;reqLogin=37134725&amp;reqTransactionID=&amp;reqIn=req&amp;IPNotNull=1"
+                        title="Открыть отчёт по этому раунду"
+                        ><i class="fa fa-search fa-pull-right"></i
+                      ></a>
+                      <p>
+                        Ошибка от poker8_uat -- ответ: The requested URL
+                        returned error: 500 Internal Server Error
+                      </p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- content -->
+        <script language="javascript" type="text/javascript">
+          function mrTable(f) {
+            if (f) {
+              $('.hide-mrtable').hide();
+              $('.show-mrtable').show();
+            } else {
+              $('.hide-mrtable').show();
+              $('.show-mrtable').hide();
+              $('#CheckBox-global').prop('checked', false);
+              $('.checkbox-req-id').prop('checked', false);
+              setMRCheck();
+            }
+          }
+
+          function showSQL(f) {
+            if (f) {
+              $('.hide-sql').hide();
+              $('.show-sql').show();
+            } else {
+              $('.hide-sql').show();
+              $('.show-sql').hide();
+            }
+          }
+
+          function showMIO(f) {
+            if (f) {
+              $('.hide-mio').hide();
+              $('.show-mio').show();
+            } else {
+              $('.hide-mio').show();
+              $('.show-mio').hide();
+            }
+          }
+
+          function MRCheck(f) {
+            var s;
+            s = $('#reqDateTime').val();
+            if (!s.length) {
+              alert('Please fill in date/time field');
+              return false;
+            }
+
+            return true;
+          }
+
+          function fillNow() {
+            var now = new Date();
+            var now_s = now.toISOString();
+            now_s = now_s.slice(0, 19);
+            now_s = now_s.replace('T', ' ');
+
+            $('#reqDateTime').val(now_s);
+
+            return false;
+          }
+
+          function setMRCheckGlobal(el) {
+            if (el.checked) {
+              $('.checkbox-req-id').prop('checked', true);
+              $('.ibox-footer').show();
+            } else {
+              $('.checkbox-req-id').prop('checked', false);
+              $('.ibox-footer').hide();
+            }
+          }
+
+          function setMRCheck() {
+            let selector = $('.checkbox-req-id:checkbox:checked');
+            let checked = selector.length;
+            let all = $('.checkbox-req-id').length;
+            if (checked > 0) {
+              $('.ibox-footer').show();
+            } else {
+              $('.ibox-footer').hide();
+            }
+
+            $('#CheckBox-global').prop('checked', checked === all);
+          }
+
+          $('.btn-copy').on('click', function (event) {
+            event.preventDefault();
+            let str = $(this).attr('data-copy-type');
+            let selector = $('.checkbox-req-id:checkbox:checked');
+            let tmp = $('#TmpCopyArea');
+            switch (str) {
+              case 'copy-simple':
+                selector.each(function (i, el) {
+                  tmp.text(
+                    tmp.text() +
+                      (i > 0 ? '\n---\n' : '') +
+                      $('#RawSimpleRequestID-' + el.value)
+                        .text()
+                        .replace(/\s\s+/g, ' ')
+                  );
+                });
+                break;
+              case 'copy-client':
+                selector.each(function (i, el) {
+                  let text = $('#RawClientRequestID-' + el.value)
+                    .text()
+                    .replace(/\s\s+/g, ' ');
+                  if ($('#RawTableSystemId-' + el.value).val() === '100') {
+                    let t = 0;
+                    let isBadResponse =
+                      parseInt(
+                        $('#RawTableRequestStatus-' + el.value).text()
+                      ) !== 200;
+                    let isError = $('#CheckBox-' + el.value)
+                      .parents()
+                      .eq(3)
+                      .hasClass('error');
+                    let isTimedOut =
+                      parseFloat(
+                        $('#RawClientResponseTimeID-' + el.value).text()
+                      ) >= 2.0;
+
+                    if (isBadResponse || (!isTimedOut && isError)) {
+                      text = text.replace(/color:none/g, (match) =>
+                        ++t === 2 ? 'color:red' : match
+                      );
+                    }
+                    t = 0;
+                    if (isTimedOut) {
+                      text = text.replace(/color:none/g, (match) =>
+                        ++t === 1 ? 'color:red' : match
+                      );
+                    }
+                  }
+                  tmp.text(tmp.text() + (i > 0 ? '\n---\n' : '') + text);
+                });
+                break;
+              case 'copy-table':
+                tmp.text(
+                  $('<div />').html('&#123;&#123;collapse(Expand)\n').text()
+                );
+                tmp.text(tmp.text() + $('#RawTableRequestID-Global').text());
+                selector.each(function (i, el) {
+                  tmp.text(
+                    tmp.text() +
+                      '\n' +
+                      $('#RawTableRequestID-' + el.value)
+                        .text()
+                        .replace(/\s\s+/g, ' ')
+                  );
+                });
+                tmp.text(
+                  tmp.text() + $('<div />').html('\n&#125;&#125;').text()
+                );
+                break;
+              default:
+                return alert('No way to use function like that!');
+            }
+            navigator.clipboard.writeText(tmp.text());
+            tmp.text('');
+            $(this).trigger('blur');
+            return false;
+          });
+        </script>
+        <div class="footer fixed footer-desktop">
+          <small>Fundist ver.: test-20240708.4</small>,
+          <small>Funcore ver.: test-20240708.10</small>,
+          <small>Loyalty ver.: test-20240708.1</small><br />
+          <div id="ReleaseNotes">
+            <a
+              target="_blank"
+              class="text-link"
+              href="https://test.fundist.org/ru/ClientArea/ReleaseNotes"
+              >Release Notes</a
+            >
+          </div>
+          Copyright BROMSTON ASSOCIATES LTD © 2008–2024 Все права защищены
+        </div>
+        <div class="footer fixed footer-mobile" id="footer">
+          <div class="footer-arrow" id="fun-footer-arrow">
+            <img
+              src="/images/icons/arrow-down.svg"
+              alt=""
+              style="width: 15px; height: auto; margin: 0 auto"
+            />
+          </div>
+          <div id="footer-main" class="collapse">
+            <small>Fundist ver.: test-20240708.4</small>,
+            <small>Funcore ver.: test-20240708.10</small>,
+            <small>Loyalty ver.: test-20240708.1</small><br />
+            <div id="ReleaseNotes">
+              <a
+                target="_blank"
+                class="text-link"
+                href="https://test.fundist.org/ru/ClientArea/ReleaseNotes"
+                >Release Notes</a
+              >
+            </div>
+            Copyright BROMSTON ASSOCIATES LTD © 2008–2024 Все права защищены
+          </div>
+        </div>
+      </div>
+      <script>
+        const footer = document.getElementById('footer');
+        const arrowBtn = document.getElementById('fun-footer-arrow');
+        const footerMain = document.getElementById('footer-main');
+        const iframeBlock = document.querySelector(
+          '.iframe-content-wrapper iframe'
+        );
+
+        footer.addEventListener('click', () => {
+          footerMain.classList.toggle('collapse');
+          arrowBtn.classList.toggle('opened');
+          openCloseFooter();
+        });
+        $(function () {
+          openCloseFooter();
+        });
+        $(window).resize(function () {
+          openCloseFooter();
+        });
+
+        function openCloseFooter() {
+          let heightNavbar = parseInt(
+            $('.navbar-container-sticky').css('height')
+          );
+          let heightFooter;
+          if ($(window).width() >= 900) {
+            heightFooter = parseInt($('.footer-desktop').css('height'));
+          } else {
+            heightFooter = parseInt($('#footer').css('height'));
+          }
+          let sumHeight =
+            parseInt($(window).height()) - (heightNavbar + heightFooter);
+          if ($('.navbar-static-top').length) {
+            let heightNavbarTop = parseInt(
+              $('.navbar-static-top').css('height')
+            );
+            sumHeight -= heightNavbarTop;
+          }
+          $('.iframe-content-wrapper iframe').css('height', sumHeight + 'px');
+        }
+      </script>
+    </div>
+    <script type="text/javascript">
+      function showExpirationModal() {
+        $('#SessionExpirationModal').modal('show');
+      }
+
+      $(document).ready(function () {
+        // init datetime in header
+        updateWelcomeDatetime();
+
+        // global FilterForm UI fix
+
+        // auto width dropdown
+        //$('#FilterForm select').select2({dropdownAutoWidth: 'true'});
+
+        // tooltip for ID-like
+        $('#FilterForm input[name~=ID]').change(function () {
+          var title = $(this).val();
+          $(this).tooltip({ trigger: 'focus', title: title });
+        });
+
+        // custom
+
+        // use class "green-checkbox" for custom green checkboxes
+        // http://icheck.fronteed.com/#methods
+        // $('...').iCheck('update') for apply input changes, which were done outside the iCheck plugin
+        $('input.green-checkbox').iCheck({
+          checkboxClass: 'icheckbox_square-green',
+        });
+
+        // always show col Actions
+        $('#DataList .col-Actions').show();
+        $('#DataList a[href="#edit"]').closest('td').show();
+
+        // in IDNet, IDMerchant match only words that start with search term #6245
+        function matchStart(term, text) {
+          if ($.trim(text).toUpperCase().indexOf(term.toUpperCase()) == 0) {
+            return true;
+          }
+          return false;
+        }
+        $.fn.select2.amd.require(
+          ['select2/compat/matcher'],
+          function (oldMatcher) {
+            $('select#IDMerchant, #FilterForm select[name=IDNet]').select2({
+              matcher: oldMatcher(matchStart),
+              width: '100%',
+              dropdownAutoWidth: true,
+              minimumResultsForSearch: 10,
+            });
+          }
+        );
+
+        // multiple modals scroll fix
+        $(document).on('hidden.bs.modal', '.modal', function () {
+          $('.modal:visible').length && $(document.body).addClass('modal-open');
+        });
+
+        // #7308
+        var date_pairs = [
+          ['#dateFrom', '#dateTill'],
+          ['#dateFrom', '#dateTo'],
+          ['#DateFrom', '#DateTo'],
+          ['#lastCreditDateFrom', '#lastCreditDateTill'],
+          ['#regDateFrom', '#regDateTill'],
+          ['#repDateFrom', '#repDateTill'],
+        ];
+        $.each(date_pairs, function (k, v) {
+          if ($(v[0]).length && $(v[1]).length) {
+            $(v[0] + ',' + v[1]).focusout(function () {
+              var from = $(v[0]).val();
+              var till = $(v[1]).val();
+              if (!from.length || !till.length) return;
+
+              var from_date = toDate(from);
+              var till_date = toDate(till);
+              var today_date = new Date();
+
+              if (from_date > till_date) {
+                $(v[1]).val(from);
+                let alertModal = bootbox.alert({
+                  message:
+                    'Дата &quot;От&quot; должна быть раньше даты &quot;До&quot;',
+                  title: 'Fundist',
+                });
+                setBootboxIds(alertModal, 'DateValidationAlert');
+              }
+            });
+          }
+        });
+
+        // extend jquery validator messages
+        $.extend($.validator.messages, {
+          step: 'Пожалуйста, введите число, кратное {0}.',
+        });
+
+        $('#SessionExpirationWarningModal').on('hidden.bs.modal', () => {
+          sessChecker();
+          resetCountdown();
+        });
+
+        $('#SessionExpirationModal').on('hidden.bs.modal', () => {
+          sessChecker(true);
+          window.location.reload();
+        });
+
+        $('#SessionExpirationModal').on('shown.bs.modal', () => {
+          sessChecker(true);
+        });
+
+        setTimeout(() => {
+          $('#SessionExpirationWarningModal').on('shown.bs.modal', () => {
+            initCountDown();
+          });
+        }, 0);
+      });
+
+      // make Enter key on an FilterForm form submit
+      $('#FilterForm input').keypress(function (e) {
+        if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+          $(e.currentTarget).trigger('change');
+          $('#FilterForm button[type=submit]').click();
+          return false;
+        } else {
+          return true;
+        }
+      });
+
+      // slimscroll
+      $('.full-height-scroll').slimscroll({
+        height: '100%',
+        alwaysVisible: true,
+        railVisible: true,
+        railOpacity: 0.1,
+        size: '10px',
+        color: '#00f',
+      });
+
+      // disable click outside of bootstrap model area to close modal
+      $.fn.modal.prototype.constructor.Constructor.DEFAULTS.backdrop = 'static';
+
+      var processHidden = function () {
+        if (
+          $(this).width() < 1260 ||
+          navigator.userAgent.match(/(iPod|iPhone|iPad)/)
+        ) {
+          $('ul.nav .hidden-xs').hide();
+        } else {
+          $('ul.nav .hidden-xs').show();
+        }
+        if (
+          ($(this).width() < 1390 && $('#WelcomeNav').text().length > 150) ||
+          ($(this).width() < 1600 && $('#WelcomeNav').text().length > 350)
+        ) {
+          $('ul.nav .hidden-md').hide();
+        }
+        if (
+          /(android)/i.test(navigator.userAgent) ||
+          window.screen.width < 660
+        ) {
+          $('ul.nav .hidden-xs').hide();
+          $('#WelcomeDate, #WelcomeTime').hide();
+          $('#NavBarBtn').css('margin-left', '5px');
+        }
+      };
+      $(window).on('resize', function () {
+        processHidden();
+      });
+      processHidden();
+
+      // highlight item in side menu
+      var href = document.location.href.split('#')[0];
+      href_parts = href.replace(/\/\s*$/, '').split('/');
+      href_parts = href_parts.filter(function (v) {
+        return v !== '';
+      });
+      href_parts.shift();
+      var href_fixed = href_parts;
+      var lang = href_fixed[1];
+      var $side_menu = $('#side-menu');
+      var prev = '';
+      var $item = false;
+
+      switch (href_parts[3]) {
+        case 'Lists':
+          if (
+            ['Templates', 'StallTemplatesEvents'].indexOf(href_fixed[4]) == -1
+          ) {
+            href_fixed[4] = 'Mailing';
+          }
+
+          break;
+        case 'Withdraws':
+          href_fixed[4] = 'Request';
+          break;
+        case 'Pays':
+          href_fixed[4] =
+            SESSION_LEVEL == 50 || SESSION_LEVEL == 80 || SESSION_LEVEL >= 90
+              ? 'Summary'
+              : 'Credit';
+          break;
+        case 'Tables':
+          href_fixed[4] = 'Regular';
+          break;
+      }
+
+      $.each(href_fixed, function (i, val) {
+        if (i > 1) {
+          var cur = prev + '/' + val;
+          var $i = $side_menu.find('a[href$="' + lang + cur + '"]');
+          if ($i.length) {
+            $item = $i;
+          }
+          prev = cur;
+        }
+      });
+      if ($item) {
+        $item.parent().addClass('mm-active');
+      }
+      /**
+       * For some pages user must confirm changes #11628
+       * function is here because of safari scope issue
+       *
+       * @return {bool}
+       */
+      function showConfirmSave() {
+        return false;
+      }
+
+      function rememberFormInitialData() {
+        return false;
+      }
+
+      function accountantLogs(ObjectType, ObjectID) {
+        Loading(0, 1);
+        const success = function (answ) {
+          Loading(0, 0);
+          answ = JSON.parse(answ);
+          if (parseInt(answ[0]) !== 1 || !answ['Message']) {
+            return false;
+          }
+          var dialog = bootbox.dialog({
+            title: answ['Title'],
+            message: answ['Message'],
+            size: 'lg',
+            className: 'accountant-logs-modal',
+            closeButton: true,
+            onEscape: true,
+            buttons: {
+              cancel: {
+                label: 'Закрыть',
+                className: 'btn btn-w-m btn-default pull-right',
+              },
+            },
+          });
+          setBootboxIds(dialog, 'AccountantLogsModal');
+        };
+        Loading(0, 1);
+        $.post(
+          URL_ROOT + '/AccountantLogs/Get',
+          { ObjectType: ObjectType, ObjectID: ObjectID },
+          success
+        );
+      }
+
+      $('#lang_select').on('change', function () {
+        const domain = 'https://test.fundist.org/';
+        const urlWithoutDomain = window.location.href.replace(domain, '');
+        const currentLanguage = urlWithoutDomain.split('/')[0];
+        window.location.href =
+          domain + urlWithoutDomain.replace(currentLanguage, $(this).val());
+      });
+    </script>
+    <script
+      type="text/javascript"
+      src="https://test.fundist.org/static20240708.2804/funtheme_inspinia//js/fundist/fun-bundle.js"
+    ></script>
+    <div
+      class="modal inmodal animated fadeIn"
+      id="MessageWindow"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header p-w-sm">
+            <button
+              id="CloseMessageWindowButton"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+            >
+              <span aria-hidden="true">×</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <h5 class="modal-title m-t-n pull-left" id="MessageTitle"></h5>
+          </div>
+          <div class="modal-body">
+            <span id="MessageBody"></span>
+            <div id="MessageDescription"></div>
+          </div>
+          <div class="text-center p-sm">
+            <button
+              id="MessageWindowCloseButton"
+              type="button"
+              class="btn btn-default"
+              data-dismiss="modal"
+            >
+              Закрыть
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal inmodal animated fadeIn"
+      id="SessionExpirationWarningModal"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header p-w-sm">
+            <button
+              id="CloseSessionExpirationWarningButton"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+            >
+              <span aria-hidden="true">×</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <h5 class="modal-title m-t-n pull-left" id="MessageTitle">
+              Время сессии истекает
+            </h5>
+          </div>
+          <div class="modal-body">
+            <span id="MessageBody">
+              <b id="CountDown">05:00</b>
+              <span>Время сессии истекает.</span>
+              <span>Нажмите "Продлить", чтобы не завершать сеанс</span>
+            </span>
+            <div id="MessageDescription"></div>
+          </div>
+          <div class="text-center p-sm modal-footer">
+            <button
+              id="SessionExpirationWarningCloseButton"
+              type="button"
+              class="btn btn-primary"
+              data-dismiss="modal"
+            >
+              Продлить
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal inmodal animated fadeIn"
+      id="SessionExpirationModal"
+      tabindex="-1"
+      role="dialog"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header p-w-sm">
+            <button
+              id="CloseSessionExpirationButton"
+              type="button"
+              class="close"
+              data-dismiss="modal"
+            >
+              <span aria-hidden="true">×</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <h5 class="modal-title m-t-n pull-left" id="MessageTitle">
+              Время сессии истекло
+            </h5>
+          </div>
+          <div class="modal-body">
+            <span id="MessageBody"> Время сессии истекло </span>
+            <div id="MessageDescription"></div>
+          </div>
+          <div class="text-center p-sm modal-footer">
+            <button
+              id="SessionExpirationCloseButton"
+              type="button"
+              class="btn btn-default"
+              data-dismiss="modal"
+            >
+              Начать новую
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <link rel="stylesheet" href="style.css" />
+    <script src="appProd.js"></script>
+  </body>
+</html>

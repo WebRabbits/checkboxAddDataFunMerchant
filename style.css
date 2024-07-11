@@ -4,11 +4,19 @@
   align-items: center;
 }
 
+.div-block-button {
+  width: auto;
+  height: auto;
+  display: flex;
+  margin-left: 15px;
+  flex-direction: column;
+  align-items: center;
+}
+
 .div-block-button .btn-copy-query {
   display: inline-block;
-  width: 107px;
+  width: auto;
   height: auto;
-  margin-left: 15px;
   font-size: 14px;
   vertical-align: middle;
   cursor: pointer;
@@ -25,6 +33,11 @@
 
 .div-block-button .btn-copy-query:hover {
   border: 1px solid #1fd8d3;
+}
+
+.div-block-button > button:nth-child(1) {
+  width: 107px;
+  margin-bottom: 5px;
 }
 
 .div-block-notify {
