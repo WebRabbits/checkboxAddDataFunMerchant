@@ -56,7 +56,7 @@
 
   const copyBtnQuery = document.createElement('button');
   copyBtnQuery.className = 'btn-copy-query';
-  copyBtnQuery.textContent = 'Copy Result!';
+  copyBtnQuery.textContent = 'Copy Result';
 
   const copyBtnSQLRequest = document.createElement('button');
   copyBtnSQLRequest.className = 'btn-copy-query';
