@@ -104,10 +104,12 @@
 
     const elArray = Array.from(el);
 
+    // Проверяем, есть ли у дочерние элементы у элементов из массива elArray
     const hasRequestInputChildren = elArray[3] && elArray[3].hasChildNodes && elArray[3].hasChildNodes();
     const hasResponseInputChildren = elArray[3] && elArray[3].hasChildNodes && elArray[3].hasChildNodes();
     console.log(hasResponseInputChildren);
 
+    // Если дочерние элементы присутствуют у элементов с index == 3 && index == 4 - ТО выполняем действия
     if(hasRequestInputChildren || hasResponseInputChildren) {
       const elPreRequest = elArray[3] && elArray[3].children[0] 
         ? Array.from(elArray[3].children[0].childNodes)
@@ -142,6 +144,7 @@
       });
     }
 
+    // Если у элементов с index == 3 && index == 4 НЕТ вложенных дочерних элементов - то берём только текст из тегов td И возвращаем новый массив
     return elArray.map(elThisEleme => elThisEleme.textContent.trim() || elThisEleme.innerText.trim() || "");
   });
   // console.log(arrayPreDataQuery);
