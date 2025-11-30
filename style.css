@@ -40,6 +40,10 @@
   margin-bottom: 5px;
 }
 
+.div-block-button > button:nth-child(1) {
+  width: 137px;
+}
+
 .div-block-notify {
   width: 135px;
   height: auto;
