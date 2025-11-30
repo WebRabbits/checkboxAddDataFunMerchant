@@ -100,35 +100,49 @@
   });
 
   //Получаем массив, в который маппим все значения, которые содержаться отдельные массивы всех элементов из HTMLCollection с страницы из таблицы
-  const arrayPreDataQuery = checkMerchantAllHTMLCollection.map((el) => {
-    // Преобразуем данные из списка "Показать оригинал логов" из столбца "Данные запроса" в обычную строку текста с выбором ТОЛЬКО текста запроса
-    const elPreRequest = Array.from(el[3].children[0].childNodes)
+  const arrayPreDataQuery = checkMerchantAllHTMLCollection.map((el, index) => {
+
+    const elArray = Array.from(el);
+
+    const hasRequestInputChildren = elArray[3] && elArray[3].hasChildNodes && elArray[3].hasChildNodes();
+    const hasResponseInputChildren = elArray[3] && elArray[3].hasChildNodes && elArray[3].hasChildNodes();
+    console.log(hasResponseInputChildren);
+
+    if(hasRequestInputChildren || hasResponseInputChildren) {
+      const elPreRequest = elArray[3] && elArray[3].children[0] 
+        ? Array.from(elArray[3].children[0].childNodes)
+        .filter((node) => node.nodeName === '#text')
+        .map((textNode) => textNode.textContent.trim())
+        .filter((text) => text !== '')
+        .join('')
+        : elArray[3].textContent.trim() || "";
+
+      // Преобразуем данные из списка "Показать оригинал логов" из столбца "Результат запроса" в обычную строку текста с выбором ТОЛЬКО текста ответа
+      const elPreResponse = elArray[4] && elArray[4].children[0] 
+      ? Array.from(elArray[4].children[0].childNodes)
       .filter((node) => node.nodeName === '#text')
       .map((textNode) => textNode.textContent.trim())
       .filter((text) => text !== '')
-      .join('');
+      .join('')
+      : elArray[4].textContent.trim() || "";
 
-    // Преобразуем данные из списка "Показать оригинал логов" из столбца "Результат запроса" в обычную строку текста с выбором ТОЛЬКО текста ответа
-    const elPreResponse = Array.from(el[4].children[0].childNodes)
-      .filter((node) => node.nodeName === '#text')
-      .map((textNode) => textNode.textContent.trim())
-      .filter((text) => text !== '')
-      .join('');
+      // Клонируем полученный исходный массив данных и заменяем значения под индексами 3, 4 на полученные значения строк
+      const newArray = [...el];
+      newArray[3] = elPreRequest;
+      newArray[4] = elPreResponse;
 
-    // Клонируем полученный исходный массив данных и заменяем значения под индексами 3, 4 на полученные значения строк
-    const newArray = [...el];
-    newArray[3] = elPreRequest;
-    newArray[4] = elPreResponse;
+      // Возвращаем новый массив готовых строк по обработанным данным по каждому элементу массива
+      return [...newArray].map((elThisElem) => {
+        // console.log(elThisElem);
+        if (typeof elThisElem === 'string') {
+          // Если значение в переменной elThisElem уже строка - то просто возвращаем это значение
+          return elThisElem;
+        }
+        return elThisElem.textContent.trim(); // Иначе, возвращаем значение полученное из свойства textContent из каждого элемента
+      });
+    }
 
-    // Возвращаем новый массив готовых строк по обработанным данным по каждому элементу массива
-    return [...newArray].map((elThisElem) => {
-      // console.log(elThisElem);
-      if (typeof elThisElem === 'string') {
-        // Если значение в переменной elThisElem уже строка - то просто возвращаем это значение
-        return elThisElem;
-      }
-      return elThisElem.textContent.trim(); // Иначе, возвращаем значение полученное из свойства textContent из каждого элемента
-    });
+    return elArray.map(elThisEleme => elThisEleme.textContent.trim() || elThisEleme.innerText.trim() || "");
   });
   // console.log(arrayPreDataQuery);
 
